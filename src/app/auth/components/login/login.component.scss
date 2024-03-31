@@ -8,6 +8,10 @@
   }
 }
 
+.bg-main {
+  background-color: $bg-main;
+}
+
 .image_form {
   background-image: url(../../../../assets/images/login.png);
   background-repeat:no-repeat ;
@@ -30,6 +34,15 @@
 
 .title_form {
   font-weight: 500;
-  font-size: 38px;
+  font-size: 40px;
   line-height: 45px;
+}
+
+p {
+  font-size: 24px;
+}
+
+label {
+  font-size: 23px;
+  font-weight: 500;
 }

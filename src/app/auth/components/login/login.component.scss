@@ -1,0 +1,35 @@
+@import "../../../../assets/styles/abstracts/colors";
+
+
+.logo {
+
+  span {
+    color: $text-main;
+  }
+}
+
+.image_form {
+  background-image: url(../../../../assets/images/login.png);
+  background-repeat:no-repeat ;
+  background-size: cover;
+  background-position: center center;
+}
+
+.full_height {
+  height: 90vh;
+}
+
+.form_height {
+  height: 70vh;
+}
+
+.row {
+  height: 100vh;
+  padding: 20px;
+}
+
+.title_form {
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 45px;
+}

@@ -3,16 +3,16 @@
         <div class="row">
             <div class="col-md-6">
                 <div>
-                    <h1 class="logo mb-3"><span class="main-text">Stay</span>cation.</h1>
+                    <h1 class="logo mb-5 style-font"><span class="main-text ">Stay</span>cation.</h1>
                 </div>
                 <div class="signup-design">
-                    <h4>Sign up</h4>
-                    <p>If you don’t have an account register <br>You can <a class="text-decoration-none text-danger" routerLink="/auth/login">Login here!</a></p>
+                    <h3>Sign up</h3>
+                    <p>If you don’t have an account register <br>You can <a class="text-decoration-none text-danger fw-bold" routerLink="/auth/login">Login here!</a></p>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
                     <form class="w-75">
                         <div class="form-row">
-                            <ngx-dropzone [multiple]="false" no_multiple (change)="onSelect($event)">
+                            <ngx-dropzone [multiple]="false" no_multiple (change)="onSelect($event)" class="mb-0">
                                 <div [class]="!profileImgValue ? 'label_custom-style d-flex justify-content-center align-items-center ' : 'visually-hidden'">
                                     <ngx-dropzone-label>
                                         <i class="fa-solid fa-upload"></i>
@@ -54,7 +54,7 @@
                                 <input type="password" class="form-control" placeholder="Password" aria-label="password" formControlName="password">
                             </div>
                         </div>
-                        <div class="form-row mb-4">
+                        <div class="form-row mb-2">
                             <div class="form-group">
                                 <label class="">Confirm Password</label>
                                 <input type="password" class="form-control" placeholder="Confirm Password" aria-label="confirm-password" formControlName="confirmPassword">

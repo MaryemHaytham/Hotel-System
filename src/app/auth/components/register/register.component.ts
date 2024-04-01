@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
   message: string = '';
   files: File[] = [];
   hidePass = true;
@@ -13,10 +13,10 @@ export class RegisterComponent implements OnInit{
   profileImgValue: any
 
 
-  constructor(){}
+  constructor() { }
 
   ngOnInit(): void {
-      
+
   }
 
   onSelect(event: any) {
@@ -29,6 +29,6 @@ export class RegisterComponent implements OnInit{
     this.files.splice(this.files.indexOf(event), 1);
     this.profileImgValue = false
   }
- 
+
 
 }

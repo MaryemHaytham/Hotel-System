@@ -1,79 +1,90 @@
 <section class="register">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <div>
-                    <h1 class="logo mb-5 style-font"><span class="main-text ">Stay</span>cation.</h1>
-                </div>
-                <div class="signup-design">
-                    <h3>Sign up</h3>
-                    <p>If you don’t have an account register <br>You can <a class="text-decoration-none text-danger fw-bold" routerLink="/auth/login">Login here!</a></p>
-                </div>
-                <div class="d-flex align-items-center justify-content-center">
-                    <form class="w-75">
-                        <div class="form-row">
-                            <ngx-dropzone [multiple]="false" no_multiple (change)="onSelect($event)" class="mb-0">
-                                <div [class]="!profileImgValue ? 'label_custom-style d-flex justify-content-center align-items-center ' : 'visually-hidden'">
-                                    <ngx-dropzone-label>
-                                        <i class="fa-solid fa-upload"></i>
-                                        <p class="text-center">Image</p>
-                                    </ngx-dropzone-label>
-                                </div>
-                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
-                                    <ngx-dropzone-label></ngx-dropzone-label>
-                                </ngx-dropzone-image-preview>
-                            </ngx-dropzone>
-                        </div>
-                    
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="">User Name</label>
-                                <input type="text" class="form-control" placeholder="User Name" aria-label="username" formControlName="username">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email" aria-label="email" formControlName="email">
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="form-group col-md-5 ">
-                                <label class="">Phone Number</label>
-                                <input type="number" class="form-control" placeholder="Phone Number" aria-label="phone" formControlName="phone">
-                            </div>
-                            <div class="form-group col-md-5 ">
-                                <label class="">Country</label>
-                                <input type="text" class="form-control" placeholder="Country" aria-label="country" formControlName="country">
-                            </div>
-                            
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="">Password</label>
-                                <input type="password" class="form-control" placeholder="Password" aria-label="password" formControlName="password">
-                            </div>
-                        </div>
-                        <div class="form-row mb-2">
-                            <div class="form-group">
-                                <label class="">Confirm Password</label>
-                                <input type="password" class="form-control" placeholder="Confirm Password" aria-label="confirm-password" formControlName="confirmPassword">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div>
-                                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6 image_form border rounded-5 d-none d-md-flex justify-content-end flex-column p-5">
-                <div class="ms-5 text-white">
-                    <h3 class="title_form">Sign up to Roamhome</h3>
-                    <p class="fw-500 fs-5">Homes as unique as you.</p>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div>
+          <h1 class="logo mb-5 style-font"><span class="main-text ">Stay</span>cation.</h1>
         </div>
+        <div class="signup-design">
+          <h3>Sign up</h3>
+          <p>If you don’t have an account register <br>You can <a class="text-decoration-none text-danger fw-bold"
+              routerLink="/auth/login">Login here!</a></p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+          <form class="w-75 mb-5">
+            <div class="form-row">
+              <ngx-dropzone [multiple]="false" no_multiple (change)="onSelect($event)" class="mb-0">
+                <div
+                  [class]="!profileImgValue ? 'label_custom-style d-flex justify-content-center align-items-center ' : 'visually-hidden'">
+                  <ngx-dropzone-label>
+                    <i class="fa-solid fa-upload"></i>
+                    <p class="text-center">Image</p>
+                  </ngx-dropzone-label>
+                </div>
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                  [removable]="true" (removed)="onRemove(f)">
+                  <ngx-dropzone-label></ngx-dropzone-label>
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+            </div>
+
+            <div class="form-row mt-2">
+              <div class="form-group">
+                <label class="fw-600 fs-5">User Name</label>
+                <!-- <input type="text" class="form-control" placeholder="User Name" aria-label="username" formControlName="username"> -->
+                <input type="text" class="form-control w-100 py-3 rounded-3" placeholder="User Name"
+                  aria-label="username" aria-describedby="basic-addon1" formControlName="username">
+              </div>
+            </div>
+            <div class="form-row mt-2">
+              <div class="form-group">
+                <label class="fw-600 fs-5">Email Address</label>
+                <input type="email" class="form-control w-100 py-3 rounded-3" placeholder="Email" aria-label="email"
+                  formControlName="email">
+              </div>
+            </div>
+
+            <div class="d-md-flex justify-content-between">
+              <div class="form-group col-md-5 ">
+                <label class="fw-600 fs-5">Phone</label>
+                <input type="number" class="form-control w-100 py-3 rounded-3" placeholder="Phone Number"
+                  aria-label="phone" formControlName="phone">
+              </div>
+              <div class="form-group col-md-5 ">
+                <label class="fw-600 fs-5">Country</label>
+                <input type="text" class="form-control w-100 py-3 rounded-3" placeholder="Country" aria-label="country"
+                  formControlName="country">
+              </div>
+            </div>
+
+            <div class="form-row mt-2">
+              <div class="form-group">
+                <label class="fw-600 fs-5">Password</label>
+                <input type="password" class="form-control w-100 py-3 rounded-3" placeholder="Password"
+                  aria-label="password" formControlName="password">
+              </div>
+            </div>
+            <div class="form-row mt-2 mb-2">
+              <div class="form-group">
+                <label class="fw-600 fs-5">Confirm Password</label>
+                <input type="password" class="form-control w-100 py-3 rounded-3" placeholder="Confirm Password"
+                  aria-label="confirm-password" formControlName="confirmPassword">
+              </div>
+            </div>
+            <div class="form-row mt-2">
+              <div>
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 image_form border rounded-5 d-none d-md-flex justify-content-end flex-column p-5">
+        <div class="ms-5 text-white">
+          <h3 class="title_form">Sign up to Roamhome</h3>
+          <p class="fw-500 fs-5">Homes as unique as you.</p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

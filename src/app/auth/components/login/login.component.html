@@ -12,7 +12,6 @@
               <p class="mt-4">If you don’t have an account register<br>
               You can <a class="text-decoration-none fw-bold" routerLink="/auth/register">Register here !</a></p>
             </div>
-
             <div class="form-item mt-3">
               <div class="input-group">
                 <label class="">Email Address</label>
@@ -23,35 +22,22 @@
                 class="text-red m-0 mx-auto p-0 text-start block mt-1">
                 <span class="text-red p-0" *ngIf="loginForm.get('email')?.getError('required')">email is
                   Required</span><br>
-                <span class="text-red p-0" *ngIf="loginForm.get('email')?.getError('email')">email isn't
-                  Validator</span>
               </mat-error>
             </div>
             <div class="form-item mt-3">
-              <div class="input-group">
+              <div class="input-group position-relative">
                 <label>Password</label>
-                <input [type]="password_type" class="form-control py-1  rounded-start-2 border-end-0 w-90"
+                <input [type]="hidePass ? 'password' : 'text'"  class="form-control w-100 py-2 rounded-3 "
                   placeholder="Enter your Password" aria-label="Username" aria-describedby="basic-addon1"
                   formControlName="password">
-                <span class="ayes_icon border border-1 px-3 py-2 rounded-end-2 border-start-0 w-10 text-center"
-                  id="basic-addon1" role="button" (click)="toggleSee()">
-                  <i class="fa-regular p-end-2" [ngClass]="{'fa-eye': see, 'fa-eye-slash': !see}"></i>
-                </span>
+                  <a class="show-password" (click)="this.hidePass= !this.hidePass">
+                    <i class="fa-solid" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
+                </a>
               </div>
               <mat-error *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
                 class="text-red m-0 mx-auto p-0 text-start block mt-1">
                 <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('required')">password is
                   Required</span><br>
-                <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('minlength')">Min length
-                  8</span>
-                <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('pattern')">must have at
-                  least
-                  1
-                  uppercase
-                  letter ,at least 1 lowercase letter, at least 1 digit, at least 1 special
-                  character and </span>
-                <span class="text-red p-0 block " *ngIf="loginForm.get('password')?.getError('maxlength')">Max length
-                  20</span>
               </mat-error>
             </div>
             <div class="text-end mt-4 mb-3">
@@ -60,7 +46,7 @@
             <div class="mt-5">
               <button type="submit" class="btn btn-primary w-100 py-2"
                 [disabled]="loginForm.invalid">Sign in
-                <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner text-white"></i></span>
+                <span ><i class="fas text-white"></i></span>
               </button>
             </div>
           </form>

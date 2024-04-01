@@ -11,9 +11,9 @@ export const RegxPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?
 })
 export class LoginComponent {
 
+  hidePass = true;
   password_type: string = 'text';
   see: boolean = true;
-  isLoading: boolean = false;
 
 
   constructor(private _AuthService: AuthService) { }
@@ -25,20 +25,15 @@ export class LoginComponent {
   
 
   handleForm(data: FormGroup): void {
-    debugger
-    this.isLoading = true;
+    
+    
     let userData = data.value;
     this._AuthService.onLogin(userData).subscribe({
       next: (response) => {
-        this.isLoading = false;
-        console.log(response)
       }, error: (error) => {
-        this.isLoading = false;
-        console.log(error)
-        console.log("ccccccccccccccccccc");
+        
       }, complete: () => {
-        this.isLoading = false;
-        console.log("AAAAAAAAAAAAAA");
+        
 
       }
     })

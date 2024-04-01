@@ -20,60 +20,6 @@
                     <i class="fa-solid fa-upload"></i>
                     <p class="text-center">Image</p>
                   </ngx-dropzone-label>
-                                </div>
-                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
-                                    <ngx-dropzone-label></ngx-dropzone-label>
-                                </ngx-dropzone-image-preview>
-                            </ngx-dropzone>
-                        </div>
-                    
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="">User Name</label>
-                                <input type="text" class="form-control" placeholder="User Name" aria-label="username" formControlName="userName">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email" aria-label="email"  formControlName="email">
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="form-group col-md-5 ">
-                                <label class="">Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" aria-label="phone" formControlName="phoneNumber">
-                            </div>
-                            <div class="form-group col-md-5 ">
-                                <label class="">Country</label>
-                                <input type="text" class="form-control" placeholder="Country" aria-label="country" formControlName="country">
-                            </div>
-                            
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group position-relative">
-                                <label class="">Password</label>
-                                <input [type]="hidePass ? 'password' : 'text'" class="form-control" placeholder="Password" aria-label="password" formControlName="password">
-                                <a class="show-password" (click)="this.hidePass= !this.hidePass">
-                                    <i class="fa-solid" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="form-row mb-2">
-                            <div class="form-group position-relative">
-                                <label class="">Confirm Password</label>
-                                <input [type]="hideConfirmPass ? 'password' : 'text'" class="form-control " placeholder="Confirm Password" aria-label="confirm-password" formControlName="confirmPassword">
-                                <a class="show-password" (click)="this.hideConfirmPass= !this.hideConfirmPass">
-                                    <i class="fa-solid" [class]="hideConfirmPass?'fa-eye-slash':'fa-eye'"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div>
-                                <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Sign Up</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
                 <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
                   [removable]="true" (removed)="onRemove(f)">
@@ -82,52 +28,54 @@
               </ngx-dropzone>
             </div>
 
-            <div class="form-row mt-2">
+            <div class="form-row">
               <div class="form-group">
-                <label class="fw-600 fs-5">User Name</label>
-                <!-- <input type="text" class="form-control" placeholder="User Name" aria-label="username" formControlName="username"> -->
-                <input type="text" class="form-control w-100 py-3 rounded-3" placeholder="User Name"
-                  aria-label="username" aria-describedby="basic-addon1" formControlName="username">
+                <label class="">User Name</label>
+                <input type="text" class="form-control" placeholder="User Name" aria-label="username"
+                  formControlName="userName">
               </div>
             </div>
-            <div class="form-row mt-2">
+            <div class="form-row">
               <div class="form-group">
-                <label class="fw-600 fs-5">Email Address</label>
-                <input type="email" class="form-control w-100 py-3 rounded-3" placeholder="Email" aria-label="email"
-                  formControlName="email">
+                <label class="">Email Address</label>
+                <input type="email" class="form-control" placeholder="Email" aria-label="email" formControlName="email">
               </div>
             </div>
-
-            <div class="d-md-flex justify-content-between">
-              <div class="form-group col-md-5 ">
-                <label class="fw-600 fs-5">Phone</label>
-                <input type="number" class="form-control w-100 py-3 rounded-3" placeholder="Phone Number"
-                  aria-label="phone" formControlName="phone">
+            <div class="d-flex justify-content-between">
+              <div class="form-group col-md-5">
+                <label class="">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="Phone Number" aria-label="phone"
+                  formControlName="phoneNumber">
               </div>
-              <div class="form-group col-md-5 ">
-                <label class="fw-600 fs-5">Country</label>
-                <input type="text" class="form-control w-100 py-3 rounded-3" placeholder="Country" aria-label="country"
+              <div class="form-group col-md-5">
+                <label class="">Country</label>
+                <input type="text" class="form-control" placeholder="Country" aria-label="country"
                   formControlName="country">
               </div>
             </div>
-
-            <div class="form-row mt-2">
-              <div class="form-group">
-                <label class="fw-600 fs-5">Password</label>
-                <input type="password" class="form-control w-100 py-3 rounded-3" placeholder="Password"
+            <div class="form-row">
+              <div class="form-group position-relative">
+                <label class="">Password</label>
+                <input [type]="hidePass ? 'password' : 'text'" class="form-control" placeholder="Password"
                   aria-label="password" formControlName="password">
+                <a class="show-password" (click)="this.hidePass= !this.hidePass">
+                  <i class="fa-solid" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
+                </a>
               </div>
             </div>
-            <div class="form-row mt-2 mb-2">
-              <div class="form-group">
-                <label class="fw-600 fs-5">Confirm Password</label>
-                <input type="password" class="form-control w-100 py-3 rounded-3" placeholder="Confirm Password"
-                  aria-label="confirm-password" formControlName="confirmPassword">
+            <div class="form-row mb-2">
+              <div class="form-group position-relative">
+                <label class="">Confirm Password</label>
+                <input [type]="hideConfirmPass ? 'password' : 'text'" class="form-control "
+                  placeholder="Confirm Password" aria-label="confirm-password" formControlName="confirmPassword">
+                <a class="show-password" (click)="this.hideConfirmPass= !this.hideConfirmPass">
+                  <i class="fa-solid" [class]="hideConfirmPass?'fa-eye-slash':'fa-eye'"></i>
+                </a>
               </div>
             </div>
-            <div class="form-row mt-2">
+            <div class="form-row">
               <div>
-                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Sign Up</button>
               </div>
             </div>
           </form>

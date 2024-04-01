@@ -16,5 +16,4 @@ export class AuthService {
     return this._HttpClient.post('/admin/users', data)
   }
 
-
 }

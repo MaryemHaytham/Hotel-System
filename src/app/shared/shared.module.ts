@@ -5,7 +5,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone'
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
-import {MatIconModule} from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -23,7 +23,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule
   ],
   exports:[
-    
     FormsModule, 
     ReactiveFormsModule, 
     RouterLink, 
@@ -33,6 +32,7 @@ import {MatIconModule} from '@angular/material/icon';
     ToastrModule,
     MatIconModule
 
-  ]
+  ],
+ 
 })
 export class SharedModule { }

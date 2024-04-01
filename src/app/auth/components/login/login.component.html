@@ -5,7 +5,7 @@
 
       <div class="col-12 col-lg-6 full_height">
         <div class="d-flex align-items-center justify-content-center form_height mt-5 px-1 px-md-2">
-          <form class="w-100 px-1 px-md-5">
+          <form class="w-100 px-1 px-md-5" [formGroup]="loginForm" (ngSubmit)="handleForm(loginForm)">
             <div class="text-start mb-5">
               <h2 class="title_form">Sign in</h2>
               <p class="mt-4">If you don’t have an account register</p>
@@ -18,19 +18,49 @@
                 <input type="email" class="form-control w-100 py-3 rounded-3" placeholder="Enter your email"
                   aria-label="email" aria-describedby="basic-addon1" formControlName="email">
               </div>
+              <mat-error *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+                class="text-red m-0 mx-auto p-0 text-start block mt-1">
+                <span class="text-red p-0" *ngIf="loginForm.get('email')?.getError('required')">email is
+                  Required</span><br>
+                <span class="text-red p-0" *ngIf="loginForm.get('email')?.getError('email')">email isn't
+                  Validator</span>
+              </mat-error>
             </div>
             <div class="form-item mt-4">
               <div class="input-group">
                 <label>Password</label>
-                <input type="email" class="form-control w-100 py-3 rounded-3" placeholder="Enter your Password"
-                  aria-label="email" aria-describedby="basic-addon1" formControlName="email">
+                <input [type]="password_type" class="form-control py-1  rounded-start-2 border-end-0 w-90"
+                  placeholder="Enter your Password" aria-label="Username" aria-describedby="basic-addon1"
+                  formControlName="password">
+                <span class="ayes_icon border border-1 px-3 py-3 rounded-end-2 border-start-0 w-10 text-center"
+                  id="basic-addon1" role="button" (click)="toggleSee()">
+                  <i class="fa-regular" [ngClass]="{'fa-eye': see, 'fa-eye-slash': !see}"></i>
+                </span>
               </div>
+              <mat-error *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
+                class="text-red m-0 mx-auto p-0 text-start block mt-1">
+                <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('required')">password is
+                  Required</span><br>
+                <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('minlength')">Min length
+                  8</span>
+                <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('pattern')">must have at
+                  least
+                  1
+                  uppercase
+                  letter ,at least 1 lowercase letter, at least 1 digit, at least 1 special
+                  character and </span>
+                <span class="text-red p-0 block " *ngIf="loginForm.get('password')?.getError('maxlength')">Max length
+                  20</span>
+              </mat-error>
             </div>
             <div class="text-end mt-4 mb-5">
               <span>Forgot Password ?</span>
             </div>
             <div class="mt-5">
-              <button class=" btn btn-info w-100 py-3 mt-4 bg-main text-white">Sign in</button>
+              <button type="submit" class=" btn btn-info w-100 py-2 mt-4 bg-main text-white fw-500 fs-3"
+                [disabled]="loginForm.invalid">Sign in
+                <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner text-white"></i></span>
+              </button>
             </div>
           </form>
         </div>

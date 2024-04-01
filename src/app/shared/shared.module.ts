@@ -20,7 +20,8 @@ import { MatInputModule } from '@angular/material/input';
     NgxDropzoneModule,
     MatDialogModule,
     ToastrModule,
-    MatIconModule
+    MatInputModule
+    
   ],
   exports:[
     FormsModule, 
@@ -30,7 +31,8 @@ import { MatInputModule } from '@angular/material/input';
     NgxDropzoneModule,
     MatDialogModule,
     ToastrModule,
-    MatIconModule
+    MatInputModule
+    
 
   ],
  

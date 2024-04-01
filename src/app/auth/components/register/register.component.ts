@@ -46,13 +46,15 @@ export class RegisterComponent implements OnInit{
     registerFormData.append('password', data.value.password)
     registerFormData.append('confirmPassword', data.value.confirmPassword)
     registerFormData.append('country', data.value.country)
-    console.log(data.value);
+    console.log(data);
 
     console.log(registerFormData);
     this._AuthService.onRegister(registerFormData).subscribe({
       next: (response) => {
+        console.log(registerFormData)
 
       }, error: (error) => {
+        console.log(error)
       
       }, complete: () => {
         this._Router.navigate(['auth/login'])

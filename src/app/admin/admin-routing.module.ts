@@ -8,7 +8,9 @@ const routes: Routes = [{ path: '', component: AdminComponent },
 { path: 'ads', loadChildren: () => import('./Modules/ads/ads.module').then(m => m.AdsModule) },
 { path: 'booking', loadChildren: () => import('./Modules/booking/booking.module').then(m => m.BookingModule) },
 { path: 'facilities', loadChildren: () => import('./Modules/facilities/facilities.module').then(m => m.FacilitiesModule) },
-{ path: 'home', loadChildren: () => import('./Modules/home/home.module').then(m => m.HomeModule) }, 
+{ path: 'home', loadChildren: () => import('./Modules/home/home.module').then(m => m.HomeModule) },
+{ path: 'comments', loadChildren: () => import('./Modules/comments/comments.module').then(m => m.CommentsModule) },
+{ path: 'favorites', loadChildren: () => import('./Modules/favorites/favorites.module').then(m => m.FavoritesModule) }, 
 ];
 
 @NgModule({

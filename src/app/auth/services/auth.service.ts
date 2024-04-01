@@ -17,11 +17,11 @@ export class AuthService {
     return this._HttpClient.post('/admin/users/reset-password',data)
   }
   onForgotPassword(data:any):Observable<any>{
-    return this._HttpClient.post('/admin/users',data)
+    return this._HttpClient.post('/admin/users',data)}
 
   onRegister(data: any): Observable<any> {
     return this._HttpClient.post('/admin/users', data)
 
   }
-
+  
 }

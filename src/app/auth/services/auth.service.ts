@@ -12,5 +12,9 @@ export class AuthService {
   onLogin(data: object): Observable<any> {
     return this._HttpClient.post('/admin/users/login', data)
   }
+  onRegister(data: any): Observable<any> {
+    return this._HttpClient.post('/admin/users/', data)
+  }
+
 
 }

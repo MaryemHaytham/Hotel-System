@@ -7,12 +7,17 @@ import { NgxDropzoneModule } from 'ngx-dropzone'
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { MatInputModule } from '@angular/material/input';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavbarComponent,
+    SidebarComponent
+  ],
   imports: [
     CommonModule,
     FormsModule, 

@@ -1,8 +1,6 @@
 <section class="">
   <div class="container-fluid">
     <div class="row">
-      <!-- <h1 class="logo style-font"><span class="main-text">Stay</span>cation.</h1> -->
-
       <div class="col-12 col-lg-6 full_height">
         <div>
           <h1 class="logo mb-5 style-font"><span class="main-text ">Stay</span>cation.</h1>
@@ -11,8 +9,8 @@
           <form class="w-75 mb-5" [formGroup]="loginForm" (ngSubmit)="handleForm(loginForm)">
             <div class="text-start mb-5">
               <h2 class="title_form">Sign in</h2>
-              <p class="mt-4">If you don’t have an account register <br>You can <a
-                  class="text-decoration-none text-danger fw-bold" routerLink="/auth/login">Register here !</a></p>
+              <p class="mt-4">If you don’t have an account register
+              <p>You can <a class="text-decoration-none fw-bold" routerLink="/auth/register">Register here !</a></p>
             </div>
 
             <div class="form-item mt-4">
@@ -57,7 +55,7 @@
               </mat-error>
             </div>
             <div class="text-end mt-4 mb-5">
-              <span>Forgot Password ?</span>
+              <a class=" text-decoration-none" routerLink="/auth/forgot-password">Forgot Password ?</a>
             </div>
             <div class="mt-5">
               <button type="submit" class=" btn btn-info w-100 py-2 mt-4 bg-main text-white fw-500 fs-3"

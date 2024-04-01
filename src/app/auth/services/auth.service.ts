@@ -13,7 +13,7 @@ export class AuthService {
     return this._HttpClient.post('/admin/users/login', data)
   }
   onRegister(data: any): Observable<any> {
-    return this._HttpClient.post('/admin/users/', data)
+    return this._HttpClient.post('/admin/users', data)
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 export const RegxPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
@@ -16,7 +17,7 @@ export class LoginComponent {
   see: boolean = true;
 
 
-  constructor(private _AuthService: AuthService) { }
+  constructor(private _AuthService: AuthService,private _Router:Router) { }
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -33,6 +34,8 @@ export class LoginComponent {
       }, error: (error) => {
         
       }, complete: () => {
+        this._Router.navigate(["admin"])
+        
         
 
       }

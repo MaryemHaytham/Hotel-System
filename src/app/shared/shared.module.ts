@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone'
-
-
-
+import { ToastrService } from 'ngx-toastr';
 @NgModule({
   declarations: [],
   imports: [
@@ -17,7 +15,6 @@ import { NgxDropzoneModule } from 'ngx-dropzone'
     NgxDropzoneModule
   ],
   exports:[
-    
     FormsModule, 
     ReactiveFormsModule, 
     RouterLink, 

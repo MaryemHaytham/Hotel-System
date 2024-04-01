@@ -20,10 +20,12 @@ export class LoginComponent {
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(8)])
+    password: new FormControl(null, [Validators.required,  Validators.maxLength(20), Validators.minLength(8)])
   })
+  
 
   handleForm(data: FormGroup): void {
+    debugger
     this.isLoading = true;
     let userData = data.value;
     this._AuthService.onLogin(userData).subscribe({

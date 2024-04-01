@@ -5,8 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { HelperService } from 'src/app/core/service/helper.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RegxPassword } from '../login/login.component';
-
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,9 +16,7 @@ export class RegisterComponent implements OnInit {
   hidePass = true;
   hideConfirmPass = true;
   profileImgValue: any
-
-
-
+  role :string ='user';
   constructor(private _helper: HelperService, private _AuthService: AuthService, private _Router: Router){}
 
   ngOnInit(): void {
@@ -33,6 +29,8 @@ export class RegisterComponent implements OnInit {
     phoneNumber: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(6)]),
     confirmPassword: new FormControl(null, [Validators.required]),
+    role: new FormControl('user', [Validators.required]),
+    profileImage: new FormControl('',),
 
   });
 
@@ -47,6 +45,7 @@ export class RegisterComponent implements OnInit {
     registerFormData.append('password', data.value.password)
     registerFormData.append('confirmPassword', data.value.confirmPassword)
     registerFormData.append('country', data.value.country)
+    registerFormData.append('role',data.value.role)
     console.log(data);
 
     console.log(registerFormData);

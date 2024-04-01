@@ -15,7 +15,7 @@ export class GlobalInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const token = localStorage.getItem('token');
-    const baseUrl: string = 'https://154.41.228.234:3000/api/v0'
+    const baseUrl: string = 'https://upskilling-egypt.com:3000/api/v0'
 
 
 

@@ -14,13 +14,13 @@ export class AuthService {
   }
 
   onResetPassword(data:object):Observable<any>{
-    return this._HttpClient.post('/admin/users/reset-password',data)
+    return this._HttpClient.post('/portal/users/reset-password',data)
   }
   onForgotPassword(data:any):Observable<any>{
-    return this._HttpClient.post('/admin/users',data)}
+    return this._HttpClient.post('/portal/users/forgot-password',data)}
 
   onRegister(data: any): Observable<any> {
-    return this._HttpClient.post('/admin/users', data)
+    return this._HttpClient.post('/portal/users', data)
 
   }
   

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone'
+import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -14,7 +17,10 @@ import { NgxDropzoneModule } from 'ngx-dropzone'
     ReactiveFormsModule, 
     RouterLink, 
     RouterLinkActive ,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatDialogModule,
+    ToastrModule,
+    MatIconModule
   ],
   exports:[
     
@@ -22,7 +28,10 @@ import { NgxDropzoneModule } from 'ngx-dropzone'
     ReactiveFormsModule, 
     RouterLink, 
     RouterLinkActive ,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatDialogModule,
+    ToastrModule,
+    MatIconModule
 
   ]
 })

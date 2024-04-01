@@ -24,6 +24,9 @@ onSubmit(data:FormGroup){
     },
     error:(err)=>{
       console.log(err)
+    },
+    complete:()=>{
+      this._Router.navigateByUrl('/auth/reset-password')
     }
   })
 }

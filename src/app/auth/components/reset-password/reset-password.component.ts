@@ -31,7 +31,7 @@ onSubmit(data:FormGroup){
       console.log(err)
     },
     complete:()=>{
-      
+      this._Router.navigateByUrl('/auth/login')
     }
   })
 }

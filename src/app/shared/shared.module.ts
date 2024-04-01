@@ -38,7 +38,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     NgxDropzoneModule,
     MatDialogModule,
     ToastrModule,
-    MatInputModule
+    MatInputModule,
+    NavbarComponent,
+    SidebarComponent
     
 
   ],

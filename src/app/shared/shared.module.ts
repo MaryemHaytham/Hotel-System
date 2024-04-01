@@ -3,7 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone'
-import { ToastrService } from 'ngx-toastr';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
+import { MatInputModule } from '@angular/material/input';
+
+
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -12,15 +19,24 @@ import { ToastrService } from 'ngx-toastr';
     ReactiveFormsModule, 
     RouterLink, 
     RouterLinkActive ,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatDialogModule,
+    ToastrModule,
+    MatInputModule
+    
   ],
   exports:[
     FormsModule, 
     ReactiveFormsModule, 
     RouterLink, 
     RouterLinkActive ,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatDialogModule,
+    ToastrModule,
+    MatInputModule
+    
 
-  ]
+  ],
+ 
 })
 export class SharedModule { }

@@ -3,16 +3,16 @@
         <div class="row">
             <div class="col-md-6">
                 <div>
-                    <h1 class="logo mb-3"><span class="main-text">Stay</span>cation.</h1>
+                    <h1 class="logo mb-5 style-font"><span class="main-text ">Stay</span>cation.</h1>
                 </div>
                 <div class="signup-design">
-                    <h4>Sign up</h4>
-                    <p>If you don’t have an account register <br>You can <a class="text-decoration-none text-danger" routerLink="/auth/login">Login here!</a></p>
+                    <h3>Sign up</h3>
+                    <p>If you don’t have an account register <br>You can <a class="text-decoration-none text-danger fw-bold" routerLink="/auth/login">Login here!</a></p>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
-                    <form class="w-75">
+                    <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)" class="w-75">
                         <div class="form-row">
-                            <ngx-dropzone [multiple]="false" no_multiple (change)="onSelect($event)">
+                            <ngx-dropzone [multiple]="false" no_multiple (change)="onSelect($event)" class="mb-0">
                                 <div [class]="!profileImgValue ? 'label_custom-style d-flex justify-content-center align-items-center ' : 'visually-hidden'">
                                     <ngx-dropzone-label>
                                         <i class="fa-solid fa-upload"></i>
@@ -28,19 +28,19 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="">User Name</label>
-                                <input type="text" class="form-control" placeholder="User Name" aria-label="username" formControlName="username">
+                                <input type="text" class="form-control" placeholder="User Name" aria-label="username" formControlName="userName">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email" aria-label="email" formControlName="email">
+                                <input type="email" class="form-control" placeholder="Email" aria-label="email"  formControlName="email">
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
                             <div class="form-group col-md-5 ">
                                 <label class="">Phone Number</label>
-                                <input type="number" class="form-control" placeholder="Phone Number" aria-label="phone" formControlName="phone">
+                                <input type="tel" class="form-control" placeholder="Phone Number" aria-label="phone" formControlName="phoneNumber">
                             </div>
                             <div class="form-group col-md-5 ">
                                 <label class="">Country</label>
@@ -49,20 +49,26 @@
                             
                         </div>
                         <div class="form-row">
-                            <div class="form-group">
+                            <div class="form-group position-relative">
                                 <label class="">Password</label>
-                                <input type="password" class="form-control" placeholder="Password" aria-label="password" formControlName="password">
+                                <input [type]="hidePass ? 'password' : 'text'" class="form-control" placeholder="Password" aria-label="password" formControlName="password">
+                                <a class="show-password" (click)="this.hidePass= !this.hidePass">
+                                    <i class="fa-solid" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
+                                </a>
                             </div>
                         </div>
-                        <div class="form-row mb-4">
-                            <div class="form-group">
+                        <div class="form-row mb-2">
+                            <div class="form-group position-relative">
                                 <label class="">Confirm Password</label>
-                                <input type="password" class="form-control" placeholder="Confirm Password" aria-label="confirm-password" formControlName="confirmPassword">
+                                <input [type]="hideConfirmPass ? 'password' : 'text'" class="form-control " placeholder="Confirm Password" aria-label="confirm-password" formControlName="confirmPassword">
+                                <a class="show-password" (click)="this.hideConfirmPass= !this.hideConfirmPass">
+                                    <i class="fa-solid" [class]="hideConfirmPass?'fa-eye-slash':'fa-eye'"></i>
+                                </a>
                             </div>
                         </div>
                         <div class="form-row">
                             <div>
-                                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                                <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Sign Up</button>
                             </div>
                         </div>
                     </form>

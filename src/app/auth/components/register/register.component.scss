@@ -1,4 +1,12 @@
-@import "../../../../assets/styles/abstracts/colors";
+@import "../../../../assets/styles/layout";
+.show-password{
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    transform: translate(-25%, -25%);
+  }
+
+
 
 .register {
     .logo {

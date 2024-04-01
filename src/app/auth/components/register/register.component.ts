@@ -12,7 +12,7 @@ import { RegxPassword } from '../login/login.component';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
   message: string = '';
   files: File[] = [];
   hidePass = true;
@@ -20,10 +20,11 @@ export class RegisterComponent implements OnInit{
   profileImgValue: any
 
 
+
   constructor(private _helper: HelperService, private _AuthService: AuthService, private _Router: Router){}
 
   ngOnInit(): void {
-      
+
   }
   registerForm = new FormGroup({
     userName: new FormControl(null, [Validators.required, Validators.minLength(4)]),
@@ -72,6 +73,6 @@ export class RegisterComponent implements OnInit{
     this.files.splice(this.files.indexOf(event), 1);
     this.profileImgValue = false
   }
- 
+
 
 }

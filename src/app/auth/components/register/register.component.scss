@@ -41,7 +41,7 @@
     border-radius: 50%;
     background-color: transparent;
     border: 2px solid black;
-   
+
   }
   [_nghost-ng-c2040221903] {
     background-color: red;
@@ -62,4 +62,8 @@
     height: 50px !important;
     border-radius: 50% !important;
   }
-  
+
+  label {
+    font-size: 23px;
+    font-weight: 500;
+  }

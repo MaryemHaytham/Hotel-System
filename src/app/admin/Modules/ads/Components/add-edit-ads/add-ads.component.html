@@ -1,0 +1,22 @@
+<section >
+    <h2 mat-dialog-title>Add ads</h2>
+<mat-dialog-content>
+  <div class="input-group mb-3">
+   
+    <input [(ngModel)]="data" type="text" class="form-control"  placeholder="Room Name" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+    
+    <input [(ngModel)]="data" type="text" class="form-control"  placeholder="Discount" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+    
+    <input [(ngModel)]="data" type="text" class="form-control"  placeholder="Active" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+</mat-dialog-content>
+<mat-dialog-actions class=" d-flex justify-content-between">
+  <button mat-button (click)="onNoClick()" class= " btn bg-danger text-white">Close</button>
+  <button mat-button [mat-dialog-close]="data" class=" btn light-blue  text-white " cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+</section>
+ 

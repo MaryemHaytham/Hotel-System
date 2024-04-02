@@ -1,1 +1,48 @@
-<p>users works!</p>
+<section id="allUsers">
+    <div class="row py-5">
+        <div class="col-8">
+            <h2>Users Table Details</h2>
+            <p>You Can cheak all details</p>
+        </div>
+        
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">user Name</th>
+                <th class="col">Email</th>
+                <th class="col">Country</th>
+                <th class="col">Phone Number</th>
+                <th class="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Aya</td>
+                <td>ayamedhat773@gmail.com</td>
+                <td>Egypt</td>
+                <td>01017378095</td>
+                <td>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openViewUserDialog()">
+                      <mat-icon class="text-primary">visibility</mat-icon>
+                      <span>View</span>
+                    </button>
+                   
+                  </mat-menu>
+                  </td>
+        
+            </tr>
+        </tbody>
+    </table>
+    <mat-paginator [length]="length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="handlePageEvent($event)"
+    aria-label="Select page">
+    </mat-paginator>
+</section>

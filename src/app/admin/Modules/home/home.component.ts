@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from '../../services/home-service/home.service';
-import Chart from 'chart.js/auto'
+//import Chart from 'chart.js/auto'
 
 @Component({
   selector: 'app-home',

@@ -31,7 +31,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatMenuModule,
     MatButtonModule,
     MatIconModule
-    
   ],
   exports:[
     FormsModule, 
@@ -47,6 +46,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatMenuModule,
     MatButtonModule,
     MatIconModule
+
 
   ],
  

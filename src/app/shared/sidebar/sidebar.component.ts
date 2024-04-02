@@ -5,61 +5,66 @@ import { Menu } from './interfaces/menu';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit{
-  constructor(){}
+export class SidebarComponent implements OnInit {
+  constructor() { }
+
+
+  isOpened: boolean = true;
+
+
   ngOnInit(): void {
-    
+
   }
   Menu: Menu[] = [
     {
       text: 'Home',
       link: '/admin/home',
       icon: 'fa-solid fa-house',
-     
-    },
-    {
-      text:'Users',
-      link:'/admin/users',
-      icon:'fa-solid fa-users'
 
     },
     {
-      text:'Booking',
-      link:'/admin/booking',
-      icon:'fa-solid fa-ticket'
+      text: 'Users',
+      link: '/admin/users',
+      icon: 'fa-solid fa-users'
 
     },
     {
-      text:'Rooms',
-      link:'/admin/rooms',
-      icon:'fa-solid fa-person-shelter'
+      text: 'Booking',
+      link: '/admin/booking',
+      icon: 'fa-solid fa-ticket'
 
     },
     {
-      text:'Ads',
-      link:'/admin/ads',
-      icon:'fa-solid fa-wand-magic-sparkles'
+      text: 'Rooms',
+      link: '/admin/rooms',
+      icon: 'fa-solid fa-person-shelter'
 
     },
     {
-      text:'Facilities',
-      link:'/admin/facilities',
-      icon:'fa-solid fa-users'
+      text: 'Ads',
+      link: '/admin/ads',
+      icon: 'fa-solid fa-wand-magic-sparkles'
 
     },
     {
-      text:'Comments',
-      link:'/admin/comments',
-      icon:'fa-regular fa-comments'
+      text: 'Facilities',
+      link: '/admin/facilities',
+      icon: 'fa-solid fa-users'
 
     },
     {
-      text:'Favorites',
-      link:'/admin/favorites',
-      icon:'fa-solid fa-heart'
+      text: 'Comments',
+      link: '/admin/comments',
+      icon: 'fa-regular fa-comments'
 
     },
-  
+    {
+      text: 'Favorites',
+      link: '/admin/favorites',
+      icon: 'fa-solid fa-heart'
+
+    },
+
   ]
 
 }

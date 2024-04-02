@@ -35,25 +35,25 @@
 
 }
 label {
-    font-weight: 500;
+    color: $dark-blue;
   }
 .label_custom-style {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid $dark-blue;
    
   }
   [_nghost-ng-c2040221903] {
     background-color: red;
     width: 130px !important;
     height: 130px !important;
-    margin: 0 auto 1rem auto;
-    color:black;
+    margin: 0 auto 0 auto;
+    color:$dark-blue;
     background-color: transparent !important;
     cursor: pointer;
-    color: black !important;
+    color: $gray-color !important;
     border: none !important;
     border-radius: none !important;
     font-size: 16px !important;

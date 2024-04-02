@@ -32,6 +32,7 @@ export class LoginComponent {
     this._AuthService.onLogin(userData).subscribe({
       next: (response) => {
         localStorage.setItem('userToken', response.data.token);
+        this._AuthService.getProfile();
       }, error: (error) => {
         console.log(error)
       }, complete: () => {

@@ -11,6 +11,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+
+
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule
+    
+
   ],
   exports:[
     FormsModule, 
@@ -45,7 +53,10 @@ import {MatIconModule} from '@angular/material/icon';
     SidebarComponent,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule
+    
 
 
   ],

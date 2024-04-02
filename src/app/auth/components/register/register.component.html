@@ -27,8 +27,8 @@
                     
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="">User Name</label>
-                                <input type="text" class="form-control" placeholder="User Name" aria-label="username" formControlName="userName">
+                                <label class="">User name</label>
+                                <input type="text" class="form-control" placeholder="Enter your user name" aria-label="username" formControlName="userName">
                             </div>
                             <mat-error *ngIf="registerForm.get('userName')?.errors && registerForm.get('userName')?.touched"
                             class="text-red m-0 mx-auto p-0 text-start block mt-1">
@@ -38,8 +38,8 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email" aria-label="email"  formControlName="email">
+                                <label class="">Email</label>
+                                <input type="email" class="form-control" placeholder="Enter your email" aria-label="email"  formControlName="email">
                             </div>
                             <mat-error *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched"
                             class="text-red m-0 mx-auto p-0 text-start block mt-1">
@@ -50,8 +50,8 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <div class="form-group col-md-5 ">
-                                <label class="">Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" aria-label="phone" formControlName="phoneNumber">
+                                <label class="">Phone number</label>
+                                <input type="tel" class="form-control" placeholder="Enter your phone number" aria-label="phone" formControlName="phoneNumber">
                                 <mat-error *ngIf="registerForm.get('phoneNumber')?.errors && registerForm.get('phoneNumber')?.touched"
                                     class="text-red m-0 mx-auto p-0 text-start block mt-1">
                                     <span class="text-red p-0" *ngIf="registerForm.get('phoneNumber')?.getError('required')">Phone is Required</span>
@@ -60,7 +60,7 @@
                             
                             <div class="form-group col-md-5 ">
                                 <label class="">Country</label>
-                                <input type="text" class="form-control" placeholder="Country" aria-label="country" formControlName="country">
+                                <input type="text" class="form-control" placeholder="Enter your country" aria-label="country" formControlName="country">
                                 <mat-error *ngIf="registerForm.get('country')?.errors && registerForm.get('country')?.touched"
                                     class="text-red m-0 mx-auto p-0 text-start block mt-1">
                                     <span class="text-red p-0" *ngIf="registerForm.get('country')?.getError('required')">Country is Required</span>
@@ -71,9 +71,9 @@
                         <div class="form-row">
                             <div class="form-group position-relative">
                                 <label class="">Password</label>
-                                <input [type]="hidePass ? 'password' : 'text'" class="form-control" placeholder="Password" aria-label="password" formControlName="password">
+                                <input [type]="hidePass ? 'password' : 'text'" class="form-control" placeholder="Enter your password" aria-label="password" formControlName="password">
                                 <a class="show-password" (click)="this.hidePass= !this.hidePass">
-                                    <i class="fa-solid" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
+                                    <i class="fa-solid gray" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
                                 </a>
                             </div>
                             <mat-error *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
@@ -84,10 +84,10 @@
                         </div>
                         <div class="form-row mb-2">
                             <div class="form-group position-relative">
-                                <label >Confirm Password</label>
-                                <input [type]="hideConfirmPass ? 'password' : 'text'" class="form-control " placeholder="Confirm Password" aria-label="confirm-password" formControlName="confirmPassword">
+                                <label >Confirm password</label>
+                                <input [type]="hideConfirmPass ? 'password' : 'text'" class="form-control " placeholder="Enter your confirm password" aria-label="confirm-password" formControlName="confirmPassword">
                                 <a class="show-password" (click)="this.hideConfirmPass= !this.hideConfirmPass">
-                                    <i class="fa-solid" [class]="hideConfirmPass?'fa-eye-slash':'fa-eye'"></i>
+                                    <i class="fa-solid gray" [class]="hideConfirmPass?'fa-eye-slash':'fa-eye'"></i>
                                 </a>
                             </div>
                             <mat-error *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched"

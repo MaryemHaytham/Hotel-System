@@ -10,11 +10,11 @@
             <div class="text-start mb-5">
               <h2 class="title_form">Sign in</h2>
               <p class="mt-4">If you don’t have an account register<br>
-              You can <a class="text-decoration-none fw-bold" routerLink="/auth/register">Register here !</a></p>
+              You can <a class="text-decoration-none fw-bold dark-blue" routerLink="/auth/register">Register here !</a></p>
             </div>
             <div class="form-item mt-3">
               <div class="input-group">
-                <label class="">Email Address</label>
+                <label class="">Email</label>
                 <input type="email" class="form-control w-100 py-2 rounded-3" placeholder="Enter your email"
                   aria-label="email" aria-describedby="basic-addon1" formControlName="email">
               </div>
@@ -28,10 +28,10 @@
               <div class="input-group position-relative">
                 <label>Password</label>
                 <input [type]="hidePass ? 'password' : 'text'"  class="form-control w-100 py-2 rounded-3 "
-                  placeholder="Enter your Password" aria-label="Username" aria-describedby="basic-addon1"
+                  placeholder="Enter your password" aria-label="Username" aria-describedby="basic-addon1"
                   formControlName="password">
                   <a class="show-password" (click)="this.hidePass= !this.hidePass">
-                    <i class="fa-solid" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
+                    <i class="fa-solid gray" [class]="hidePass?'fa-eye-slash':'fa-eye'"></i>
                 </a>
               </div>
               <mat-error *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
@@ -41,11 +41,11 @@
               </mat-error>
             </div>
             <div class="text-end mt-4 mb-3">
-              <a class=" text-decoration-none" routerLink="/auth/forgot-password">Forgot Password ?</a>
+              <a class=" text-decoration-none  text-dark" routerLink="/auth/forgot-password">Forgot Password ?</a>
             </div>
             <div class="mt-5">
               <button type="submit" class="btn btn-primary w-100 py-2"
-                [disabled]="loginForm.invalid">Sign in
+                [disabled]="loginForm.invalid">Login
                 <span ><i class="fas text-white"></i></span>
               </button>
             </div>

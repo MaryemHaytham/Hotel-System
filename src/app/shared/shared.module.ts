@@ -36,7 +36,8 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    
     
 
   ],
@@ -55,7 +56,7 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
     
 
 

@@ -5,7 +5,7 @@
             <p>You Can cheak all details</p>
         </div>
         <div class="col-4 text-end">
-            <button class="btn btn-primary p-2 ">Add new ads</button>
+            <button class="btn light-blue p-2 text-white" (click)="openAddAdsDialog()">Add new ads</button>
         </div>
     </div>
     
@@ -35,12 +35,12 @@
             <mat-icon>more_horiz</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item >
-              <mat-icon class="text-primary">edit_square</mat-icon>
+            <button mat-menu-item (click)="openAddAdsDialog()">
+              <mat-icon class="text-light-blue">edit_square</mat-icon>
               <span>Edit</span>
             </button>
-            <button mat-menu-item  >
-              <mat-icon class="text-primary" >delete</mat-icon>
+            <button mat-menu-item (click)="openDeleteAdsDialog()" >
+              <mat-icon class="text-light-blue" >delete</mat-icon>
               <span>Delete</span>
             </button>
           </mat-menu>

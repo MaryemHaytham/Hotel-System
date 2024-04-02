@@ -1,17 +1,60 @@
-@import"../../../assets/styles/layout";
-.sidebar{
-    background-color: $light-blue;
-    li{
-        list-style: none;
-        cursor: pointer;
-        color: white;
-        font-size: 20px;
-        font-family:Inter;
-        font-weight: 500;
-        line-height: 15.73px;
+
+.sidebar {
+  background-color: #3252DF;
+
+  ul {
+    padding: 0 0 0 10px;
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      color: white;
+      font-size: 20px;
+      font-family: Inter;
+      font-weight: 500;
+      line-height: .5;
+      a {
+        width: 80%;
+        display: block;
+        border-radius: 15px;
+        padding-block: 10px;
+        span {
+          i {
+            color: #fff;
+          }
+        }
+      }
+
+  .style {
+    color: rgba(234, 234, 234, 0.932);
+  }
+
+  .bg-main-transparent {
+    background-color: #6aaaff3c;
+    color: #ef9b28 !important;
+    padding-right: 4px;
+    i {
+
+      color: #192454 !important;
     }
-    .style{
-        color: rgba(234, 234, 234, 0.932);
-    }
-    
+  }
+
+
+
+}
+
+.arrows {
+  background-color: #1a2e88;
+  position: absolute;
+  right: -28px;
+  top: 75px;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0;
+
+  i {
+    width: 20px;
+    color: #fff;
+    font-weight: 900;
+  }
 }

@@ -8,8 +8,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -27,8 +28,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatDialogModule,
     ToastrModule,
     MatInputModule,
-  
-    
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports:[
     FormsModule, 
@@ -41,6 +43,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatInputModule,
     NavbarComponent,
     SidebarComponent,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
 
 
   ],

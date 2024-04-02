@@ -24,7 +24,7 @@
           }
         }
       }
-
+    }
   .style {
     color: rgba(234, 234, 234, 0.932);
   }
@@ -40,7 +40,7 @@
   }
 
 
-
+  
 }
 
 .arrows {
@@ -48,7 +48,7 @@
   position: absolute;
   right: -28px;
   top: 75px;
-  width: fit-content;
+  //width: fit-content;
   cursor: pointer;
   border-radius: 0 20px 20px 0;
 
@@ -57,4 +57,5 @@
     color: #fff;
     font-weight: 900;
   }
+}
 }

@@ -1,1 +1,14 @@
-<p>sidebar works!</p>
+<section class="sidebar vh-100">
+    <div class="py-5">
+        <ul>
+           <ng-container *ngFor="let item of Menu" >
+            <li class="mb-4 justify-content-center">
+                <a [routerLink]="[item.link]" class="text-white text-decoration-none ">
+                <span class="p-4"><i [class]="item.icon"></i></span>
+                <span class="style">{{item.text}}</span>
+                </a>
+            </li>
+           </ng-container>
+        </ul>
+    </div>
+</section>

@@ -1,5 +1,6 @@
+@import"../../../assets/styles/layout";
 .sidebar{
-    background-color: #3252DF;
+    background-color: $light-blue;
     li{
         list-style: none;
         cursor: pointer;

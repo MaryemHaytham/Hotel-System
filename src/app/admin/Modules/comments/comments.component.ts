@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
+import { ViewCommentsComponent } from './components/view-comments/view-comments.component';
+import { DeleteAdsComponent } from 'src/app/shared/delete/delete-ads.component';
 
 @Component({
   selector: 'app-comments',
@@ -16,12 +19,44 @@ export class CommentsComponent implements OnInit{
   tableData :any[]= [];
   tableResponse : any
 
-  constructor(){}
+  constructor(private dialog:MatDialog){}
 
 
 
   ngOnInit(): void {
       
+  }
+
+  openViewAdsDialog(){
+    const dialogRef = this.dialog.open(ViewCommentsComponent, {
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+      if(result){
+        
+      }
+
+      
+    });
+  }
+
+  openDeleteAdsDialog(){
+    const dialogRef = this.dialog.open(DeleteAdsComponent, {
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+      if(result){
+        
+      }
+
+      
+    });
   }
 
   handlePageEvent(e: PageEvent) {

@@ -11,6 +11,7 @@ import { DeleteAdsComponent } from '../../../shared/delete/delete-ads.component'
   styleUrls: ['./ads.component.scss']
 })
 export class AdsComponent implements OnInit{
+  //role:string='admin'
   length = 50;
   pageSize = 5;
   pageIndex = 1;
@@ -33,9 +34,7 @@ export class AdsComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
-      if(result){
-        
-      }
+      this._AdsService.onAddAds();
 
       
     });
@@ -79,15 +78,19 @@ export class AdsComponent implements OnInit{
     let paramsApi = {
       pageSize:this.pageSize,
       pageNumber:this.pageIndex,
+      //role:this.role,
+      
     }
     this._AdsService.getAllAds(paramsApi).subscribe({
       next:(res)=>{
         console.log(res.pageSize);
         this.tableResponse = res;
         this.tableData=res.data;
+        
       }
     })
   }
+  role = localStorage.getItem("admin");
   
 
   

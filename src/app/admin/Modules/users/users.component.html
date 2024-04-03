@@ -17,11 +17,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of tableData">
-                <td>{{item.userName}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.country}}</td>
-                <td>{{item.phoneNumber}}</td>
+            <tr *ngFor="let user of tableData">
+                <td>{{user.userName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.country}}</td>
+                <td>{{user.phoneNumber}}</td>
                 <td>
                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                     <mat-icon>more_horiz</mat-icon>

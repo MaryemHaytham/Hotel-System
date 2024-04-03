@@ -15,6 +15,7 @@ export class UsersComponent implements OnInit{
   length = 50;
   pageSize = 5;
   pageIndex =1;
+  pageNumber=1;
   pageSizeOptions = [5,10,15];
   pageEvent :PageEvent|any;
   tableUsersData:any[]=[];
@@ -24,14 +25,14 @@ export class UsersComponent implements OnInit{
   }
 getllUsers(){
   let params = {
-  pageSize:this.pageSize,
-  pageIndex:this.pageIndex
+    pageSize: this.pageSize,
+    pageNumber: this.pageNumber,
   }
   this._UsersService.getAllUsers(params).subscribe({
     next:(res)=>{
       console.log(res);
       this.tableUsersData=res;
-      this.tableData=res.data;
+      this.tableData=res.data.users;
       console.log(this.tableUsersData)
     },
     error:(err)=>{
@@ -55,11 +56,12 @@ openViewUserDialog(){
   });
 }
 
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
-  }
+handlePageEvent(e: PageEvent) {
+  this.pageEvent = e;
+  this.length = e.length;
+  this.pageSize = e.pageSize;
+  this.pageNumber = e.pageIndex;
+ this.getllUsers()
+}
 
 }

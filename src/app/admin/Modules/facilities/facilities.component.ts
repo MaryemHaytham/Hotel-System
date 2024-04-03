@@ -31,7 +31,7 @@ export class FacilitiesComponent implements OnInit{
       next:(res)=>{
         console.log(res)
       this.tableFacilities=res;
-        this.tableData=res.data
+      this.tableData=res.data.facilities;
       },
       error:(err)=>{
         console.log(err)

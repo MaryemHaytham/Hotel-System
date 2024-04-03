@@ -11,4 +11,5 @@ export class FacilitiesService {
   getAllFacilities(data:any):Observable<any>{
     return this._HttpCliene.get('/admin/room-facilities',data)
   }
+  
 }

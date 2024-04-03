@@ -5,6 +5,7 @@ import { FacilitiesRoutingModule } from './facilities-routing.module';
 import { FacilitiesComponent } from './facilities.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddFacilitieComponent } from './add-facilitie/add-facilitie/add-facilitie.component';
+import { ViewFacilitieComponent } from './view-facilitie/view-facilitie/view-facilitie.component';
 
 
 
@@ -12,6 +13,7 @@ import { AddFacilitieComponent } from './add-facilitie/add-facilitie/add-facilit
   declarations: [
     FacilitiesComponent,
     AddFacilitieComponent,
+    ViewFacilitieComponent,
   
   ],
   imports: [

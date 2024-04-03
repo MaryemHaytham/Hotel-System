@@ -4,6 +4,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { AddFacilitieComponent } from './add-facilitie/add-facilitie/add-facilitie.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteAdsComponent } from 'src/app/shared/delete/delete-ads.component';
+import { ViewFacilitieComponent } from './view-facilitie/view-facilitie/view-facilitie.component';
 
 @Component({
   selector: 'app-facilities',
@@ -42,11 +43,26 @@ export class FacilitiesComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
-    
+      if(result){
+        this.getFacilities()
+      }
+
       
     });
   }
-  
+  openEditCategory(facilitieData:any):void{
+    console.log(facilitieData)
+    const dialogRef = this.dialog.open(AddFacilitieComponent, {
+      data:facilitieData.name
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     console.log(result)
+     if(result){
+    //  this.newEditCategory(result,facilitieData.id)
+     }
+  });
+}
   openDeleteAdsDialog(){
     const dialogRef = this.dialog.open(DeleteAdsComponent, {
       
@@ -63,6 +79,19 @@ export class FacilitiesComponent implements OnInit{
     });
     
   }
+  openViewFacilitieDialog(){
+    const dialogRef = this.dialog.open(ViewFacilitieComponent, {
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+    
+      
+    });
+  }
+
   handlePageEvent(e: PageEvent) {
     this.pageEvent = e;
     this.length = e.length;

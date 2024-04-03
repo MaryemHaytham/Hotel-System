@@ -10,25 +10,25 @@ import { DeleteAdsComponent } from '../../../shared/delete/delete-ads.component'
   templateUrl: './ads.component.html',
   styleUrls: ['./ads.component.scss']
 })
-export class AdsComponent implements OnInit{
+export class AdsComponent implements OnInit {
   //role:string='admin'
   length = 50;
   pageSize = 5;
   pageIndex = 1;
   pageSizeOptions = [5, 10, 25];
-  pageEvent: PageEvent |any;
-  tableData :any[]= [];
-  tableResponse : any
+  pageEvent: PageEvent | any;
+  tableData: any[] = [];
+  tableResponse: any
 
-  constructor(private _AdsService:AdsService,private dialog:MatDialog,){}
-  
+  constructor(private _AdsService: AdsService, private dialog: MatDialog,) { }
+
   ngOnInit(): void {
-      this.getAds();
+    this.getAds();
   }
 
-  openAddAdsDialog(){
+  openAddAdsDialog() {
     const dialogRef = this.dialog.open(AddAdsComponent, {
-      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -36,64 +36,66 @@ export class AdsComponent implements OnInit{
       console.log(result)
       this._AdsService.onAddAds();
 
-      
+
     });
-    
+
   }
-  openEditAdsDialog(){
+
+
+  openEditAdsDialog() {
     const dialogRef = this.dialog.open(AddAdsComponent, {
-      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
-      if(result){
-        
+      if (result) {
+
       }
 
-      
+
     });
   }
 
 
-  openDeleteAdsDialog(){
+  openDeleteAdsDialog() {
     const dialogRef = this.dialog.open(DeleteAdsComponent, {
-      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
-      if(result){
-        
+      if (result) {
+
       }
 
-      
+
     });
-    
+
   }
 
-  getAds(){
+  getAds() {
     let paramsApi = {
-      pageSize:this.pageSize,
-      pageNumber:this.pageIndex,
+      pageSize: this.pageSize,
+      pageNumber: this.pageIndex,
       //role:this.role,
-      
+
     }
     this._AdsService.getAllAds(paramsApi).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res.pageSize);
         this.tableResponse = res;
-        this.tableData=res.data;
-        
+        this.tableData = res.data;
+
       }
     })
   }
   role = localStorage.getItem("admin");
-  
 
-  
+
+
   handlePageEvent(e: PageEvent) {
     this.pageEvent = e;
     this.length = e.length;

@@ -21,11 +21,11 @@ export class GlobalInterceptor implements HttpInterceptor {
 
 
     let newHeaders = {};
-    
+
     if (token !== null) {
 
       newHeaders = {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `${token}`
       }
     }
     let cloned = request.clone({
@@ -36,8 +36,8 @@ export class GlobalInterceptor implements HttpInterceptor {
 
     return next.handle(cloned).pipe(
       finalize(() => {
-        this.spinner.hide(); 
+        this.spinner.hide();
       })
-    );;;
+    );
   }
 }

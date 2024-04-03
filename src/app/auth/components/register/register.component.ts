@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HelperService } from 'src/app/core/service/helper.service';
+import { HelperService, RegxPhoneNumber, RegxUserName } from 'src/app/core/service/helper.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { RegxPassword } from '../login/login.component';
+export const RegxPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -23,12 +24,12 @@ export class RegisterComponent implements OnInit {
 
   }
   registerForm = new FormGroup({
-    userName: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+    userName: new FormControl(null, [Validators.required, Validators.minLength(4),Validators.maxLength(15),Validators.pattern(RegxUserName),]),
     email: new FormControl(null, [Validators.required, Validators.email]),
-    country: new FormControl(null, [Validators.required]),
-    phoneNumber: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(6)]),
-    confirmPassword: new FormControl(null, [Validators.required]),
+    country: new FormControl(null, [Validators.required,Validators.minLength(4),Validators.maxLength(15)],),
+    phoneNumber: new FormControl(null, [Validators.required, Validators.pattern(RegxPhoneNumber)]),
+    password: new FormControl(null, [Validators.required,Validators.pattern(RegxPassword)]),
+    confirmPassword: new FormControl(null, [Validators.required,Validators.pattern(RegxPassword)]),
     role: new FormControl('user', [Validators.required]),
     profileImage: new FormControl('',),
 
@@ -71,6 +72,23 @@ export class RegisterComponent implements OnInit {
   onRemove(event: any) {
     this.files.splice(this.files.indexOf(event), 1);
     this.profileImgValue = false
+  }
+  getErrorMessageforPasswrod() {
+    return this._helper.getErrorMessageforPasswrod(this.registerForm, 'password', { required: 'required', minlength: 'minlength', maxlength: 'maxlength', pattern: 'pattern' })
+  }
+
+  getErrorMessageforName() {
+    return this._helper.getErrorMessageforName(this.registerForm, 'userName', { name: 'required', pattern: 'pattern' })
+  }
+
+  
+
+  getErrorMessageForCountry() {
+    return this._helper.getErrorMessageForCountry(this.registerForm, 'country', { required: 'required' })
+  }
+
+  getErrorMessageForPhoneNumber() {
+    return this._helper.getErrorMessageForPhoneNumber(this.registerForm, 'phoneNumber', { required: 'required', pattern: 'pattern' })
   }
 
 

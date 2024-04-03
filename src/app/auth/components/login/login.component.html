@@ -36,9 +36,12 @@
               </div>
               <mat-error *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
                 class="text-red m-0 mx-auto p-0 text-start block mt-1">
-                <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('required')">password is
-                  Required</span><br>
+                <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('required')">Password is
+                  required</span>
+                  <span class="custom-error-style">{{getErrorMessageforPasswrod()}}</span>
               </mat-error>
+              
+              
             </div>
             <div class="text-end mt-4 mb-3">
               <a class=" text-decoration-none  text-dark" routerLink="/auth/forgot-password">Forgot Password ?</a>

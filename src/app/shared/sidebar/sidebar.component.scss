@@ -59,3 +59,10 @@
     font-weight: 900; /* Removed extra spaces around the value */
   }
 }
+
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}

@@ -14,13 +14,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import { DeleteAdsComponent } from './delete/delete-ads.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DeleteAdsComponent
   ],
   imports: [
     CommonModule,

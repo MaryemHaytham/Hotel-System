@@ -59,8 +59,9 @@ export class AdsComponent implements OnInit {
   }
 
 
-  openDeleteAdsDialog() {
+  openDeleteAdsDialog(adsData:any) {
     const dialogRef = this.dialog.open(DeleteAdsComponent, {
+      data:adsData
 
     });
 
@@ -68,12 +69,25 @@ export class AdsComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result)
       if (result) {
+        this.deleteAds(result);
 
       }
 
 
     });
 
+  }
+  deleteAds(adsId:any){
+    this._AdsService.onDeleteAds(adsId).subscribe({
+      next:(res) => {
+        console.log(res);
+      },error:()=>{
+
+      },complete:()=> {
+          this.getAds();
+          
+      },
+    })
   }
 
   getAds() {

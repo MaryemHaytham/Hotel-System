@@ -17,7 +17,7 @@ onAddAds():Observable<any>{
   return this._HttpClient.post('/admin/ads',{})
 }
 onDeleteAds(id:number):Observable<any>{
-  return this._HttpClient.delete(`/admin/ads${id}`,)
+  return this._HttpClient.delete(`/admin/ads/${id}`)
 
 }
 

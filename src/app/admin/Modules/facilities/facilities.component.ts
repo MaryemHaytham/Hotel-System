@@ -50,6 +50,16 @@ export class FacilitiesComponent implements OnInit{
       
     });
   }
+  addFacilities(data:any){
+    this._FacilitiesService.addNewFacilitie(data).subscribe({
+      next:(res)=>{
+        console.log(res);
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
   openEditCategory(facilitieData:any):void{
     console.log(facilitieData)
     const dialogRef = this.dialog.open(AddFacilitieComponent, {
@@ -59,10 +69,21 @@ export class FacilitiesComponent implements OnInit{
       console.log('The dialog was closed');
      console.log(result)
      if(result){
-    //  this.newEditCategory(result,facilitieData.id)
+     this.newEditFailities(result,facilitieData.id)
      }
   });
 }
+newEditFailities(name:string, id:string){
+  this._FacilitiesService.onEditFacilitie(name,id).subscribe({
+    next:(res)=>{
+     
+    },error:(err:any)=>{
+      console.log(err)
+    },complete:()=>{
+    this.getFacilities()
+    }
+  })
+  }
   openDeleteAdsDialog(){
     const dialogRef = this.dialog.open(DeleteAdsComponent, {
       

@@ -1,1 +1,58 @@
-<p>booking works!</p>
+<section id="addnewItem">
+  <div class="row  pt-5 pb-2">
+    <div class="col-8">
+      <h2>Rooms Table Details</h2>
+      <p>You Can cheak all details</p>
+    </div>
+  </div>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col">Room number</th>
+        <th class="col">Price</th>
+        <th class="col">Start Date</th>
+        <th class="col">End Date</th>
+        <th class="col">User</th>
+        <th class="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>Room 1</td>
+        <td>200</td>
+        <td>
+          01-01-2024
+        </td>
+        <td>
+          20-01-2024
+        </td>
+        <td>Ahmed Yasser</td>
+        <td>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openViewDialog()">
+              <mat-icon class="text-light-blue">visibility</mat-icon>
+              <span>view</span>
+            </button>
+            <button mat-menu-item (click)="openDeleteBookingDialog('item')">
+              <mat-icon class="text-light-blue">delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </td>
+
+
+
+
+      </tr>
+    </tbody>
+
+  </table>
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions"
+    (page)="handlePageEvent($event)" aria-label="Select page">
+  </mat-paginator>

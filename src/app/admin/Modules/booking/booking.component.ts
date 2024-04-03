@@ -22,7 +22,7 @@ export class BookingComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.getBooking();
+    this.getBooking();
   }
 
 
@@ -60,7 +60,7 @@ export class BookingComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.tableResponse = res;
-        this.tableData = res.data;
+        this.tableData = res.data.booking;
       }
     })
   }

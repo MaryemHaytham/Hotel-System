@@ -11,7 +11,7 @@ export class FacilitiesService {
 
 
   gitAllFacilities(data: any): Observable<any> {
-    return this._HttpClient.get('admin/room-facilities', data);
+    return this._HttpClient.get('/admin/room-facilities', data);
   }
 
 }

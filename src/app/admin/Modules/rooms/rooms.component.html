@@ -34,14 +34,14 @@
         <mat-label>Facilities</mat-label>
         <mat-select [(ngModel)]="facilitiesId" (selectionChange)="getRooms()">
           <mat-option>All</mat-option>
-          <mat-option>Room B</mat-option>
+          <!-- <mat-option *ngFor="let item of tags" [value]="item.id">{{item.name}}</mat-option> -->
         </mat-select>
         <mat-icon matSuffix color="primary">storefront</mat-icon>
       </mat-form-field>
     </div>
   </div>
 
-  <table class="table">
+  <table class="table text-center">
     <thead>
       <tr>
         <th class="col">Room number</th>
@@ -49,23 +49,22 @@
         <th class="col">Price</th>
         <th class="col">Discount</th>
         <th class="col">Capacity</th>
-        <th class="col">Category</th>
         <th class="col">Action</th>
       </tr>
     </thead>
     <tbody>
 
-      <tr>
-        <td>Room 1</td>
+      <tr *ngFor="let item of tableResponse" class="align-items-center">
+        <td>{{item.roomNumber}}</td>
         <td>
-          notFound
+          <img crossorigin="anonymous" class="imgRooms"
+            [src]="item.images[0] || '../../../../../../../../assets/images/dummy.jpg'" />
         </td>
         <td>
-          200
+          {{item.price}}
         </td>
-        <td>200</td>
-        <td>tag1</td>
-        <td>Chicken</td>
+        <td>{{item.discount}}</td>
+        <td>{{item.capacity}}</td>
         <td>
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_horiz</mat-icon>
@@ -75,7 +74,7 @@
               <mat-icon class="text-light-blue">edit_square</mat-icon>
               <span>Edit</span>
             </button>
-            <button mat-menu-item (click)="openDeleteRoomDialog('item')">
+            <button mat-menu-item (click)="openDeleteRoomDialog(item)">
               <mat-icon class="text-light-blue">delete</mat-icon>
               <span>Delete</span>
             </button>

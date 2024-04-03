@@ -5,6 +5,7 @@ import { RoomsService } from '../../services/rooms/rooms.service';
 import { DeleteAdsComponent } from 'src/app/shared/delete/delete-ads.component';
 import { FacilitiesService } from '../../services/facilities/facilities.service';
 import { Router } from '@angular/router';
+import { IRoom } from 'src/app/core/model/room';
 
 @Component({
   selector: 'app-rooms',
@@ -20,6 +21,7 @@ export class RoomsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRooms();
+    this.getAllFacilities();
   }
 
   openAddAdsDialog() {
@@ -33,9 +35,13 @@ export class RoomsComponent implements OnInit {
   pageSizeOptions = [5, 10, 25];
   pageEvent: PageEvent | any;
   tableData: any[] = [];
-  tableResponse: any;
+  tableResponse: IRoom[] = [];
+  tableFacilities: IRoom[] = [];
   tagId: number = 0;
   facilitiesId: number = 0;
+  imagePath: string = 'https://upskilling-egypt.com:3000/';
+  notFoundRecipes: string = '';
+
 
 
   getRooms() {
@@ -48,8 +54,8 @@ export class RoomsComponent implements OnInit {
     }
     this._RoomsService.gitAllRooms(paramsApi).subscribe({
       next: (res) => {
-        console.log(res);
-        this.tableResponse = res;
+        console.log(res.data.rooms);
+        this.tableResponse = res.data.rooms;
         this.tableData = res.data;
       }
     })
@@ -62,14 +68,23 @@ export class RoomsComponent implements OnInit {
     this.pageIndex = e.pageIndex;
   }
 
-  gitAllFacilities() {
-    let paramsApi = {
-      pageSize: this.pageSize,
-      pageNumber: this.pageIndex,
+  getAllFacilities() {
+    let parms = {
+      name: this.searchKey,
+      page: this.pageIndex,
+      size: this.pageSize
     }
-    this._FacilitiesService.gitAllFacilities(paramsApi).subscribe({
-      next: (response) => {
-        console.log(response)
+
+    this._FacilitiesService.gitAllFacilities(parms).subscribe({
+      next: (res: any) => {
+        console.log(res.data.facilities)
+        this.tableFacilities = res.data.facilities;
+        this.tableResponse = res;
+        // this.tableData = this.tableResponse?.facilities;
+
+
+      }, error: (err: any) => {
+
       }
     })
   }
@@ -84,23 +99,27 @@ export class RoomsComponent implements OnInit {
       data: dataRoom,
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
       console.log('The dialog was closed');
-      console.log(dataRoom.id, dataRoom.name);
+      console.log(dataRoom._id, dataRoom.roomNumber);
       if (result) {
-        this.deleteBooking(result, dataRoom.name)
+        this.deleteBooking(result, dataRoom.roomNumber)
       }
-      console.log(dataRoom.id, dataRoom.name);
+      console.log(dataRoom._id, dataRoom.roomNumber);
+      console.log(result)
+
     });
   }
 
   deleteBooking(roomId: number, name: string) {
     this._RoomsService.deleteRoom(roomId, name).subscribe({
       next: (res) => {
+        console.log(res)
       }, error: (error) => {
-
-        // this._ToastrService.error(`error in deleted Pross!`);
       }, complete: () => {
         this.getRooms();
+        console.log("completed");
+
         // this._ToastrService.success(`The Recipe was deleted successfully`);
       }
     })

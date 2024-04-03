@@ -1,1 +1,143 @@
-<p>facilities works!</p>
+<section id="allFacilities">
+    <div class="row py-5">
+        <div class="col-8">
+            <h2>Facilities Table Details</h2>
+            <p>You Can cheak all details</p>
+        </div>
+        <div class="col-4 text-end">
+            <button class="btn light-blue p-2 text-white" (click)="openAddFacilitieDialog()">Add new facilitie</button>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">Name</th>
+                <th class="col">createdAt</th>
+                <th class="col">updatedAt</th>
+                <th class="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Room</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openViewFacilitieDialog()">
+                        <mat-icon class="text-primary">visibility</mat-icon>
+                        <span>View</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon class="text-primary">edit_square</mat-icon>
+                        <span>Edit</span>
+                      </button>
+                      <button mat-menu-item (click)="openDeleteAdsDialog()">
+                        <mat-icon class="text-primary">delete</mat-icon>
+                        <span>Delete</span>
+                      </button>
+                    </mat-menu>
+                    
+              
+                  </td>
+        
+            
+            </tr>
+            <tr>
+                <td>Room</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon class="text-primary">visibility</mat-icon>
+                        <span>View</span>
+                      </button>
+                      <button mat-menu-item >
+                        <mat-icon class="text-primary">edit_square</mat-icon>
+                        <span>Edit</span>
+                      </button>
+                      <button mat-menu-item (click)="openDeleteAdsDialog()">
+                        <mat-icon class="text-primary" >delete</mat-icon>
+                        <span>Delete</span>
+                      </button>
+                    </mat-menu>
+                    
+              
+                  </td>
+        
+            
+            </tr>
+            <tr>
+                <td>Room</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon class="text-primary">visibility</mat-icon>
+                        <span>View</span>
+                      </button>
+                      <button mat-menu-item >
+                        <mat-icon class="text-primary">edit_square</mat-icon>
+                        <span>Edit</span>
+                      </button>
+                      <button mat-menu-item >
+                        <mat-icon class="text-primary">delete</mat-icon>
+                        <span>Delete</span>
+                      </button>
+                    </mat-menu>
+                    
+              
+                  </td>
+        
+            
+            </tr>
+            <tr>
+                <td>Room</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>2024-03-22T23:31:40.790Z</td>
+                <td>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon class="text-primary">visibility</mat-icon>
+                        <span>View</span>
+                      </button>
+                      <button mat-menu-item >
+                        <mat-icon class="text-primary">edit_square</mat-icon>
+                        <span>Edit</span>
+                      </button>
+                      <button mat-menu-item >
+                        <mat-icon class="text-primary">delete</mat-icon>
+                        <span>Delete</span>
+                      </button>
+                    </mat-menu>
+                    
+              
+                  </td>
+        
+            
+            </tr>
+        </tbody>
+    </table>
+    <mat-paginator [length]="length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="handlePageEvent($event)"
+    aria-label="Select page">
+    </mat-paginator>
+</section>
+

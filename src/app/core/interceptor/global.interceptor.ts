@@ -25,7 +25,7 @@ export class GlobalInterceptor implements HttpInterceptor {
     if (token !== null) {
 
       newHeaders = {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `${token}`
       }
     }
     let cloned = request.clone({

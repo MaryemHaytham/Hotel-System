@@ -17,7 +17,8 @@ export class FacilitiesComponent implements OnInit{
   pageIndex =1;
   pageSizeOptions = [5,10,15];
   pageEvent :PageEvent|any;
-  
+  tableFacilities:any[]=[];
+  tableData:any;
   constructor(private _FacilitiesService:FacilitiesService,private dialog:MatDialog){}
   ngOnInit(): void {
     this.getFacilities()
@@ -29,6 +30,8 @@ export class FacilitiesComponent implements OnInit{
     this._FacilitiesService.getAllFacilities(params).subscribe({
       next:(res)=>{
         console.log(res)
+      this.tableFacilities=res;
+        this.tableData=res.data
       },
       error:(err)=>{
         console.log(err)

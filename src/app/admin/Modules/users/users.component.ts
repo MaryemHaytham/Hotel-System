@@ -10,6 +10,7 @@ import { ViewuserComponent } from './view/viewuser/viewuser.component';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit{
+
   constructor(private _UsersService:UsersService,private dialog:MatDialog){}
   length = 50;
   pageSize = 5;
@@ -17,11 +18,11 @@ export class UsersComponent implements OnInit{
   pageSizeOptions = [5,10,15];
   pageEvent :PageEvent|any;
   tableUsersData:any[]=[];
-
+  tableData: any;
   ngOnInit(): void {
-    this.gellUsers()
+    this.getllUsers()
   }
-gellUsers(){
+getllUsers(){
   let params = {
   pageSize:this.pageSize,
   pageIndex:this.pageIndex
@@ -29,7 +30,8 @@ gellUsers(){
   this._UsersService.getAllUsers(params).subscribe({
     next:(res)=>{
       console.log(res);
-      this.tableUsersData=res.data;
+      this.tableUsersData=res;
+      this.tableData=res.data;
       console.log(this.tableUsersData)
     },
     error:(err)=>{

@@ -1,7 +1,7 @@
 <section id="addnewItem">
   <div class="row  pt-5 pb-2">
     <div class="col-8">
-      <h2>Rooms Table Details</h2>
+      <h2>Booking Table Details</h2>
       <p>You Can cheak all details</p>
     </div>
   </div>
@@ -20,16 +20,13 @@
     </thead>
     <tbody>
 
-      <tr>
-        <td>Room 1</td>
-        <td>200</td>
-        <td>
-          01-01-2024
-        </td>
-        <td>
-          20-01-2024
-        </td>
-        <td>Ahmed Yasser</td>
+      <tr >
+        <tr  *ngFor="let item of tableData">
+          <td>{{item.room.roomNumber}}</td>
+          <td>{{item.totalPrice}}</td>
+          <td>{{item.createdAt|date}}</td>
+          <td>{{item.endDate|date}}</td>
+          <td>{{item.status}}</td>
         <td>
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_horiz</mat-icon>

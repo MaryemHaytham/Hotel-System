@@ -80,27 +80,27 @@ export class AdsComponent implements OnInit {
     let paramsApi = {
       pageSize: this.pageSize,
       pageNumber: this.pageIndex,
-      //role:this.role,
 
     }
     this._AdsService.getAllAds(paramsApi).subscribe({
       next: (res) => {
         console.log(res.pageSize);
         this.tableResponse = res;
-        this.tableData = res.data;
+        this.tableData = res.data.ads;
 
       }
     })
   }
-  role = localStorage.getItem("admin");
 
 
 
   handlePageEvent(e: PageEvent) {
+    console.log(e);
     this.pageEvent = e;
     this.length = e.length;
     this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+    this.pageIndex = e.pageIndex + 1;
+    this.getAds();
   }
 
 }

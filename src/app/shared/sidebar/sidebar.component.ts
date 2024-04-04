@@ -51,13 +51,7 @@ export class SidebarComponent implements OnInit {
       link: '/admin/facilities',
       icon: 'fa-solid fa-users'
 
-    },
-    {
-      text: 'Comments',
-      link: '/admin/comments',
-      icon: 'fa-regular fa-comments'
-
-    },
+    }
     
   ]
 

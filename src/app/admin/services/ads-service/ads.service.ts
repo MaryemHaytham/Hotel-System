@@ -13,13 +13,12 @@ getAllAds(data:any):Observable<any>{
   return this._HttpClient.get('/admin/ads',{params :data})
 }
 
-onAddAds():Observable<any>{
-  return this._HttpClient.post('/admin/ads',{})
+onAddAds(data:any):Observable<any>{
+  return this._HttpClient.post('/admin/ads',{data})
 }
 onDeleteAds(id:number):Observable<any>{
   return this._HttpClient.delete(`/admin/ads/${id}`)
 }
-
 getAdsById(id:number) :Observable<any>{
   return this._HttpClient.get(`/admin/ads${id}`)
 

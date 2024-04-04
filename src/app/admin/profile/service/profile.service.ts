@@ -5,10 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class ProfileService {
 
 constructor(private _HttpClient:HttpClient) { }
-getCharts(): Observable<any> {
-  return this._HttpClient.get('/admin/dashboard');
+onGetCurrentUser(id:any):Observable<any>{
+  return this._HttpClient.get(`/admin/users/${id}`)
 }
+
 }

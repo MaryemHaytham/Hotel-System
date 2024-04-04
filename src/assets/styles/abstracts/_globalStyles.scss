@@ -11,6 +11,10 @@
    
     color: $light-blue;
 }
+.border-light-blue{
+   
+    border: solid 1px $light-blue;
+}
 .card{
     width: 500px !important;
 }

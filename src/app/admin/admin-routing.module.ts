@@ -11,8 +11,10 @@ const routes: Routes = [{
   { path: 'facilities', loadChildren: () => import('./Modules/facilities/facilities.module').then(m => m.FacilitiesModule) },
   { path: 'home', loadChildren: () => import('./Modules/home/home.module').then(m => m.HomeModule) },
   { path: 'comments', loadChildren: () => import('./Modules/comments/comments.module').then(m => m.CommentsModule) },
-  { path: 'favorites', loadChildren: () => import('./Modules/favorites/favorites.module').then(m => m.FavoritesModule) }]
+  { path: 'favorites', loadChildren: () => import('./Modules/favorites/favorites.module').then(m => m.FavoritesModule) },
+  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },]
 },
+  
 
 ];
 

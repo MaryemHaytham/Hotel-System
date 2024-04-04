@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 export const RegxUserName: RegExp = /^[a-zA-Z]+[0-9]+$/;
 export const RegxPhoneNumber: RegExp = /^\d+$/;
 
@@ -8,7 +10,7 @@ export const RegxPhoneNumber: RegExp = /^\d+$/;
 })
 export class HelperService {
 
-  constructor() { }
+  constructor(private _HttpClient:HttpClient) { }
   getErrorMessageForPhoneNumber(form: FormGroup, controlName: string, validationError: any) {
     if (form.get(controlName)?.getError(validationError.required)) {
       return 'Phone number is requierd'
@@ -46,6 +48,10 @@ export class HelperService {
     }
 
     return form.get(controlName)?.getError(validationError.pattern) ? 'must include at least one lowercase letter, one uppercase letter, one digit, one special character' : '';
+  }
+
+  getAllRooms(): Observable<any> {
+    return this._HttpClient.get('/admin/rooms')
   }
 
 }

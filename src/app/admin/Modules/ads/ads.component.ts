@@ -26,37 +26,6 @@ export class AdsComponent implements OnInit {
     this.getAds();
   }
 
-  openAddAdsDialog() {
-    const dialogRef = this.dialog.open(AddAdsComponent, {
-
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
-      this._AdsService.onAddAds();
-
-
-    });
-
-  }
-
-
-  openEditAdsDialog() {
-    const dialogRef = this.dialog.open(AddAdsComponent, {
-
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
-      if (result) {
-
-      }
-
-
-    });
-  }
 
 
   openDeleteAdsDialog(adsData:any) {
@@ -106,6 +75,7 @@ export class AdsComponent implements OnInit {
     })
   }
 
+  
 
 
   handlePageEvent(e: PageEvent) {

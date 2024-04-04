@@ -36,7 +36,7 @@ export class RoomsComponent implements OnInit {
   pageEvent: PageEvent | any;
   tableData: any[] = [];
   tableResponse: IRoom[] = [];
-  tableFacilities: IRoom[] = [];
+  tableFacilities: any[] = [];
   tagId: number = 0;
   facilitiesId: number = 0;
   imagePath: string = 'https://upskilling-egypt.com:3000/';
@@ -49,8 +49,7 @@ export class RoomsComponent implements OnInit {
       pageSize: this.pageSize,
       pageNumber: this.pageIndex,
       name: this.searchKey,
-      tagId: this.tagId > 0 ? this.tagId : 0,
-      facilitiesId: this.facilitiesId
+      _id: this.tagId > 0 ? this.tagId : 0,
     }
     this._RoomsService.gitAllRooms(paramsApi).subscribe({
       next: (res) => {
@@ -69,20 +68,10 @@ export class RoomsComponent implements OnInit {
   }
 
   getAllFacilities() {
-    let parms = {
-      name: this.searchKey,
-      page: this.pageIndex,
-      size: this.pageSize
-    }
-
-    this._FacilitiesService.gitAllFacilities(parms).subscribe({
+    this._FacilitiesService.gitAllFacilities().subscribe({
       next: (res: any) => {
         console.log(res.data.facilities)
         this.tableFacilities = res.data.facilities;
-        this.tableResponse = res;
-        // this.tableData = this.tableResponse?.facilities;
-
-
       }, error: (err: any) => {
 
       }

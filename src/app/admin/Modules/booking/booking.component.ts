@@ -3,10 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { DeleteAdsComponent } from 'src/app/shared/delete/delete-ads.component';
-import { FacilitiesService } from '../../services/facilities/facilities.service';
-import { RoomsService } from '../../services/rooms/rooms.service';
-import { BookinService } from '../../services/booking/bookin.service';
+
 import { ViewComponent } from './components/view/view.component';
+import { BookinService } from '../../services/booking/bookin.service';
 
 @Component({
   selector: 'app-booking',
@@ -37,14 +36,13 @@ export class BookingComponent implements OnInit {
   tagId: number = 0;
   facilitiesId: number = 0;
 
-  openViewDialog() {
+  openViewDialog(dataBooking: any): void {
+    console.log(dataBooking)
     const dialogRef = this.dialog.open(ViewComponent, {
+      data: dataBooking,
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
-      if (result) {
-      }
+      console.log(dataBooking.id);
     });
   }
 
@@ -72,18 +70,18 @@ export class BookingComponent implements OnInit {
     this.pageIndex = e.pageIndex;
   }
 
-  openDeleteBookingDialog(dataRecipe: any): void {
-    console.log(dataRecipe)
+  openDeleteBookingDialog(dataBooking: any): void {
+    console.log(dataBooking)
     const dialogRef = this.dialog.open(DeleteAdsComponent, {
-      data: dataRecipe,
+      data: dataBooking,
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      console.log(dataRecipe.id, dataRecipe.name);
+      console.log(dataBooking.id, dataBooking.name);
       if (result) {
-        this.deleteBooking(result, dataRecipe.name)
+        this.deleteBooking(result, dataBooking.name)
       }
-      console.log(dataRecipe.id, dataRecipe.name);
+      console.log(dataBooking.id, dataBooking.name);
     });
   }
 

@@ -19,7 +19,7 @@ export class RoomsService {
   }
 
   AddRoom(data: any): Observable<any> {
-    return this._HttpClient.post('/admin/rooms/', data);
+    return this._HttpClient.post('/admin/rooms', data);
   }
 
   EditeRoom(id: number, data: any): Observable<any> {

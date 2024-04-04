@@ -58,13 +58,7 @@ export class SidebarComponent implements OnInit {
       icon: 'fa-regular fa-comments'
 
     },
-    {
-      text: 'Favorites',
-      link: '/admin/favorites',
-      icon: 'fa-solid fa-heart'
-
-    },
-
+    
   ]
 
 }

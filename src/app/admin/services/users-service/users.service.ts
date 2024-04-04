@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
 export class UsersService {
 
   constructor(private _HttpClient: HttpClient) { }
-  getAllUsers(data: any): Observable<any> {
-    return this._HttpClient.get('/admin/users', data)
+  getAllUsers(param:any): Observable<any> {
+    return this._HttpClient.get('/admin/users', {params:param})
+  }
+  onViewUser(id:any):Observable<any>{
+    return this._HttpClient.get(`/admin/users/${id}`)
+
   }
 }

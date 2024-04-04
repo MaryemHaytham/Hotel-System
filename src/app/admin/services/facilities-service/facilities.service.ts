@@ -7,14 +7,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FacilitiesService {
 
-  constructor(private _HttpCliene:HttpClient) { }
+  constructor(private _HttpClient:HttpClient) { }
   getAllFacilities(data:any):Observable<any>{
-    return this._HttpCliene.get('/admin/room-facilities',data)
+    return this._HttpClient.get('/admin/room-facilities',data)
   }
-  addNewFacilitie(data:any):Observable<any>{
-    return this._HttpCliene.post('/admin/room-facilities',data)
+  addNewFacilitie(data:string):Observable<any>{
+    return this._HttpClient.post('/admin/room-facilities',{name:data})
   }
   onEditFacilitie(name:string,id:any):Observable<any>{
-    return this._HttpCliene.put(`admin/room-facilities/${id}`,{name})
+    return this._HttpClient.put(`/admin/room-facilities/${id}`,{name})
+  }
+  onDeleteFacility(id:any):Observable<any>{
+    return this._HttpClient.delete(`/admin/room-facilities/${id}`)
+  }
+  onViewFacilite(id:any):Observable<any>{
+    return this._HttpClient.get(`/admin/room-facilities/${id}`)
   }
 }

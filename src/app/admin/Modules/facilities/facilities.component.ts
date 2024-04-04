@@ -40,26 +40,30 @@ export class FacilitiesComponent implements OnInit{
   }
   openAddFacilitieDialog(){
     const dialogRef = this.dialog.open(AddFacilitieComponent, {
-      
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+     
       console.log(result)
       if(result){
-        this.getFacilities()
+        this.addFacilities(result)
       }
 
       
     });
   }
-  addFacilities(data:any){
+  addFacilities(data:string){
+    console.log(data)
     this._FacilitiesService.addNewFacilitie(data).subscribe({
       next:(res)=>{
         console.log(res);
+       
       },
       error:(err)=>{
         console.log(err)
+      },
+      complete:()=>{
+        this.getFacilities()
       }
     })
   }
@@ -72,7 +76,7 @@ export class FacilitiesComponent implements OnInit{
       console.log('The dialog was closed');
      console.log(result)
      if(result){
-     this.newEditFailities(result,facilitieData.id)
+     this.newEditFailities(result,facilitieData._id)
      }
   });
 }
@@ -87,35 +91,65 @@ newEditFailities(name:string, id:string){
     }
   })
   }
-  openDeleteAdsDialog(){
+  openDeleteAdsDialog(facilitieId:any){
+    console.log(facilitieId)
     const dialogRef = this.dialog.open(DeleteAdsComponent, {
-      
+      data:facilitieId
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
       if(result){
-        this.getFacilities()
+        this.deleteFacility(result)
       }
 
       
     });
     
   }
-  openViewFacilitieDialog(){
+  deleteFacility(id:any){
+    this._FacilitiesService.onDeleteFacility(id).subscribe({
+      next:(res)=>{
+        console.log(res)
+      },
+      error:(err)=>{
+        console.log(err)
+      },
+      complete:()=>{
+        this.getFacilities()
+      }
+    })
+  }
+  openViewFacilitieDialog(facilitieId:any){
     const dialogRef = this.dialog.open(ViewFacilitieComponent, {
-      
+      data:facilitieId
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      console.log(result)
-    
+    /*  console.log(result)
+      if(result){
+        this.viewFacilitie(result)
+      }
+*/
       
     });
   }
+viewFacilitie(id:any){
+  this._FacilitiesService.onViewFacilite(id).subscribe({
+    next:(res)=>{
+      console.log(res)
+    },
+    error:(err)=>{
+      console.log(err)
+    },
+    complete:()=>{
+      
+    }
+  })
 
+}
   handlePageEvent(e: PageEvent) {
     this.pageEvent = e;
     this.length = e.length;

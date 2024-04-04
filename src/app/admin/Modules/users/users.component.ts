@@ -12,18 +12,18 @@ import { ViewuserComponent } from './view/viewuser/viewuser.component';
 export class UsersComponent implements OnInit{
 
   constructor(private _UsersService:UsersService,private dialog:MatDialog){}
-  length = 50;
-  pageSize = 5;
-  pageIndex =1;
+  length = 20;
+  pageSize = 10;
+  pageIndex =0;
   pageNumber=1;
-  pageSizeOptions = [5,10,15];
+  pageSizeOptions = [5,10];
   pageEvent :PageEvent|any;
   tableUsersData:any[]=[];
   tableData: any;
   ngOnInit(): void {
-    this.getllUsers()
+    this.getallUsers()
   }
-getllUsers(){
+getallUsers(){
   let params = {
     pageSize: this.pageSize,
     pageNumber: this.pageNumber,
@@ -40,28 +40,32 @@ getllUsers(){
     }
   })
 }
-openViewUserDialog(){
+openViewUserDialog(userId:any){
   const dialogRef = this.dialog.open(ViewuserComponent, {
-    
+    data:userId
   });
 
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
-    console.log(result)
-    if(result){
-      
-    }
-
-    
+    console.log(result)   
   });
 }
-
+viewUser(userId:any){
+  this._UsersService.onViewUser(userId).subscribe({
+   next:(res)=>{
+    console.log(res)
+   },
+   error:(err)=>{
+    console.log(err)
+   }
+  })
+}
 handlePageEvent(e: PageEvent) {
   this.pageEvent = e;
   this.length = e.length;
   this.pageSize = e.pageSize;
   this.pageNumber = e.pageIndex;
- this.getllUsers()
+ this.getallUsers()
 }
 
 }

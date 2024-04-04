@@ -61,7 +61,6 @@ import { DeleteAdsComponent } from './delete/delete-ads.component';
     MatTableModule,
     MatSelectModule
 
-
   ],
 
 })

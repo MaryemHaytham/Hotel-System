@@ -19,6 +19,8 @@ export class AdsComponent implements OnInit {
   pageEvent: PageEvent | any;
   tableData: any[] = [];
   tableResponse: any
+  totalCount:any
+  
 
   constructor(private _AdsService: AdsService, private dialog: MatDialog,) { }
 
@@ -67,8 +69,8 @@ export class AdsComponent implements OnInit {
     }
     this._AdsService.getAllAds(paramsApi).subscribe({
       next: (res) => {
-        console.log(res.pageSize);
         this.tableResponse = res;
+        this.totalCount = res.data.totalCount;
         this.tableData = res.data.ads;
 
       }

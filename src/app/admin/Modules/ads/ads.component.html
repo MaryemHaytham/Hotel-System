@@ -47,10 +47,9 @@
       </tbody> 
         
     </table>
-    <mat-paginator [length]="tableResponse?.totalNumberOfRecords" [pageSize]="tableResponse?.pageSize"
-    [pageIndex]="tableResponse?.phoneNumber" [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)"
+    <mat-paginator [length]="totalCount" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)"
     aria-label="Select page">
-  </mat-paginator>
-
+</mat-paginator>
     
     

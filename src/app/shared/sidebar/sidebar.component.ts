@@ -49,7 +49,8 @@ export class SidebarComponent implements OnInit {
     {
       text: 'Facilities',
       link: '/admin/facilities',
-      icon: 'fa-solid fa-users'
+      icon: 'fa-regular fa-window-restore',
+     
 
     }
     

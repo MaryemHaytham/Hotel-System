@@ -13,7 +13,7 @@ import { HelperService } from 'src/app/core/service/helper.service';
 })
 export class AddAdsComponent implements OnInit {
 
-
+  adsData:any
   roomName:any[]=[];
   roomNameId:number=0;
   activeId:number=0;
@@ -25,49 +25,51 @@ export class AddAdsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-
     this.getAllRooms();
+    if (this.adsId) {
+      this.getAdsById(this.adsId);
+    }
       
   }
   addAdsForm = new FormGroup({
     
-    discount: new FormControl(null,),
-    room: new FormControl(null),
-    isActive: new FormControl(null),
+    discount: new FormControl('',),
+    room: new FormControl(''),
+    isActive: new FormControl(''),
   })
-  onSubmit(data:FormGroup){
-    if(this.adsId){
-      this._AdsService.onEditAds(this.adsId, data).subscribe({
-        next :(res) =>{
-          console.log(res)
-        },
-        error:()=>{
-  
-        },
-        complete:()=>{
-          this._router.navigate(['/admin/ads']);
-  
-        }
-      })
-  
-      
-    }else{
-      this._AdsService.onAddAds(data.value).subscribe({
-        next:(res:any)=>{
-          console.log(res);
-        },
-        error:(err:any)=>{
-          console.log(err);
-        },
-        complete:()=>{
-  
-          this._router.navigate(['/admin/ads'])
-        }
-      })
+  onSubmit(): void {
+    if (this.addAdsForm.valid) { 
+      const formData = this.addAdsForm.value;
+      if (this.adsId) {
+        this._AdsService.onEditAds(this.adsId, formData).subscribe({
+          next: (res) => {
+            console.log(res);
+           
+          },
+          error: (err) => {
+            console.error(err);
+            
+          },
+          complete: () => {
+            this._router.navigate(['/admin/ads']);
+          }
+        });
+      } else {
+        this._AdsService.onAddAds(formData).subscribe({
+          next: (res: any) => {
+            console.log(res);  
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+          complete: () => {
+            this._router.navigate(['/admin/ads']);
+          }
+        });
+      }
     }
-
-    }
+  }
+  
     
 
   getAllRooms(){
@@ -77,5 +79,25 @@ export class AddAdsComponent implements OnInit {
       }
     })
   }
+
+  getAdsById(id: number) {
+    this._AdsService.getAdsById(id).subscribe({
+      next: (res: any) => {
+        this.adsData = res.data.ads;
+      }, error: () => {
+
+      }, complete: () => {
+
+        this.addAdsForm.patchValue({
+          discount: this.adsData.room.discount,
+          room:this.adsData.room,
+          isActive:this.adsData.isActive,
+
+        
+        })
+      }
+    })
+  }
+
   
 }

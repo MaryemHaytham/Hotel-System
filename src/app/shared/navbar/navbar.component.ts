@@ -7,7 +7,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class NavbarComponent implements OnInit{
   constructor(private _AuthService:AuthService){}
- userName=localStorage.getItem('userName')
+ userRole=localStorage.getItem('userRole')
+ userName=localStorage.getItem('userRole')
 logOut(){
   this._AuthService.myLogout()
 }

@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div class=" d-flex gap-3">
+  <!-- <div class=" d-flex gap-3">
     <div class="d-flex align-items-center justify-content-between w-50">
       <div class="form-item input-group mb-4">
         <span (click)="getRooms()" class="input-group-text px-3 py-3 myPointer" id="basic-addon1"><i
@@ -26,7 +26,7 @@
         <mat-label>Tags</mat-label>
         <mat-select [(ngModel)]="tagId" (selectionChange)="getRooms()">
           <mat-option>All</mat-option>
-          <mat-option>Room A</mat-option>
+          <mat-option *ngFor="let item of tableResponse" [value]="item._id">{{item.roomNumber}}</mat-option>
         </mat-select>
         <mat-icon matSuffix color="primary">sell</mat-icon>
       </mat-form-field>
@@ -34,12 +34,12 @@
         <mat-label>Facilities</mat-label>
         <mat-select [(ngModel)]="facilitiesId" (selectionChange)="getRooms()">
           <mat-option>All</mat-option>
-          <!-- <mat-option *ngFor="let item of tags" [value]="item.id">{{item.name}}</mat-option> -->
+          <mat-option *ngFor="let item of tableFacilities" [value]="item._id">{{item.name}}</mat-option>
         </mat-select>
         <mat-icon matSuffix color="primary">storefront</mat-icon>
       </mat-form-field>
     </div>
-  </div>
+  </div> -->
 
   <table class="table text-center">
     <thead>
@@ -70,7 +70,7 @@
             <mat-icon>more_horiz</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="openAddAdsDialog()">
+            <button mat-menu-item [routerLink]="['edit',item._id]">
               <mat-icon class="text-light-blue">edit_square</mat-icon>
               <span>Edit</span>
             </button>

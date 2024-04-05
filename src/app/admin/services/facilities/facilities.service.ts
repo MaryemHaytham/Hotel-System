@@ -10,8 +10,8 @@ export class FacilitiesService {
   constructor(private _HttpClient: HttpClient) { }
 
 
-  gitAllFacilities(data: any): Observable<any> {
-    return this._HttpClient.get('/admin/room-facilities', data);
+  gitAllFacilities(): Observable<any> {
+    return this._HttpClient.get('/admin/room-facilities');
   }
 
 }

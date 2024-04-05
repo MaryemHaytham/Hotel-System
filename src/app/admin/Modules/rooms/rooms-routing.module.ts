@@ -6,7 +6,7 @@ import { AddEditRoomsComponent } from './components/add-edit-rooms/add-edit-room
 const routes: Routes = [
   { path: '', component: RoomsComponent },
   { path: 'add', component: AddEditRoomsComponent, title: 'add' },
-  { path: 'edit', component: AddEditRoomsComponent, title: 'edit' },
+  { path: 'edit/:id', component: AddEditRoomsComponent, title: 'edit' },
 
 ];
 

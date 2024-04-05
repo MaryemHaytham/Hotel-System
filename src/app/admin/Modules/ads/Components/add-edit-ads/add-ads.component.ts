@@ -40,7 +40,6 @@ export class AddAdsComponent implements OnInit {
   onSubmit(): void {
     if (this.addAdsForm.valid) { 
       const formData = this.addAdsForm.value;
-  
       if (this.adsId) {
         this._AdsService.onEditAds(this.adsId, formData).subscribe({
           next: (res) => {

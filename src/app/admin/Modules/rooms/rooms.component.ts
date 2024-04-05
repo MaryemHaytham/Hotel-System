@@ -6,6 +6,8 @@ import { DeleteAdsComponent } from 'src/app/shared/delete/delete-ads.component';
 import { FacilitiesService } from '../../services/facilities/facilities.service';
 import { Router } from '@angular/router';
 import { IRoom } from 'src/app/core/model/room';
+import { DeleteRoomComponent } from 'src/app/shared/delete-room/delete-room.component';
+// import { DeleteRoomComponent } from './../../../shared/delete-room/delete-room.component';
 
 @Component({
   selector: 'app-rooms',
@@ -84,7 +86,7 @@ export class RoomsComponent implements OnInit {
 
   openDeleteRoomDialog(dataRoom: any): void {
     console.log(dataRoom)
-    const dialogRef = this.dialog.open(DeleteAdsComponent, {
+    const dialogRef = this.dialog.open(DeleteRoomComponent, {
       data: dataRoom,
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -92,7 +94,9 @@ export class RoomsComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(dataRoom._id, dataRoom.roomNumber);
       if (result) {
+        console.log(result, dataRoom.roomNumber);
         this.deleteBooking(result, dataRoom.roomNumber)
+
       }
       console.log(dataRoom._id, dataRoom.roomNumber);
       console.log(result)

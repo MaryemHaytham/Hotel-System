@@ -1,50 +1,78 @@
 
 <section >
     <div>
-      <div class="container">
+      <!-- <div class="container">
        
-        <div id="home" class="row align-items-center justify-content-between row_height">
+        <div id="home" class="row align-items-center justify-content-between">
           <div class="col-6 text-white">
-            <h2 class="my-5"><span>Welcome</span><span class="lead mx-3 text-name">Manager</span></h2>
-            <p class="my-5">You can manage all about Staycation hotel</p>
+            <h2 class=""><span>Welcome</span><span class="lead mx-3 text-name">Manager</span></h2>
+            <p class="my-5=">You can manage all about Staycation hotel</p>
           </div>
           <div class="col-6 text-end ">
-            <img src="../../../../assets/images/1685.jpg" class="w-50 rounded-circle" alt="">
+            <img src="../../../../assets/images/1685.jpg" class="width-img rounded-circle" alt="">
         </div>
   
+        </div>
+      </div> -->
+    </div>
+    <div class="container-card">
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-4">
+          <div class="counter-card">
+            <div class="card-body">
+              <i class="fas fa-users"></i>
+              <h5 class="card-title">User Count</h5>
+              <p class="card-text">{{ userCount }}</p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-3 mb-4">
+          <div class="counter-card">
+            <div class="card-body">
+              <i class="fas fa-user-shield"></i>
+              <h5 class="card-title">Admin Count</h5>
+              <p class="card-text">{{ adminCount }}</p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-3 mb-4">
+          <div class="counter-card">
+            <div class="card-body">
+              <i class="fas fa-clipboard-list"></i>
+              <h5 class="card-title">Pending Bookings</h5>
+              <p class="card-text">{{ pendingBookings }}</p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-3 mb-4">
+          <div class="counter-card">
+            <div class="card-body">
+              <i class="fas fa-check-circle"></i>
+              <h5 class="card-title">Completed Bookings</h5>
+              <p class="card-text">{{ completedBookings }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  
-<!--   
-  
-    <div class="mt-5" [ngClass]="{'d-none': rols=='Employee',}">
-      <div class="container">
-        <div class="row justify-content-evenly align-items-end">
-            <div class="col-4 by_chart">
-                <h3 class="py-2">Users Chart</h3>
-                <canvas id="canvas">{{chart}}</canvas>
-              </div>
-          <div class="col-4 by_chart">
-            <h3 class="py-2">Users Chart.</h3>
-            <canvas id="newCanvas">{{newChart}}</canvas>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class=" text-center">-Booking</h4>
+          <canvas id="bookingChart" class=" text-center">{{chart}}</canvas>
         </div>
-        <div class="row justify-content-evenly align-items-center mt-4 px-5 by_chart w-75 mx-auto">
-          <div class="col-4 ">
-            <h3 class="py-2">
-              - All Data Info in website.
-            </h3>
-            <p class="py-4 h5">
-              you can check all data from this digram.
-            </p>
-          </div>
-          <div class="col-8 ">
-            <canvas id="allData">{{allDataNewChart}}</canvas>
-          </div>
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-4 ">
+          <h4 class="text-center pb-5">-Users and Admins</h4>
+          <canvas id="usersChart" class=" h-75">{{newChart}}</canvas>
         </div>
       </div>
-  
-    </div> -->
-  
+    </div>
+    
+    
   </section> 

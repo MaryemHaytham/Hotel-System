@@ -20,12 +20,13 @@ onDeleteAds(id:number):Observable<any>{
   return this._HttpClient.delete(`/admin/ads/${id}`)
 }
 getAdsById(id:number) :Observable<any>{
-  return this._HttpClient.get(`/admin/ads${id}`)
+  return this._HttpClient.get(`/admin/ads/${id}`)
 
 }
 onEditAds(id:number,data:any):Observable<any>{
-  return this._HttpClient.put(`/admin/ads${id}`,data)
+  return this._HttpClient.put(`/admin/ads/${id}`,data)
 
 }
+
 
 }

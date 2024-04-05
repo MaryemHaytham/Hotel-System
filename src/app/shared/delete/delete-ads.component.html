@@ -10,7 +10,7 @@
 
   </div>
   <div class="text-end">
-    <button mat-button class="btn btn-outline-danger" [mat-dialog-close]="data._id"> 
+    <button mat-button class="btn btn-outline-danger" [mat-dialog-close]="data._id">
       <span class="me-2"><i class="fa-solid fa-trash"></i></span>Delete
     </button>
   </div>
@@ -27,7 +27,7 @@
     <img src="../../../../../../assets/images/Delete-image.png" alt="">
 
     <h2 ngClass="data.name.length==0?visually-hidden:d-block">
-      <p>are you sure you want</p> Delete (<span class="text-main">{{data.roomName}}
+      <p>are you sure you want</p> Delete (<span class="text-danger">
         {{data.room.roomNumber}}
       </span>) ?
     </h2>

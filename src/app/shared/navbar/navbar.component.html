@@ -1,59 +1,31 @@
 <section>
-    <div class="navbar mt-1">
-     <div class="search-bar w-50">
-        <div class="input-group flex-nowrap ms-2">
-            <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
-            <input type="text" class="form-control" placeholder="Search here">
-          </div>
-     </div>
-     <div class="user d-flex justify-content-end align-items-center me-4">
-        <img src="../../../assets/images/testimonial-4.jpg" class="picture">
-        <h6 class="ps-2 pt-2">{{userName}}</h6>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon> <span class="material-symbols-outlined">
-                expand_more
-                </span></mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-               <mat-icon><span class="material-symbols-outlined icon">
-                lock_open
-                </span></mat-icon> 
-            <span class="">Change password</span>
-            </button>
-            <button mat-menu-item (click)="logOut()">
-                <mat-icon><span class="material-symbols-outlined icon">logout</span></mat-icon>
-            <span class="">Logout</span>
-            </button>
-          </mat-menu>
-     </div>
-    </div>
-    <div class="user d-flex justify-content-end align-items-center me-4">
-      <img src="../../../assets/images/avatar.png" class="picture">
+  <div class="navbar mt-1">
+   <div class="search-bar w-50">
+      <div class="input-group flex-nowrap ms-2">
+          <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+          <input type="text" class="form-control" placeholder="Search here">
+        </div>
+   </div>
+   <div class="user d-flex justify-content-end align-items-center me-4">
+      <img src="../../../assets/images/testimonial-4.jpg" class="picture">
       <h6 class="ps-2 pt-2">{{userName}}</h6>
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon> <span class="material-symbols-outlined">
-            expand_more
-          </span></mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon><span class="material-symbols-outlined icon">
-              person
-            </span></mat-icon>
-          <span class="">Profile</span>
+          <mat-icon> <span class="material-symbols-outlined">
+              expand_more
+              </span></mat-icon>
         </button>
-        <button mat-menu-item>
-          <mat-icon><span class="material-symbols-outlined icon">
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+             <mat-icon><span class="material-symbols-outlined icon">
               lock_open
-            </span></mat-icon>
+              </span></mat-icon> 
           <span class="">Change password</span>
-        </button>
-        <button mat-menu-item (click)="logOut()">
-          <mat-icon><span class="material-symbols-outlined icon">logout</span></mat-icon>
+          </button>
+          <button mat-menu-item (click)="logOut()">
+              <mat-icon><span class="material-symbols-outlined icon">logout</span></mat-icon>
           <span class="">Logout</span>
-        </button>
-      </mat-menu>
-    </div>
+          </button>
+        </mat-menu>
+   </div>
   </div>
 </section>

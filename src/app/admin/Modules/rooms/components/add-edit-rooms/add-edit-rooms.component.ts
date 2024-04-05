@@ -57,12 +57,24 @@ export class AddEditRoomsComponent {
     roomData.value.id = this.roomId
     let myData = new FormData();
     myData.append('roomNumber', roomData.value.roomNumber)
-    myData.append('name', roomData.value.name)
+    // myData.append('name', roomData.value.name)
     myData.append('price', roomData.value.price)
     myData.append('capacity', roomData.value.capacity)
-    myData.append('imgs', this.imgSrc)
+
+    for (let img = 0; img < this.imgSrc.length; img++) {
+      myData.append('imgs', this.imgSrc[img], this.imgSrc[img].name);
+    }
+
     myData.append('discount', roomData.value.discount)
-    myData.append('facilities', roomData.value.facilities)
+
+    for (let j = 0; j < roomData.value.facilities.length; j++) {
+      myData.append('facilities', roomData.value.facilities[j])
+    }
+
+
+
+    // myData.append('facilities', roomData.value.facilities)
+    // myData.append('facilities', roomData.value.facilities)
 
     if (this.roomId) {
       myData.append('id', roomData.value.id)
@@ -117,6 +129,7 @@ export class AddEditRoomsComponent {
           price: this.roomData.price,
           capacity: this.roomData.capacity,
           discount: this.roomData.discount,
+          imgs: this.roomData.imgs,
           facilities: this.roomData.facilities.map((x: any) => x._id)
         })
       }

@@ -44,4 +44,8 @@ export class AuthService {
     this._Router.navigateByUrl('/auth/login')
   }
 
+  onUserChangePassword(data:any){
+    return this._HttpClient.put('/admin/users/change-password', data)
+  }
+
 }

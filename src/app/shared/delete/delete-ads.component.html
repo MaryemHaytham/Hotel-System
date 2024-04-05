@@ -27,12 +27,10 @@
     <img src="../../../../../../assets/images/Delete-image.png" alt="">
 
     <h2 ngClass="data.name.length==0?visually-hidden:d-block">
-      <p>are you sure you want</p> Delete (<span class="text-danger">
-        {{data.room.roomNumber}}
-      </span>) ?
+      <p>Are you sure you want Delete this item ?
     </h2>
 
-    <p> if you are sure just click on delete it</p>
+    <p> If you are sure just click on delete it</p>
 
     <p class=" d-block"></p>
   </div>
@@ -40,7 +38,7 @@
   <div class="d-flex flex-row-reverse">
 
     <button [mat-dialog-close]="data._id" type="submit" class="btn btn-outline-danger my-2 ">
-      Delete this item
+      Delete
     </button>
 
   </div>

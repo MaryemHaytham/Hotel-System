@@ -59,7 +59,8 @@
       </div>
 
       <div class="justify-content-center align-items-center col-9 mx-auto">
-        <ngx-dropzone (change)="onSelect($event)" class="col-12">
+
+        <ngx-dropzone (change)="onSelect($event)" class="col-12" [multiple]="true">
           <ngx-dropzone-label>
             <i class="fa-solid fa-upload"></i>
             <p>

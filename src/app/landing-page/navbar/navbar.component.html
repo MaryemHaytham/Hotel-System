@@ -1,1 +1,36 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-center">
+  <div class="container">
+    <div>
+      <h1 routerLink="/landing-page/home" class="logo style-font  mt-2"><span class="main-text mt-5">Stay</span>cation.
+      </h1>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center">
+
+        <li class="nav-item">
+          <a class="nav-link navbar-text" routerLink="/landing-page/home" routerLinkActive="routerActive">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navbar-text" routerLink="/landing-page/explore" routerLinkActive="routerActive">Explore</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link navbar-text" routerLink="/landing-page/reviews" routerLinkActive="routerActive">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navbar-text" routerLink="/landing-page/favorites"
+            routerLinkActive="routerActive">Favorites</a>
+        </li>
+
+        <div class="col-4 ms-3">
+          <button class="btn light-blue add-button" [routerLink]="'../'">Login Now</button>
+        </div>
+      </ul>
+
+    </div>
+  </div>
+</nav>

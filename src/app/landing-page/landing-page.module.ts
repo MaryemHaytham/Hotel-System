@@ -5,7 +5,8 @@ import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { LandingPageComponent } from './landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
+// import { HomeComponent } from './home/home.component';
+import { ExploreComponent } from './explore/explore.component';
 
 
 @NgModule({
@@ -13,11 +14,11 @@ import { HomeComponent } from './home/home.component';
     LandingPageComponent,
     NavbarComponent,
     FooterComponent,
-    HomeComponent
+    // HomeComponent,
   ],
   imports: [
     CommonModule,
-    LandingPageRoutingModule
+    LandingPageRoutingModule,
   ]
 })
 export class LandingPageModule { }

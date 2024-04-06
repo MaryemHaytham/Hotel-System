@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   hideConfirmPass = true;
   profileImgValue: any
   role :string ='user';
-  constructor(private _helper: HelperService, private _AuthService: AuthService, private _Router: Router){}
+  constructor(private _helper: HelperService, private _AuthService: AuthService, private _Router: Router,private _ToastrService: ToastrService){}
 
   ngOnInit(): void {
 
@@ -54,11 +54,12 @@ export class RegisterComponent implements OnInit {
       next: (response) => {
         
 
-      }, error: (error) => {
-        
+      }, error: (err) => {
+        this._ToastrService.error(err.error.message,'Error')
       
       }, complete: () => {
         this._Router.navigate(['/auth/login'])
+        this._ToastrService.success('You successfully Registered','Success')
       },
     })
   }

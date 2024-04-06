@@ -3,6 +3,7 @@ import { AuthService } from './../../services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/core/service/helper.service';
+import { ToastrService } from 'ngx-toastr';
 export const RegxPassword: RegExp = /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 
@@ -19,7 +20,7 @@ export class LoginComponent {
   see: boolean = true;
 
 
-  constructor(private _AuthService: AuthService, private _Router: Router, private _helper: HelperService) { }
+  constructor(private _AuthService: AuthService, private _Router: Router, private _helper: HelperService,private _ToastrService: ToastrService) { }
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -35,10 +36,11 @@ export class LoginComponent {
       next: (response) => {
         localStorage.setItem('userToken', response.data.token);
         this._AuthService.getProfile();
-      }, error: (error) => {
-        console.log(error)
+      }, error: (err) => {
+        this._ToastrService.error(err.error.message,'Error')
       }, complete: () => {
         this._Router.navigate(["admin"])
+        this._ToastrService.success('You successfully Loggedin','Success')
       }
     })
   }

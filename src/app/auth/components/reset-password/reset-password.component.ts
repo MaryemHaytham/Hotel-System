@@ -13,7 +13,7 @@ export const RegxPassword: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?
 export class ResetPasswordComponent implements OnInit {
   hide:boolean=true;
   hiden:boolean=true;
-  constructor(private _AuthService:AuthService,private _Router:Router,private _helper:HelperService){}
+  constructor(private _AuthService:AuthService,private _Router:Router,private _helper:HelperService,private _ToastrService: ToastrService){}
   ngOnInit(): void {
     
   }
@@ -35,6 +35,7 @@ onSubmit(data:FormGroup){
     },
     complete:()=>{
       this._Router.navigateByUrl('/auth/login')
+      this._ToastrService.success('Your Password Changed Successfully','Success')
     }
   })
 }

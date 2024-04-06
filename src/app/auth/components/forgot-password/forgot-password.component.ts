@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-constructor(private _AuthService:AuthService, private _Router:Router){}
+constructor(private _AuthService:AuthService, private _Router:Router,private _ToastrService:ToastrService){}
 ngOnInit(): void {
   
 }
@@ -27,6 +28,7 @@ onSubmit(data:FormGroup){
     },
     complete:()=>{
       this._Router.navigateByUrl('/auth/reset-password')
+      this._ToastrService.success('Email Reset Successfully','Success')
     }
   })
 }

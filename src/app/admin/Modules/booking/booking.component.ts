@@ -94,7 +94,7 @@ export class BookingComponent implements OnInit {
         this._ToastrService.error(`error in deleted Pross!`);
       }, complete: () => {
         this.getBooking();
-        this._ToastrService.success(`The Recipe was deleted successfully`);
+        this._ToastrService.info('Deleted Successfuly')
       }
     })
   }

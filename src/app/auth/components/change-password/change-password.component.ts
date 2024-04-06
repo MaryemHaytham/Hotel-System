@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-change-password',
@@ -20,7 +21,7 @@ export class ChangePasswordComponent {
 
   })
 
-  constructor(private _router:Router,private _AuthServiceService:AuthService){}
+  constructor(private _router:Router,private _AuthServiceService:AuthService,private _ToastrService: ToastrService){}
 
   onSubmit(data:FormGroup){
     console.log(data.value);
@@ -35,6 +36,7 @@ export class ChangePasswordComponent {
       },
       complete:()=>{
         this._AuthServiceService.myLogout();
+        this._ToastrService.success('Your Password Changed Successfully','Success')
         
       }
     })

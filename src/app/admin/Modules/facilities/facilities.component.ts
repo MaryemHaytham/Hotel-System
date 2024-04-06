@@ -5,6 +5,7 @@ import { AddFacilitieComponent } from './add-facilitie/add-facilitie/add-facilit
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteAdsComponent } from 'src/app/shared/delete/delete-ads.component';
 import { ViewFacilitieComponent } from './view-facilitie/view-facilitie/view-facilitie.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-facilities',
@@ -21,7 +22,7 @@ export class FacilitiesComponent implements OnInit{
   tableData:any;
   totalCount:any
   
-  constructor(private _FacilitiesService:FacilitiesService,private dialog:MatDialog){}
+  constructor(private _FacilitiesService:FacilitiesService,private dialog:MatDialog,private _ToastrService: ToastrService){}
   ngOnInit(): void {
     this.getFacilities()
   }
@@ -69,6 +70,7 @@ export class FacilitiesComponent implements OnInit{
       },
       complete:()=>{
         this.getFacilities()
+        this._ToastrService.success('Added Successfuly')
       }
     })
   }
@@ -93,6 +95,7 @@ newEditFailities(name:string, id:string){
       console.log(err)
     },complete:()=>{
     this.getFacilities()
+    this._ToastrService.success('Updated Successfuly')
     }
   })
   }
@@ -123,6 +126,7 @@ newEditFailities(name:string, id:string){
       },
       complete:()=>{
         this.getFacilities()
+        this._ToastrService.info('Deleted Successfuly')
       }
     })
   }

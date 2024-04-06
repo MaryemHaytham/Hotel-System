@@ -20,8 +20,8 @@
               </div>
               <mat-error *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
                 class="text-red m-0 mx-auto p-0 text-start block mt-1">
-                <span class="text-red p-0" *ngIf="loginForm.get('email')?.getError('required')">email is
-                  Required</span><br>
+                <span class="text-red p-0" *ngIf="loginForm.get('email')?.getError('required')">Email is
+                  required</span><br>
               </mat-error>
             </div>
             <div class="form-item mt-3">

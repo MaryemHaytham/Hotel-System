@@ -9,7 +9,7 @@ export class FacilitiesService {
 
   constructor(private _HttpClient:HttpClient) { }
   getAllFacilities(data:any):Observable<any>{
-    return this._HttpClient.get('/admin/room-facilities',data)
+    return this._HttpClient.get('/admin/room-facilities',{params :data})
   }
   addNewFacilitie(data:string):Observable<any>{
     return this._HttpClient.post('/admin/room-facilities',{name:data})

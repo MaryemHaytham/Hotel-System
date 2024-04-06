@@ -21,6 +21,7 @@ export class AuthService {
     let decode: any = jwtDecode(encoded);
     console.log(decode);
     localStorage.setItem('userRole', decode.role);
+    localStorage.setItem('userName', decode.role);
   }
 
 
@@ -45,7 +46,7 @@ export class AuthService {
   }
 
   onUserChangePassword(data:any){
-    return this._HttpClient.put('/admin/users/change-password', data)
+    return this._HttpClient.post('/admin/users/change-password', data)
   }
 
 }

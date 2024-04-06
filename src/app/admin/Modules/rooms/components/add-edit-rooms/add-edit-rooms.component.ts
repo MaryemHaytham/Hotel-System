@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 // import { RoomsService } from 'src/app/admin/services/rooms/rooms.service';
+import { ToastrService } from 'ngx-toastr';
 import { HelperService } from 'src/app/core/service/helper.service';
 import { FacilitiesService } from '../../../../services/facilities/facilities.service';
 import { RoomsService } from 'src/app/admin/services/rooms/rooms.service';
@@ -15,7 +16,7 @@ import { RoomsService } from 'src/app/admin/services/rooms/rooms.service';
 
 export class AddEditRoomsComponent {
 
-  constructor(private _HelperService: HelperService, private _RoomsService: RoomsService, private dialog: MatDialog, private _Router: Router, private _ActivatedRoute: ActivatedRoute, private _FacilitiesService: FacilitiesService) {
+  constructor(private _HelperService: HelperService, private _RoomsService: RoomsService, private dialog: MatDialog, private _Router: Router, private _ActivatedRoute: ActivatedRoute, private _FacilitiesService: FacilitiesService, private _ToastrService: ToastrService) {
     this.roomId = _ActivatedRoute.snapshot.params['id'];
     // console.log(this.roomId)
   }
@@ -91,10 +92,10 @@ export class AddEditRoomsComponent {
         this.onAddRoomMessag = response.message;
         console.log(response.message)
       }, error: (err) => {
-        // this._ToastrService.error('error !')
+        this._ToastrService.error('error !')
       }, complete: () => {
-        // this._ToastrService.success(`${this.onAddRoomMessag}`);
-        this._Router.navigate(['dmain/rooms'])
+        this._ToastrService.success(`${this.onAddRoomMessag}`);
+        this._Router.navigate(['/admin/rooms'])
       },
     })
   }
@@ -107,10 +108,10 @@ export class AddEditRoomsComponent {
         this.onAddRoomMessag = response.message;
         console.log(response.message)
       }, error: (err) => {
-        // this._ToastrService.error('error !')
+        this._ToastrService.error('error !')
       }, complete: () => {
-        // this._ToastrService.success(`${this.onAddRoomMessag}`);
-        this._Router.navigate(['admin/room']);
+        this._ToastrService.success(`${this.onAddRoomMessag}`);
+        this._Router.navigate(['/admin/rooms']);
       },
     })
   }
@@ -122,7 +123,8 @@ export class AddEditRoomsComponent {
         console.log(res.data.room);
       }, error: () => {
       }, complete: () => {
-
+        // let arr: any[] = [...this.roomData.facilities]
+        // this.ids = arr.map(x => x._id);
 
         this.roomForm.patchValue({
           roomNumber: this.roomData.roomNumber,

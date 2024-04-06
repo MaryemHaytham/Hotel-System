@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone'
 import { MatDialogModule } from '@angular/material/dialog';
-import { ToastrModule } from 'ngx-toastr';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -34,7 +33,6 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
     RouterLinkActive,
     NgxDropzoneModule,
     MatDialogModule,
-    ToastrModule.forRoot(),
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
@@ -52,7 +50,6 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
     RouterLinkActive,
     NgxDropzoneModule,
     MatDialogModule,
-    ToastrModule,
     MatInputModule,
     NavbarComponent,
     SidebarComponent,

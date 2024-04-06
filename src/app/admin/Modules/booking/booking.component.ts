@@ -6,6 +6,7 @@ import { DeleteAdsComponent } from 'src/app/shared/delete/delete-ads.component';
 
 import { ViewComponent } from './components/view/view.component';
 import { BookinService } from '../../services/booking/bookin.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-booking',
@@ -16,7 +17,7 @@ import { BookinService } from '../../services/booking/bookin.service';
 export class BookingComponent implements OnInit {
 
 
-  constructor(private _BookinService: BookinService, private dialog: MatDialog, private _Router: Router) { }
+  constructor(private _BookinService: BookinService, private dialog: MatDialog, private _Router: Router, private _ToastrService: ToastrService) { }
 
 
 
@@ -90,10 +91,10 @@ export class BookingComponent implements OnInit {
       next: (res) => {
       }, error: (error) => {
 
-        // this._ToastrService.error(`error in deleted Pross!`);
+        this._ToastrService.error(`error in deleted Pross!`);
       }, complete: () => {
         this.getBooking();
-        // this._ToastrService.success(`The Recipe was deleted successfully`);
+        this._ToastrService.success(`The Recipe was deleted successfully`);
       }
     })
   }

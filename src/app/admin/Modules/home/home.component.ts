@@ -7,35 +7,35 @@ import Chart from 'chart.js/auto'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   userCount: number = 0;
   adminCount: number = 0;
   pendingBookings: number = 0;
   completedBookings: number = 0;
-  rooms:number=0
-  facilities :number=0
-  ads:number=0
+  rooms: number = 0
+  facilities: number = 0
+  ads: number = 0
   userAdminChart: any;
   bookingStatusChart: any;
-  RoomsAndFacilities:any;
+  RoomsAndFacilities: any;
   chart: any = [];
   newChart: any = [];
-  userAndAdminChart:any=[]
-  
-  constructor(private _HomeService:HomeService) { }
+  userAndAdminChart: any = []
+
+  constructor(private _HomeService: HomeService) { }
 
 
   ngOnInit(): void {
     this.fetchData();
     this.bookingChart();
     this.usersChart();
-    
-    
+
+
   }
   fetchData() {
     this._HomeService.getCharts().subscribe({
-      next:(response)=>{
+      next: (response) => {
         this.rooms = response.data.rooms;
         this.facilities = response.data.facilities;
         this.pendingBookings = response.data.bookings.pending;
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit{
         this.ads = response.data.ads;
         this.userCount = response.data.users.user;
         this.adminCount = response.data.users.admin;
-      },error:(err)=>{
+      }, error: (err) => {
         console.error('Error fetching dashboard data:', err);
 
       }
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit{
     });
   }
 
-  
-  
+
+
 }
 

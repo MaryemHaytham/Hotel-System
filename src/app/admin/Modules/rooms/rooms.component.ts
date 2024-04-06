@@ -7,7 +7,9 @@ import { FacilitiesService } from '../../services/facilities/facilities.service'
 import { Router } from '@angular/router';
 import { IRoom } from 'src/app/core/model/room';
 import { DeleteRoomComponent } from 'src/app/shared/delete-room/delete-room.component';
+import { ToastrService } from 'ngx-toastr';
 // import { DeleteRoomComponent } from './../../../shared/delete-room/delete-room.component';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-rooms',
@@ -17,7 +19,7 @@ import { DeleteRoomComponent } from 'src/app/shared/delete-room/delete-room.comp
 export class RoomsComponent implements OnInit {
 
 
-  constructor(private _RoomsService: RoomsService, private dialog: MatDialog, private _FacilitiesService: FacilitiesService, private _Router: Router) { }
+  constructor(private _RoomsService: RoomsService, private dialog: MatDialog, private _FacilitiesService: FacilitiesService, private _Router: Router, private _ToastrService: ToastrService) { }
 
 
 
@@ -113,7 +115,7 @@ export class RoomsComponent implements OnInit {
         this.getRooms();
         console.log("completed");
 
-        // this._ToastrService.success(`The Recipe was deleted successfully`);
+        this._ToastrService.success(`The Recipe was deleted successfully`);
       }
     })
   }

@@ -14,23 +14,28 @@ import { ViewFacilitieComponent } from './view-facilitie/view-facilitie/view-fac
 export class FacilitiesComponent implements OnInit{
   length = 50;
   pageSize = 5;
-  pageIndex =1;
-  pageSizeOptions = [5,10,15];
+  pageIndex = 1;
+  pageSizeOptions = [5, 10, 25];
   pageEvent :PageEvent|any;
   tableFacilities:any[]=[];
   tableData:any;
+  totalCount:any
+  
   constructor(private _FacilitiesService:FacilitiesService,private dialog:MatDialog){}
   ngOnInit(): void {
     this.getFacilities()
   }
   getFacilities(){
     let params={
+      pageSize: this.pageSize,
+      pageNumber: this.pageIndex,
 
     }
     this._FacilitiesService.getAllFacilities(params).subscribe({
       next:(res)=>{
         console.log(res)
       this.tableFacilities=res;
+      this.totalCount = res.data.totalCount;
       this.tableData=res.data.facilities;
       },
       error:(err)=>{
@@ -150,11 +155,14 @@ viewFacilitie(id:any){
   })
 
 }
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
-  }
+handlePageEvent(e: PageEvent) {
+  console.log(e);
+  this.pageEvent = e;
+  this.length = e.length;
+  this.pageSize = e.pageSize;
+  this.pageIndex = e.pageIndex + 1;
+  this.getFacilities();
+}
+
 
 }

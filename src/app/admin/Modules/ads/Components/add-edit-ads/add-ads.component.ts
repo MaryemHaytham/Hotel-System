@@ -90,7 +90,7 @@ export class AddAdsComponent implements OnInit {
 
         this.addAdsForm.patchValue({
           discount: this.adsData.room.discount,
-          room:this.adsData.room,
+          room:this.adsData.room.roomNumber,
           isActive:this.adsData.isActive,
 
         

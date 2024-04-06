@@ -11,7 +11,7 @@ export class RoomsService {
 
 
   gitAllRooms(data: any): Observable<any> {
-    return this._HttpClient.get('/admin/rooms', data)
+    return this._HttpClient.get('/admin/rooms', {params :data})
   }
 
   gitRoomById(id: number): Observable<any> {

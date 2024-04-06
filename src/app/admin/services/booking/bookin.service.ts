@@ -11,7 +11,7 @@ export class BookinService {
 
 
   gitAllBooking(data: any): Observable<any> {
-    return this._HttpClient.get('/admin/booking', data)
+    return this._HttpClient.get('/admin/booking', {params :data})
   }
 
   gitBookingId(id: number): Observable<any> {

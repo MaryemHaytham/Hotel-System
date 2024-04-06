@@ -34,6 +34,7 @@ export class AddEditRoomsComponent {
   imgSrc: any;
   onAddRoomMessag: string = '';
   roomData: any;
+  totalCount:any
 
 
   ngOnInit(): void {
@@ -88,7 +89,7 @@ export class AddEditRoomsComponent {
       }, error: (err) => {
         this._ToastrService.error('error !')
       }, complete: () => {
-        this._ToastrService.success(`${this.onAddRoomMessag}`);
+        this._ToastrService.success('Added Successfully');
         this._Router.navigate(['/admin/rooms'])
       },
     })
@@ -104,7 +105,7 @@ export class AddEditRoomsComponent {
       }, error: (err) => {
         this._ToastrService.error('error !')
       }, complete: () => {
-        this._ToastrService.success(`${this.onAddRoomMessag}`);
+        this._ToastrService.success("Updated Successfully");
         this._Router.navigate(['/admin/rooms']);
       },
     })
@@ -117,9 +118,6 @@ export class AddEditRoomsComponent {
         console.log(res.data.room);
       }, error: () => {
       }, complete: () => {
-        // let arr: any[] = [...this.roomData.facilities]
-        // this.ids = arr.map(x => x._id);
-
         this.roomForm.patchValue({
           roomNumber: this.roomData.roomNumber,
           price: this.roomData.price,

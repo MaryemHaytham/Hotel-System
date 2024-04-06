@@ -50,6 +50,7 @@
     </tbody>
 
   </table>
-  <mat-paginator [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions"
-    (page)="handlePageEvent($event)" aria-label="Select page">
-  </mat-paginator>
+  <mat-paginator [length]="totalCount" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)"
+    aria-label="Select page">
+</mat-paginator>

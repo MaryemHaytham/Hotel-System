@@ -1,8 +1,8 @@
 <section id="add-ads">
   <div class="row  py-5">
     <div class="col-8">
-        <h2>Add an ads</h2>
-        <p>You can add ads from here</p>
+        <h2>Ads form details</h2>
+        <p>You can add and edit ads from here</p>
     </div>
     <div class="col-4 text-end ">
       <button class="btn light-blue p-2 px-4 text-white " routerLink="/admin/ads">Back</button>
@@ -17,12 +17,12 @@
                 <div>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Room name</mat-label>
-                    <mat-select formControlName="room" (selectionChange)="getAllRooms()">
+
+                    <mat-select matNativeControl formControlName="room" (selectionChange)="getAllRooms()" [disabled]="adsId?true:false">
                       <mat-option>All</mat-option>
-                      <mat-option  *ngFor="let data of roomName" [value]="data._id">{{data.roomNumber}}</mat-option>
+                      <mat-option *ngFor="let data of roomName" [value]="data._id">{{data.roomNumber}}</mat-option>
                     </mat-select >
                   </mat-form-field>
-                  
                 </div>
                   <div class="input-group mb-3">
                       <input formControlName="discount" type="number" class="form-control" name="price" placeholder="Price" aria-label="Username" aria-describedby="basic-addon1">

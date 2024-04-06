@@ -4,6 +4,7 @@ import { AdsService } from '../../services/ads-service/ads.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddAdsComponent } from './Components/add-edit-ads/add-ads.component';
 import { DeleteAdsComponent } from '../../../shared/delete/delete-ads.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ads',
@@ -22,7 +23,7 @@ export class AdsComponent implements OnInit {
   totalCount:any
   
 
-  constructor(private _AdsService: AdsService, private dialog: MatDialog,) { }
+  constructor(private _AdsService: AdsService, private dialog: MatDialog,private _ToastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getAds();
@@ -56,6 +57,7 @@ export class AdsComponent implements OnInit {
 
       },complete:()=> {
           this.getAds();
+          this._ToastrService.info('Deleted Successfuly')
           
       },
     })

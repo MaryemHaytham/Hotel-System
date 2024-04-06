@@ -114,8 +114,7 @@ export class RoomsComponent implements OnInit {
       }, complete: () => {
         this.getRooms();
         console.log("completed");
-
-        this._ToastrService.success(`The Recipe was deleted successfully`);
+        this._ToastrService.info('Deleted Successfuly')
       }
     })
   }

@@ -13,26 +13,29 @@ export class UsersComponent implements OnInit{
 
   constructor(private _UsersService:UsersService,private dialog:MatDialog){}
   length = 20;
-  pageSize = 10;
+  pageSize = 5;
   pageIndex =0;
   pageNumber=1;
   pageSizeOptions = [5,10];
   pageEvent :PageEvent|any;
   tableUsersData:any[]=[];
   tableData: any;
+  totalCount :any;
   ngOnInit(): void {
     this.getallUsers()
   }
 getallUsers(){
   let params = {
-    pageSize: this.pageSize,
-    pageNumber: this.pageNumber,
+    size: this.pageSize,
+    page: this.pageNumber,
   }
   this._UsersService.getAllUsers(params).subscribe({
     next:(res)=>{
       console.log(res);
       this.tableUsersData=res;
       this.tableData=res.data.users;
+      this.totalCount = res.data.totalCount;
+      
       console.log(this.tableUsersData)
     },
     error:(err)=>{

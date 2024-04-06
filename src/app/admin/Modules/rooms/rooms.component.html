@@ -5,42 +5,9 @@
       <p>You Can cheak all details</p>
     </div>
     <div class="col-4 text-end">
-      <button class="btn light-blue p-2 text-white" (click)="addRoom()">Add new Room</button>
+      <button class="btn light-blue add-button text-white" (click)="addRoom()">Add new Room</button>
     </div>
   </div>
-
-  <!-- <div class=" d-flex gap-3">
-    <div class="d-flex align-items-center justify-content-between w-50">
-      <div class="form-item input-group mb-4">
-        <span (click)="getRooms()" class="input-group-text px-3 py-3 myPointer" id="basic-addon1"><i
-            class="fa-solid fa-magnifying-glass"></i></span>
-        <div class="y-line my-auto"></div>
-        <input [(ngModel)]="searchKey" (keyup.enter)="getRooms()" type="text"
-          class="form-control rounded-end py-1 block" placeholder="search by name" aria-label="Username"
-          aria-describedby="basic-addon1">
-      </div>
-    </div>
-
-    <div class="selectors">
-      <mat-form-field appearance="outline">
-        <mat-label>Tags</mat-label>
-        <mat-select [(ngModel)]="tagId" (selectionChange)="getRooms()">
-          <mat-option>All</mat-option>
-          <mat-option *ngFor="let item of tableResponse" [value]="item._id">{{item.roomNumber}}</mat-option>
-        </mat-select>
-        <mat-icon matSuffix color="primary">sell</mat-icon>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="ms-4">
-        <mat-label>Facilities</mat-label>
-        <mat-select [(ngModel)]="facilitiesId" (selectionChange)="getRooms()">
-          <mat-option>All</mat-option>
-          <mat-option *ngFor="let item of tableFacilities" [value]="item._id">{{item.name}}</mat-option>
-        </mat-select>
-        <mat-icon matSuffix color="primary">storefront</mat-icon>
-      </mat-form-field>
-    </div>
-  </div> -->
-
   <table class="table text-center">
     <thead>
       <tr>
@@ -85,6 +52,7 @@
     </tbody>
 
   </table>
-  <mat-paginator [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions"
-    (page)="handlePageEvent($event)" aria-label="Select page">
-  </mat-paginator>
+  <mat-paginator [length]="totalCount" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)"
+    aria-label="Select page">
+</mat-paginator>

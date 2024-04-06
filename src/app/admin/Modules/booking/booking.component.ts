@@ -27,7 +27,7 @@ export class BookingComponent implements OnInit {
 
 
   searchKey: string = '';
-  length = 50;
+  length = 20;
   pageSize = 5;
   pageIndex = 1;
   pageSizeOptions = [5, 10, 25];
@@ -36,6 +36,7 @@ export class BookingComponent implements OnInit {
   tableResponse: any;
   tagId: number = 0;
   facilitiesId: number = 0;
+  totalCount:any
 
   openViewDialog(dataBooking: any): void {
     console.log(dataBooking)
@@ -49,8 +50,8 @@ export class BookingComponent implements OnInit {
 
   getBooking() {
     let paramsApi = {
-      pageSize: this.pageSize,
-      pageNumber: this.pageIndex,
+      size: this.pageSize,
+      page: this.pageIndex,
       name: this.searchKey,
       tagId: this.tagId > 0 ? this.tagId : 0,
       facilitiesId: this.facilitiesId
@@ -60,17 +61,20 @@ export class BookingComponent implements OnInit {
         console.log(res);
         this.tableResponse = res;
         this.tableData = res.data.booking;
+        this.totalCount=res.data.totalCount
+
       }
     })
   }
 
   handlePageEvent(e: PageEvent) {
+    console.log(e);
     this.pageEvent = e;
     this.length = e.length;
     this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+    this.pageIndex = e.pageIndex + 1;
+    this.getBooking();
   }
-
   openDeleteBookingDialog(dataBooking: any): void {
     console.log(dataBooking)
     const dialogRef = this.dialog.open(DeleteAdsComponent, {

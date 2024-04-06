@@ -65,8 +65,8 @@ export class AdsComponent implements OnInit {
 
   getAds() {
     let paramsApi = {
-      pageSize: this.pageSize,
-      pageNumber: this.pageIndex,
+      size: this.pageSize,
+      page: this.pageIndex,
 
     }
     this._AdsService.getAllAds(paramsApi).subscribe({

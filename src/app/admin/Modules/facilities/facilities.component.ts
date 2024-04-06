@@ -28,8 +28,8 @@ export class FacilitiesComponent implements OnInit{
   }
   getFacilities(){
     let params={
-      pageSize: this.pageSize,
-      pageNumber: this.pageIndex,
+      size: this.pageSize,
+      page: this.pageIndex,
 
     }
     this._FacilitiesService.getAllFacilities(params).subscribe({

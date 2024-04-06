@@ -45,19 +45,21 @@ export class RoomsComponent implements OnInit {
   facilitiesId: number = 0;
   imagePath: string = 'https://upskilling-egypt.com:3000/';
   notFoundRecipes: string = '';
+  totalCount:any
 
 
 
   getRooms() {
     let paramsApi = {
-      pageSize: this.pageSize,
-      pageNumber: this.pageIndex,
+      size: this.pageSize,
+      page: this.pageIndex,
       name: this.searchKey,
       _id: this.tagId > 0 ? this.tagId : 0,
     }
     this._RoomsService.gitAllRooms(paramsApi).subscribe({
       next: (res) => {
         console.log(res.data.rooms);
+        this.totalCount = res.data.totalCount;
         this.tableResponse = res.data.rooms;
         this.tableData = res.data;
       }

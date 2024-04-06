@@ -72,13 +72,7 @@ export class AddEditRoomsComponent {
       myData.append('facilities', roomData.value.facilities[j])
     }
 
-
-
-    // myData.append('facilities', roomData.value.facilities)
-    // myData.append('facilities', roomData.value.facilities)
-
     if (this.roomId) {
-      myData.append('id', roomData.value.id)
       this.editeRoom(myData);
     } else {
       this.addRoom(myData)

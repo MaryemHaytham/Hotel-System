@@ -5,10 +5,10 @@ export const userGuard: CanActivateFn = (route, state) => {
   const _Router = inject(Router)
 
   if (localStorage.getItem('userToken') !== null && localStorage.getItem('userRole') == 'user') {
+    console.log('g T');
     return true;
   } else {
-    console.log('Guard F');
-    _Router.navigate(['/auth/login']);
+    _Router.navigate(['/login']);
     return false;
   }
 };

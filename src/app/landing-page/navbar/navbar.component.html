@@ -21,16 +21,38 @@
         <li class="nav-item">
           <a class="nav-link navbar-text" routerLink="/landing-page/reviews" routerLinkActive="routerActive">Reviews</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userRole">
           <a class="nav-link navbar-text" routerLink="/landing-page/favorites"
             routerLinkActive="routerActive">Favorites</a>
         </li>
 
-        <div class="col-4 ms-3">
-          <button class="btn light-blue add-button" [routerLink]="'../'">Login Now</button>
-        </div>
+        <li class="col-4 ms-3">
+          <button class="btn light-blue add-button" [routerLink]="'../'" *ngIf="!userRole"
+            (click)="login()">LoginNow</button>
+        </li>
       </ul>
-
+      <!-- [src]="profileImage" -->
+      <div class="user d-flex justify-content-end align-items-center" *ngIf="userRole">
+        <img [src]="profileImage?profileImage:notfoundImage" class="picture">
+        <h6 class="ps-2 pt-2">{{userName}}</h6>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon> <span class="material-symbols-outlined">
+              expand_more
+            </span></mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/admin/change-password">
+            <mat-icon><span class="material-symbols-outlined icon">
+                lock_open
+              </span></mat-icon>
+            <span class="">Change password</span>
+          </button>
+          <button mat-menu-item (click)="login()">
+            <mat-icon><span class="material-symbols-outlined icon">logout</span></mat-icon>
+            <span class="">Logout</span>
+          </button>
+        </mat-menu>
+      </div>
     </div>
   </div>
 </nav>

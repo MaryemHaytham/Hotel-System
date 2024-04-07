@@ -8,6 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptor/global.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
     NgxSpinnerModule,
     ToastrModule.forRoot(),
+    SharedModule
+
 
   ],
   providers: [{

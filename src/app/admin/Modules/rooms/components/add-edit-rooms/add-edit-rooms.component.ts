@@ -18,7 +18,6 @@ export class AddEditRoomsComponent {
 
   constructor(private _HelperService: HelperService, private _RoomsService: RoomsService, private dialog: MatDialog, private _Router: Router, private _ActivatedRoute: ActivatedRoute, private _FacilitiesService: FacilitiesService, private _ToastrService: ToastrService) {
     this.roomId = _ActivatedRoute.snapshot.params['id'];
-    // console.log(this.roomId)
   }
 
   pageSize = 5;
@@ -35,6 +34,12 @@ export class AddEditRoomsComponent {
   onAddRoomMessag: string = '';
   roomData: any;
   totalCount:any
+  profileImgValue: any
+  previewImg: string = ''
+  profilePath!: string
+  baseUrl: string = '"http://res.cloudinary.com/dpa4yqvdv/image/upload/'
+  defaultImg = '../../../../../../assets/images/avatar.png'
+  
 
 
   ngOnInit(): void {
@@ -49,7 +54,6 @@ export class AddEditRoomsComponent {
     name: new FormControl(null, [Validators.required]),
     price: new FormControl(null, [Validators.required]),
     capacity: new FormControl(null, [Validators.required]),
-    imgs: new FormControl(null, [Validators.required]),
     discount: new FormControl(null, [Validators.required]),
     facilities: new FormControl(null, [Validators.required]),
   })
@@ -118,20 +122,23 @@ export class AddEditRoomsComponent {
         console.log(res.data.room);
       }, error: () => {
       }, complete: () => {
+        debugger
+        this.imgSrc=this.roomData.images
         this.roomForm.patchValue({
           roomNumber: this.roomData.roomNumber,
           price: this.roomData.price,
           capacity: this.roomData.capacity,
           discount: this.roomData.discount,
-          imgs: this.roomData.imgs,
           facilities: this.roomData.facilities.map((x: any) => x._id)
         })
+        
       }
     })
   }
 
 
   onSelect(event: any) {
+    debugger
     console.log(event);
     this.imgSrc = event.addedFiles;
     console.log(this.imgSrc)

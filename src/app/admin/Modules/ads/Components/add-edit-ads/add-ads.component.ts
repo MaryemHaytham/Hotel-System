@@ -35,7 +35,7 @@ export class AddAdsComponent implements OnInit {
   addAdsForm = new FormGroup({
     
     discount: new FormControl('',),
-    room: new FormControl(''),
+    room: new FormControl(null),
     isActive: new FormControl(''),
   })
   onSubmit(): void {
@@ -92,7 +92,6 @@ export class AddAdsComponent implements OnInit {
 
         this.addAdsForm.patchValue({
           discount: this.adsData.room.discount,
-          // room:this.adsData.room.roomNumber,
           isActive:this.adsData.isActive,
 
         

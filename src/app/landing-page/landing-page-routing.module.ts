@@ -10,7 +10,6 @@ const routes: Routes = [
       { path: 'explore', loadComponent: () => import('../landing-page/explore/explore.component').then(m => m.ExploreComponent), title: 'explore' },
       { path: 'reviews', loadComponent: () => import('../landing-page/reviews/reviews.component').then(m => m.ReviewsComponent), title: 'reviews' },
       { path: 'favorites', loadComponent: () => import('../landing-page/favorites/favorites.component').then(m => m.FavoritesComponent), title: 'favorites' },
-
     ]
   },
 

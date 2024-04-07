@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private _HttpClient: HttpClient, private _Router:Router) {
+  constructor(private _HttpClient: HttpClient, private _Router: Router) {
     if (localStorage.getItem('userToken') !== null) {
       this.getProfile();
     }
@@ -21,7 +21,8 @@ export class AuthService {
     let decode: any = jwtDecode(encoded);
     console.log(decode);
     localStorage.setItem('userRole', decode.role);
-    localStorage.setItem('userName', decode.role);
+    localStorage.setItem('user_id', decode._id);
+    // localStorage.setItem('userName', decode.role);
   }
 
 
@@ -40,12 +41,12 @@ export class AuthService {
     return this._HttpClient.post('/portal/users', data)
 
   }
-  myLogout(){
+  myLogout() {
     localStorage.clear();
     this._Router.navigateByUrl('/auth/login')
   }
 
-  onUserChangePassword(data:any){
+  onUserChangePassword(data: any) {
     return this._HttpClient.post('/admin/users/change-password', data)
   }
 

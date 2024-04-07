@@ -10,7 +10,7 @@ export const RegxPhoneNumber: RegExp = /^\d+$/;
 })
 export class HelperService {
 
-  constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient: HttpClient) { }
   getErrorMessageForPhoneNumber(form: FormGroup, controlName: string, validationError: any) {
     if (form.get(controlName)?.getError(validationError.required)) {
       return 'Phone number is requierd'
@@ -37,7 +37,7 @@ export class HelperService {
 
   getErrorMessageforPasswrod(form: FormGroup, controlName: string, validationError: any) {
     if (form.get(controlName)?.getError(validationError.required)) {
-      
+
     }
 
     if (form.get(controlName)?.getError(validationError.maxlength)) {
@@ -52,6 +52,14 @@ export class HelperService {
 
   getAllRooms(): Observable<any> {
     return this._HttpClient.get('/admin/rooms')
+  }
+
+  get(): Observable<any> {
+    return this._HttpClient.get('/admin/rooms')
+  }
+
+  gituserById(id: number): Observable<any> {
+    return this._HttpClient.get(`/portal/users/${id}`);
   }
 
 }

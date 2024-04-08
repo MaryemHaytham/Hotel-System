@@ -1,1 +1,67 @@
-<p>home works!</p>
+<section id="houses">
+    <div class="container-fluid p-5">
+        <h4 class="pt-3">Houses with beauty backyard</h4>
+        <div class="row">
+            <div class="col-md-3 position-relative" *ngFor="let item of tableDataRooms">
+                <div class="text">
+                    <span>Popular Choice</span>
+                </div>
+                <img src="../../../assets/images/Rectangle 3 (1).png" class="w-100 picture">
+                <h5>{{item.roomNumber}}</h5>
+               <p>Jakarta Indonesia</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="living-room">
+    <div class="container-fluid p-5">
+        <h4 class="pt-3">Hotels with large living room</h4>
+        <div class="row">
+            <div class="col-md-3 position-relative" *ngFor="let item of tableDataRooms">
+                <div class="text">
+                    <span>Popular Choice</span>
+                </div>
+                <img src="../../../assets/images/pic (5).png" class="w-100 picture">
+                <h5>{{item.roomNumber}}</h5>
+               <p>Jakarta Indonesia</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="adsUser">
+    <div class="container-fluid p-5">
+        <h4 class="pt-3">Ads</h4>
+        <div class="row" >
+            <div class="col-md-3 position-relative" *ngFor="let item of tableUserAds">
+                <div class="text">
+                    <span>20% off</span>
+                </div>
+                <img src="../../../assets/images/pic (3).png" class="w-100 picture">
+                <h5>{{item.room.roomNumber}}</h5>
+               <p>Jakarta Indonesia</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="family">
+    <div class="container-fluid p-5">
+        <div class="row">
+          
+            <div class="col-md-3 ps-5 py-5 pic">
+                <img src="../../../assets/images/picture.png" class="">
+            </div>
+            <div class="col-md-6 ps-5 mt-5 py-5 ms-3">
+                <h3>Happy Family</h3>
+                <div class="pt-5 fs-3">
+                <span class="fa fa-star text-warning checked"></span>
+                <span class="fa fa-star text-warning checked"></span>
+                <span class="fa fa-star text-warning checked"></span>
+                <span class="fa fa-star text-warning checked"></span>
+                <span class="fa fa-star text-warning checked"></span>
+                </div>
+                <h4 class="fs-1 pt-3">What a great trip with my family and <br> i should try again next time soon ...</h4>
+                <p>Angga, Product Designer</p>
+            </div>
+        </div>
+    </div>
+</section>

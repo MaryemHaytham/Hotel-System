@@ -1,10 +1,32 @@
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
-<p>explore works!</p>
+<section>
+    <div class="container">
+      <h2 class="text-center m-4 text-dark-blue">Explore All Rooms</h2>
+      <p class="gray">
+        <a routerLink="/landing-page/home" class="text-decoration-none gray">Home </a>
+        /
+        <a routerLink="/landing-page/explore" class="text-decoration-none gray"> Explore</a>
+      </p>
+      <h5 class="fw-bold text-dark-blue">All Rooms</h5>
+    </div>
+    <section id="living-room">
+        <div class="container-fluid p-5">
+            <div class="row">
+                <div class="col-md-3 position-relative" *ngFor="let item of tableDataRooms">
+                    <div class="text">
+                        <span>{{item.discount}}% off</span>
+                    </div>
+                    <img src="../../../assets/images/pic (5).png" class="w-100 picture">
+                    <h5>{{item.roomNumber}}</h5>
+                    <p>Jakarta Indonesia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class=" d-flex justify-content-center">
+        <mat-paginator [length]="totalCount" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)"
+    aria-label="Select page">
+</mat-paginator>
+    </div>
+    
+  </section>

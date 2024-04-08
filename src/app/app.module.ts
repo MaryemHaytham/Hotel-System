@@ -8,8 +8,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptor/global.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { SharedModule } from './shared/shared.module';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
+    CarouselModule,
     ToastrModule.forRoot(),
     SharedModule
 

@@ -23,7 +23,9 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
     NavbarComponent,
     SidebarComponent,
     DeleteAdsComponent,
-    DeleteRoomComponent
+    DeleteRoomComponent,
+    
+
   ],
   imports: [
     CommonModule,
@@ -39,9 +41,9 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
     MatIconModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
 
-
+     
   ],
   exports: [
     FormsModule,
@@ -58,8 +60,8 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
     MatIconModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSelectModule
-
+    MatSelectModule,
+  
   ],
 
 })

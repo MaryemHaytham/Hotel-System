@@ -20,7 +20,7 @@ export class LoginComponent {
   see: boolean = true;
 
 
-  constructor(private _AuthService: AuthService, private _Router: Router, private _helper: HelperService,private _ToastrService: ToastrService) { }
+  constructor(private _AuthService: AuthService, private _Router: Router, private _helper: HelperService, private _ToastrService: ToastrService) { }
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -35,12 +35,15 @@ export class LoginComponent {
     this._AuthService.onLogin(userData).subscribe({
       next: (response) => {
         localStorage.setItem('userToken', response.data.token);
+        localStorage.setItem('userName', response.data.user.userName);
+        console.log(localStorage.getItem('userName'));
+        localStorage.setItem('userToken', response.data.token);
         this._AuthService.getProfile();
       }, error: (err) => {
-        this._ToastrService.error(err.error.message,'Error')
+        this._ToastrService.error(err.error.message, 'Error')
       }, complete: () => {
         this._Router.navigate(["admin"])
-        this._ToastrService.success('You successfully Loggedin','Success')
+        this._ToastrService.success('You successfully Loggedin', 'Success')
       }
     })
   }

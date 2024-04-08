@@ -17,11 +17,10 @@
                 <div>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Room name</mat-label>
-
-                    <mat-select matNativeControl formControlName="room" (selectionChange)="getAllRooms()" [disabled]="adsId?true:false">
+                    <mat-select matNativeControl formControlName="room" (selectionChange)="getAllRooms()" [disabled]="adsId ? true : false">
                       <mat-option>All</mat-option>
                       <mat-option *ngFor="let data of roomName" [value]="data._id">{{data.roomNumber}}</mat-option>
-                    </mat-select >
+                    </mat-select>
                   </mat-form-field>
                 </div>
                   <div class="input-group mb-3">

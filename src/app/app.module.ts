@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptor/global.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +22,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NgxSpinnerModule,
     CarouselModule,
     ToastrModule.forRoot(),
+    SharedModule
+
 
   ],
   providers: [{

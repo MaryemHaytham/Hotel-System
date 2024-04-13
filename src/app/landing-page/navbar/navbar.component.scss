@@ -28,7 +28,8 @@ color: $text-main;
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add bottom shadow */
   &:hover {
-    background-color: #6aaaff44;
+    // background-color: #6aaaff44;
+    background-color: #fff;
     color: $dark-blue;
   }
 }

@@ -7,3 +7,25 @@
 .dark-blue {
   color: $dark-blue;
 }
+
+.btn-main {
+  color: #fff;
+  background-color: $text-main;
+  border-color: $text-main;
+}
+
+.btn-outline-main {
+  color: #fff;
+  background-color: $text-main;
+  border-color: $text-main;
+transition: all;
+  &::hover {
+    background-color: transparent;
+    color: $dark-blue;
+    border-color: $dark-blue;
+  }
+}
+
+.myPointer {
+  cursor: pointer;
+}

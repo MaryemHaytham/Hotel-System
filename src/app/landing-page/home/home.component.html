@@ -1,67 +1,195 @@
-<section id="houses">
-    <div class="container-fluid p-5">
-        <h4 class="pt-3">Houses with beauty backyard</h4>
-        <div class="row">
-            <div class="col-md-3 position-relative" *ngFor="let item of tableDataRooms">
-                <div class="text">
-                    <span>Popular Choice</span>
-                </div>
-                <img src="../../../assets/images/Rectangle 3 (1).png" class="w-100 picture">
-                <h5>{{item.roomNumber}}</h5>
-               <p>Jakarta Indonesia</p>
-            </div>
+<section>
+  <div class="container mt-5 justify-content-between  d-lg-flex mx-auto">
+    <!-- <div class=""> -->
+    <div class="w-100 w-lg-50">
+      <h1 class="dark-blue">Forget Busy Work,<br>
+        Start Next Vacation</h1>
+      <p>We provide what you need to enjoy your holiday with family.<br>Time to make another memorable moments.</p>
+
+      <form class="booking">
+        <h5 class=" fw-bolder">Start Booking</h5>
+        <p class="dark-blue">Pick a Date</p>
+
+
+        <mat-form-field class="example-form-field" appearance="outline" class="w-75">
+          <mat-label color="primary" class="dark-blue text-center">Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="rangePicker" class="dark-blue" color="">
+            <input matStartDate placeholder="Start date" color="primary" class="dark-blue w-100">
+            <input matEndDate placeholder="End date" color="primary" class="dark-blue w-100">
+          </mat-date-range-input>
+
+          <mat-datepicker-toggle matIconSuffix [for]="rangePicker" color="primary"></mat-datepicker-toggle>
+          <mat-date-range-picker #rangePicker color="primary">
+            <mat-date-range-picker-actions color="primary" class="dark-blue">
+              <button mat-button matDateRangePickerCancel class="btn btn-outline-danger me-2">Cancel</button>
+              <button mat-raised-button matDateRangePickerApply class="btn btn-outline-main">Apply</button>
+            </mat-date-range-picker-actions>
+          </mat-date-range-picker>
+        </mat-form-field>
+
+
+        <p class="dark-blue">Capacity</p>
+        <div class="input-group mb-3 w-75">
+          <div class="input-group-prepend">
+            <span class="btn-minus p-3 px-4 input-group-text bg-main border rounded-end-0 bg-danger myPointer"
+              (click)="decrementValue()" id="basic-addon1"><i class="fa-solid fa-minus text-white"></i></span>
+          </div>
+
+          <input type="number" class="py-2 form-control text-center border border-end-0 border-start-0"
+            placeholder="The number of person" aria-label="Username" aria-describedby="basic-addon1"
+            [(ngModel)]="capacity">
+
+          <div class="input-group-prepend">
+            <span class="btn-plus p-3 px-4 input-group-text bg-main rounded-start-0 bg-success myPointer"
+              (click)="incrementValue()" id="basic-addon1"><i class="fa-solid fa-plus text-white"></i></span>
+          </div>
         </div>
+
+
+        <button class=" w-50 py-2 light-blue add-button">Explore</button>
+
+      </form>
+
     </div>
+
+    <div class="position-relative d-flex justify-content-center w-100 w-lg-50">
+      <div class="mt-5 imag_home imag_home_border rounded-4 w-75 ms-auto">
+        <div class="imag-img_home w-100">
+          <img src="../../../assets/images/home.png" alt="" class="homeImg w-100">
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+
+</section>
+
+
+
+
+<section>
+  <div class="container p-5">
+    <h4 class="pt-3">Most popular ads</h4>
+    <div class="row justify-content-center">
+      <div class="d-none col-lg-4 d-lg-block">
+        <div *ngFor="let item of tableUserAds.slice(3, 4)" class="imag-img2 w-100">
+          <img [src]="item.room.images[0]" alt="" class="w-100 imgHeight1 rounded-4">
+          <div class="imag-icon">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div class="imag-captain">
+            <h4 class=" text-white">{{item.room.roomNumber}}</h4>
+            <h5 class=" text-white">{{item.createdBy.userName}}</h5>
+          </div>
+          <div class="imag-price px-5">
+            <p class="text-white">$ <span class="h6 text-white fw-bolder">{{item.room.price}}</span> per night</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div *ngFor="let item of tableUserAds.slice(0,2)" class="col-6 mt-4 imag-img3 w-100">
+          <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
+          <div class="imag-icon3">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div class="imag-captain2">
+            <h4 class=" text-white">{{item.room.roomNumber}}</h4>
+            <h5 class=" text-white">{{item.createdBy.userName}}</h5>
+          </div>
+          <div class="imag-price2 px-5">
+            <p class="text-white">$ <span class="h6 text-white fw-bolder">{{item.room.price}}</span> per night</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div *ngFor="let item of tableUserAds.slice(2,4)" class="col-6 mt-4 imag-img3 w-100">
+          <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
+          <div class="imag-icon3">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div class="imag-captain2">
+            <h4 class=" text-white">{{item.room.roomNumber}}</h4>
+            <h5 class=" text-white">{{item.createdBy.userName}}</h5>
+          </div>
+          <div class="imag-price2 px-5">
+            <p class="text-white">$ <span class="h6 text-white fw-bolder">{{item.room.price}}</span> per night</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="houses">
+  <div class="container p-5">
+    <h4 class="pt-3">Houses with beauty backyard</h4>
+    <div class="row">
+      <div class="col-md-3 position-relative" *ngFor="let item of tableDataRooms">
+        <div class="text">
+          <span>Popular Choice</span>
+        </div>
+        <img src="../../../assets/images/Rectangle 3 (1).png" class="w-100 picture">
+        <h5>{{item.roomNumber}}</h5>
+        <p>Jakarta Indonesia</p>
+      </div>
+    </div>
+  </div>
 </section>
 <section id="living-room">
-    <div class="container-fluid p-5">
-        <h4 class="pt-3">Hotels with large living room</h4>
-        <div class="row">
-            <div class="col-md-3 position-relative" *ngFor="let item of tableDataRooms">
-                <div class="text">
-                    <span>Popular Choice</span>
-                </div>
-                <img src="../../../assets/images/pic (5).png" class="w-100 picture">
-                <h5>{{item.roomNumber}}</h5>
-               <p>Jakarta Indonesia</p>
-            </div>
+  <div class="container p-5">
+    <h4 class="pt-3">Hotels with large living room</h4>
+    <div class="row">
+      <div class="col-md-3 position-relative" *ngFor="let item of tableDataRooms">
+        <div class="text">
+          <span>Popular Choice</span>
         </div>
+        <img src="../../../assets/images/pic (5).png" class="w-100 picture">
+        <h5>{{item.roomNumber}}</h5>
+        <p>Jakarta Indonesia</p>
+      </div>
     </div>
+  </div>
 </section>
 <section id="adsUser">
-    <div class="container-fluid p-5">
-        <h4 class="pt-3">Ads</h4>
-        <div class="row" >
-            <div class="col-md-3 position-relative" *ngFor="let item of tableUserAds">
-                <div class="text">
-                    <span>20% off</span>
-                </div>
-                <img src="../../../assets/images/pic (3).png" class="w-100 picture">
-                <h5>{{item.room.roomNumber}}</h5>
-               <p>Jakarta Indonesia</p>
-            </div>
+  <div class="container p-5">
+    <h4 class="pt-3">Ads</h4>
+    <div class="row">
+      <div class="col-md-3 position-relative" *ngFor="let item of tableUserAds">
+        <div class="text">
+          <span>20% off</span>
         </div>
+        <img src="../../../assets/images/pic (3).png" class="w-100 picture">
+        <h5>{{item.room.roomNumber}}</h5>
+        <p>Jakarta Indonesia</p>
+      </div>
     </div>
+  </div>
 </section>
 <section id="family">
-    <div class="container-fluid p-5">
-        <div class="row">
-          
-            <div class="col-md-3 ps-5 py-5 pic">
-                <img src="../../../assets/images/picture.png" class="">
-            </div>
-            <div class="col-md-6 ps-5 mt-5 py-5 ms-3">
-                <h3>Happy Family</h3>
-                <div class="pt-5 fs-3">
-                <span class="fa fa-star text-warning checked"></span>
-                <span class="fa fa-star text-warning checked"></span>
-                <span class="fa fa-star text-warning checked"></span>
-                <span class="fa fa-star text-warning checked"></span>
-                <span class="fa fa-star text-warning checked"></span>
-                </div>
-                <h4 class="fs-1 pt-3">What a great trip with my family and <br> i should try again next time soon ...</h4>
-                <p>Angga, Product Designer</p>
-            </div>
+  <div class="container p-5">
+    <div class="row">
+
+      <div class="col-md-3 ps-5 py-5 pic">
+        <img src="../../../assets/images/picture.png" class="">
+      </div>
+      <div class="col-md-6 ps-5 mt-5 py-5 ms-3">
+        <h3>Happy Family</h3>
+        <div class="pt-5 fs-3">
+          <span class="fa fa-star text-warning checked"></span>
+          <span class="fa fa-star text-warning checked"></span>
+          <span class="fa fa-star text-warning checked"></span>
+          <span class="fa fa-star text-warning checked"></span>
+          <span class="fa fa-star text-warning checked"></span>
         </div>
+        <h4 class="fs-1 pt-3">What a great trip with my family and <br> i should try again next time soon ...</h4>
+        <p>Angga, Product Designer</p>
+      </div>
     </div>
+  </div>
 </section>

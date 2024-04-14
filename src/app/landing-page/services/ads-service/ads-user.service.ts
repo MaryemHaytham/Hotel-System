@@ -13,4 +13,7 @@ export class AdsUserService {
   getAllRooms(data:any):Observable<any>{
     return this._HttpClient.get('/portal/rooms/available',data)
   }
+  getRoomById(id:number) :Observable<any>{
+    return this._HttpClient.get(`/portal/rooms/${id}`)
+  }
 }

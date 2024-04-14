@@ -12,9 +12,10 @@ import {
 } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { RegxPassword } from 'src/app/auth/components/login/login.component';
+import { FormGroup, FormControl } from '@angular/forms';
 import { IAds } from 'src/app/core/model/ads';
+import { RoomDetailsService } from '../services/room-details service/room-details.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class HomeComponent implements OnInit {
   tableData: any;
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
-  constructor(private _AdsUserService: AdsUserService) { }
+  constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router) { }
 
   BookingForm: FormGroup = new FormGroup({
     startDate: new FormControl(null),
@@ -90,6 +91,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllAds(this.tableUserAds)
     this.getAllRooms(this.tableDataRooms)
+    
   }
 }
 

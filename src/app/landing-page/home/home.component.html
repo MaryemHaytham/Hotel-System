@@ -6,7 +6,7 @@
         Start Next Vacation</h1>
       <p>We provide what you need to enjoy your holiday with family.<br>Time to make another memorable moments.</p>
 
-      <form class="booking">
+      <form class="booking" >
         <h5 class=" fw-bolder">Start Booking</h5>
         <p class="dark-blue">Pick a Date</p>
 
@@ -92,7 +92,8 @@
           <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
           <div class="imag-icon3">
             <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-eye"></i>
+            <i class="fa-solid fa-eye" ></i>
+
           </div>
           <div class="imag-captain2">
             <h4 class=" text-white">{{item.room.roomNumber}}</h4>
@@ -106,9 +107,9 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div *ngFor="let item of tableUserAds.slice(2,4)" class="col-6 mt-4 imag-img3 w-100">
           <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
-          <div class="imag-icon3">
+          <div class="imag-icon3" *ngFor="let item of tableDataRooms">
             <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-eye"></i>
+            <a [routerLink]="[ '/details',item._id ]"><i class="fa-solid fa-eye" ></i></a>
           </div>
           <div class="imag-captain2">
             <h4 class=" text-white">{{item.room.roomNumber}}</h4>
@@ -116,6 +117,7 @@
           </div>
           <div class="imag-price2 px-5">
             <p class="text-white">$ <span class="h6 text-white fw-bolder">{{item.room.price}}</span> per night</p>
+            
           </div>
         </div>
       </div>

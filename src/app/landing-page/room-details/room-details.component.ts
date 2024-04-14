@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoomDetailsService } from '../services/room-details service/room-details.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -34,6 +34,39 @@ export class RoomDetailsComponent implements OnInit{
 
 
   });
+}
+reviewsForm:FormGroup=new FormGroup({
+  roomId:new FormControl(),
+  rating:new FormControl(),
+  review:new FormControl()
+})
+onReviewSubmit(myData:FormGroup){
+  console.log(myData)
+  this._roomDetailsService.onClickReview(myData.value,this.roomId).subscribe({
+    next:(res)=>{
+      console.log(res)
+    },
+    error:(err)=>{
+      console.log(err)
+    }
+  })
+}
+commentForm:FormGroup=new FormGroup({
+  roomId:new FormControl(),
+  comment:new FormControl()
+
+})
+onSubmit(data:FormGroup){
+  console.log(data.value.comment)
+  this._roomDetailsService.onClickComments(data.value,this.roomId).subscribe({
+    next:(res)=>{
+      this.roomId=res.roomId
+      console.log(res)
+    },
+    error:(err)=>{
+      console.log(err)
+    }
+  })
 }
 
 ngOnInit(){

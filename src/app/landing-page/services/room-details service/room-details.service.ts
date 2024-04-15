@@ -17,5 +17,7 @@ onClickReview(data:any,id:number):Observable<any>{
 onClickComments(data:any,id:number):Observable<any>{
   return this._HttpClient.post(`/portal/room-comments/${id}`,data)
 }
-
+onClickBooking(data:any,):Observable<any>{
+  return this._HttpClient.post(`/portal/booking`,{data})
+}
 }

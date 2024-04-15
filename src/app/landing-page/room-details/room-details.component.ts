@@ -68,7 +68,25 @@ onSubmit(data:FormGroup){
     }
   })
 }
+bookingForm:FormGroup=new FormGroup({
+  startDate:new FormControl(),
+  endDate:new FormControl(),
+  room:new FormControl(),
+  totalPrice:new FormControl(),
+});
 
+onBookSubmit(data:FormGroup){
+  console.log(data)
+  this._roomDetailsService.onClickBooking(data.value).subscribe({
+    next:(res)=>{
+      this.roomId=res.room
+      console.log(res)
+    },
+    error:(err)=>{
+      console.log(err)
+    }
+  })
+}
 ngOnInit(){
   if(this.roomId){
     this.RoomDetails(this.roomId);

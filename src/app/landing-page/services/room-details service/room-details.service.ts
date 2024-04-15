@@ -11,5 +11,11 @@ constructor(private _HttpClient:HttpClient) { }
 getRoomById(id:number) :Observable<any>{
   return this._HttpClient.get(`/portal/rooms/${id}`)
 }
+onClickReview(data:any,id:number):Observable<any>{
+  return this._HttpClient.post(`/portal/room-reviews/${id}`,data)
+}
+onClickComments(data:any,id:number):Observable<any>{
+  return this._HttpClient.post(`/portal/room-comments/${id}`,data)
+}
 
 }

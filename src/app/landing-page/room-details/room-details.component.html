@@ -1,80 +1,115 @@
 <div class="booking-page">
-    <div class="container">
-     <div class="row d-flex justify-content-between">
-        <div class="col-md-6">
-            <div class="side">
-                <p class="gray">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sit perspiciatis nesciunt dolorem temporibus molestias officia! Cupiditate molestiae temporibus facere obcaecati voluptate. Impedit odit assumenda reprehenderit adipisci exercitationem id vitae architecto quo dolorum possimus laborum iusto, cumque ipsam et pariatur nobis neque! Maxime, magni. Quam perferendis aliquam expedita nam. Sed!</p>
-                <p class="gray">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sit perspiciatis nesciunt dolorem temporibus molestias officia! Cupiditate molestiae temporibus facere obcaecati voluptate. Impedit odit assumenda reprehenderit adipisci exercitationem id vitae architecto quo dolorum possimus laborum iusto, cumque ipsam et pariatur nobis neque! Maxime, magni. Quam perferendis aliquam expedita nam. Sed!</p>
-                <div class="icons d-flex ">
-                    <div class="icon-with-text px-3">
-                        <i class="material-icons icon ">home</i>
-                        <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                      </div>
-                      <div class="icon-with-text px-3">
-                          <i class="material-icons icon ">home</i>
-                          <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                      </div>
-                      <div class="icon-with-text px-3">
-                        <i class="material-icons icon ">home</i>
-                        <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                    </div>
-                    <div class="icon-with-text px-3">
-                        <i class="material-icons icon ">home</i>
-                        <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                    </div>
-                </div>
-                <div class="icons d-flex ">
-                    <div class="icon-with-text px-3">
-                        <i class="material-icons icon ">home</i>
-                        <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                      </div>
-                      <div class="icon-with-text px-3">
-                          <i class="material-icons icon ">home</i>
-                          <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                      </div>
-                      <div class="icon-with-text px-3">
-                        <i class="material-icons icon ">home</i>
-                        <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                    </div>
-                    <div class="icon-with-text px-3">
-                        <i class="material-icons icon ">home</i>
-                        <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
-                    </div>
-                </div>
-                
-        </div>
-     </div>
-     <div class="col-md-5">
-        <div class="side">
-            <div class="booking-form border p-5 ">
-                <h4 class="text-dark-blue fw-bold">Start Booking</h4>
-                <h3 class="gray fw-light"><span class=" text-success">230$ </span>per night</h3>
-                <p class="text-danger">Discount 20% off</p>
-                <form class="py-5">
-                    <mat-form-field class="example-form-field " appearance="outline" class="w-75">
-                        <mat-label color="primary" class="dark-blue text-center">Pick a date</mat-label>
-                        <mat-date-range-input [rangePicker]="rangePicker" class="dark-blue" color="">
-                          <input matStartDate placeholder="Start date" color="primary" class="dark-blue w-100">
-                          <input matEndDate placeholder="End date" color="primary" class="dark-blue w-100">
-                        </mat-date-range-input>
-              
-                        <mat-datepicker-toggle matIconSuffix [for]="rangePicker" color="primary"></mat-datepicker-toggle>
-                        <mat-date-range-picker #rangePicker color="primary">
-                          <mat-date-range-picker-actions color="primary" class="dark-blue">
-                            <button mat-button matDateRangePickerCancel class="btn btn-outline-danger me-2">Cancel</button>
-                            <button mat-raised-button matDateRangePickerApply class="btn btn-outline-main">Apply</button>
-                          </mat-date-range-picker-actions>
-                        </mat-date-range-picker>
-                      </mat-form-field>
-                  <p class="gray">You will pay <span class="text-dark-blue fw-bold">480 USD</span> per <span class="text-dark-blue fw-bold">2 person</span></p>
-                  <div class="w-100"><button type="submit" class="btn light-blue text-white mt-3">Continue Book</button></div>
-                </form>
-              </div>
+  <div class="container mb-5">
+    <div class="w-60 pt-5 pb-4 d-flex justify-content-between align-items-center">
+      <div>
+        <span class="h5 creatBy myPointer" [routerLink]="'../../'">Home</span> <span class="mx-4">/</span> <span
+          class="h5 myPointer">Room
+          Details</span>
+      </div>
+      <div class="text-center">
+        <h1 class="dark-blue">{{roomNumber}}</h1>
+        <p class="creatBy">{{createdBy}}</p>
+      </div>
     </div>
-        
+    <div>
+      <div class="row justify-content-center align-items-center g-3">
+        <div class="col-lg-7 d-lg-block col-md-6">
+          <div *ngFor="let item of roomImages.slice(0, 1)" class="imag-img2 w-100">
+            <img [src]="item" alt="" class="w-100 imgHeight1 rounded-4">
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 d-flex flex-column gap-3">
+          <div *ngFor="let item of roomImages.slice(1,3)" class="col-6 imag-img3 w-100 d-flex flex-column">
+            <img [src]="item" alt="" class="w-100 imgHeight2 rounded-4 ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-6">
+        <div class="side">
+          <p class="gray">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sit perspiciatis nesciunt
+            dolorem temporibus molestias officia! Cupiditate molestiae temporibus facere obcaecati voluptate. Impedit
+            odit assumenda reprehenderit adipisci exercitationem id vitae architecto quo dolorum possimus laborum iusto,
+            cumque ipsam et pariatur nobis neque! Maxime, magni. Quam perferendis aliquam expedita nam. Sed!</p>
+          <p class="gray">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sit perspiciatis nesciunt
+            dolorem temporibus molestias officia! Cupiditate molestiae temporibus facere obcaecati voluptate. Impedit
+            odit assumenda reprehenderit adipisci exercitationem id vitae architecto quo dolorum possimus laborum iusto,
+            cumque ipsam et pariatur nobis neque! Maxime, magni. Quam perferendis aliquam expedita nam. Sed!</p>
+          <div class="icons d-flex ">
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+          </div>
+          <div class="icons d-flex ">
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+            <div class="icon-with-text px-3">
+              <i class="material-icons icon ">home</i>
+              <p class="gray"> <span class="text-dark-blue fw-bold">5 </span>bedroom</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="side">
+          <div class="booking-form border p-5 ">
+            <h4 class="text-dark-blue fw-bold">Start Booking</h4>
+            <h3 class="gray fw-light"><span class=" text-success">230$ </span>per night</h3>
+            <p class="text-danger">Discount 20% off</p>
+            <form class="py-5">
+              <mat-form-field class="example-form-field " appearance="outline" class="w-75">
+                <mat-label color="primary" class="dark-blue text-center">Pick a date</mat-label>
+                <mat-date-range-input [rangePicker]="rangePicker" class="dark-blue" color="">
+                  <input matStartDate placeholder="Start date" color="primary" class="dark-blue w-100">
+                  <input matEndDate placeholder="End date" color="primary" class="dark-blue w-100">
+                </mat-date-range-input>
+
+                <mat-datepicker-toggle matIconSuffix [for]="rangePicker" color="primary"></mat-datepicker-toggle>
+                <mat-date-range-picker #rangePicker color="primary">
+                  <mat-date-range-picker-actions color="primary" class="dark-blue">
+                    <button mat-button matDateRangePickerCancel class="btn btn-outline-danger me-2">Cancel</button>
+                    <button mat-raised-button matDateRangePickerApply class="btn btn-outline-main">Apply</button>
+                  </mat-date-range-picker-actions>
+                </mat-date-range-picker>
+              </mat-form-field>
+              <p class="gray">You will pay <span class="text-dark-blue fw-bold">480 USD</span> per <span
+                  class="text-dark-blue fw-bold">2 person</span></p>
+              <div class="w-100"><button type="submit" class="btn light-blue text-white mt-3">Continue Book</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
       </div>
 
-      
+
     </div>
   </div>
   <section>
@@ -83,28 +118,28 @@
         <div class="col-md-6 pe-4">
           <h3 class="pt-2">Rate</h3>
           <form [formGroup]="reviewsForm" (ngSubmit)="onReviewSubmit(reviewsForm)">
-          <div class="pt-2 fs-3 pb-2" formControlName="rating">
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-          </div>
-          <label class="pb-1 m-3 fs-4" >Message</label><br>
-  
-          <textarea formControlName="review" class="w-100 pb-2 rounded-3 m-3" rows="5" cols="5"></textarea>
-          <button class="main w-25 m-3">Rate</button>
+            <div class="pt-2 fs-3 pb-2" formControlName="rating">
+              <span class="fa fa-star text-warning checked"></span>
+              <span class="fa fa-star text-warning checked"></span>
+              <span class="fa fa-star text-warning checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <label class="pb-1 m-3 fs-4">Message</label><br>
+
+            <textarea formControlName="review" class="w-100 pb-2 rounded-3 m-3" rows="5" cols="5"></textarea>
+            <button class="main w-25 m-3">Rate</button>
           </form>
         </div>
-       
+
         <div class="col-md-6 ps-5">
           <h3 class="pt-2">Add your comment</h3>
           <form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm)">
-          <label class="pb-3 pt-5 m-3 fs-4">Message</label><br>
-        
-          <textarea  formControlName="comment" class="w-100 pb-2 rounded-3 m-3" rows="5" cols="5"></textarea>
-          <button class="main w-25 m-3 float-end ">Save</button>
-          <div class="clearfix"></div>
+            <label class="pb-3 pt-5 m-3 fs-4">Message</label><br>
+
+            <textarea formControlName="comment" class="w-100 pb-2 rounded-3 m-3" rows="5" cols="5"></textarea>
+            <button class="main w-25 m-3 float-end ">Save</button>
+            <div class="clearfix"></div>
           </form>
         </div>
       </div>

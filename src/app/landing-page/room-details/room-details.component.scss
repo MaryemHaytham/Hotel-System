@@ -7,3 +7,34 @@
 textarea{
     border:solid #3252DF;
 }
+
+.w-60 {
+  width: 60%;
+}
+
+.imgHeight1 {
+  height: 33rem;
+}
+
+.imgHeight2 {
+  height: 16rem;
+}
+
+
+.creatBy {
+  color: #B0B0B0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+}
+
+.routerActive {
+  color: $text-main;
+  }
+
+  .navbar-text {
+    font-size: 19px;
+    font-weight: 500;
+  }

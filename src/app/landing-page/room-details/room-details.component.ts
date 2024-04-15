@@ -23,10 +23,19 @@ export class RoomDetailsComponent implements OnInit{
     
   }
   roomId: number =0;
+  roomImages: any[] = [];
+  createdBy: string = '';
+  roomNumber: string = '';
   RoomDetails(id: number) {
   this._roomDetailsService.getRoomById(id).subscribe({
     next:(res)=>{
       console.log(res);
+      console.log(res.data.room);
+      this.roomImages = res.data.room.images;
+      this.createdBy = res.data.room.createdBy.userName;
+      console.log(this.createdBy)
+      this.roomNumber = res.data.room.roomNumber;
+      console.log(this.roomNumber)
     },
     error:(err)=>{
       console.log(err);
@@ -68,6 +77,7 @@ onSubmit(data:FormGroup){
     }
   })
 }
+
 bookingForm:FormGroup=new FormGroup({
   startDate:new FormControl(),
   endDate:new FormControl(),

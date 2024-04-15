@@ -1,4 +1,22 @@
 <div class="booking-page">
+  <div class="container mb-5">
+    <div class="w-60 pt-5 pb-4 d-flex justify-content-between align-items-center">
+      <div>
+        <span class="h5 creatBy myPointer" [routerLink]="'../../'">Home</span> <span class="mx-4">/</span> <span
+          class="h5 myPointer">Room
+          Details</span>
+      </div>
+      <div class="text-center">
+        <h1 class="dark-blue">{{roomNumber}}</h1>
+        <p class="creatBy">{{createdBy}}</p>
+      </div>
+    </div>
+    <div>
+      <div class="row justify-content-center align-items-center g-3">
+        <div class="col-lg-7 d-lg-block col-md-6">
+          <div *ngFor="let item of roomImages.slice(0, 1)" class="imag-img2 w-100">
+            <img [src]="item" alt="" class="w-100 imgHeight1 rounded-4">
+          </div>
     <div class="container">
      <div class="row d-flex justify-content-between">
         <div class="col-md-6">

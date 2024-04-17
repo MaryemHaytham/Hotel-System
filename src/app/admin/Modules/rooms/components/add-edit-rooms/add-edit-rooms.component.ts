@@ -140,9 +140,12 @@ export class AddEditRoomsComponent {
   onSelect(event: any) {
     debugger
     console.log(event);
-    this.imgSrc = event.addedFiles;
-    console.log(this.imgSrc)
+    
     this.files.push(...event.addedFiles)
+    this.imgSrc = this.files;
+    console.log(this.files)
+    console.log(this.imgSrc)
+    
   }
 
   onRemove(event: any) {

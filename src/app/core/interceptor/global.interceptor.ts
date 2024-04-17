@@ -30,7 +30,7 @@ export class GlobalInterceptor implements HttpInterceptor {
     }
     let cloned = request.clone({
       setHeaders: newHeaders,
-      url: baseUrl + request.url
+      url: request.url.includes('assets')? request.url:baseUrl+request.url
     })
     this.spinner.show();
 

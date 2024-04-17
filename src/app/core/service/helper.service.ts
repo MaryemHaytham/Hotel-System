@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 export const RegxUserName: RegExp = /^[a-zA-Z]+[0-9]+$/;
 export const RegxPhoneNumber: RegExp = /^\d+$/;
@@ -9,8 +10,27 @@ export const RegxPhoneNumber: RegExp = /^\d+$/;
   providedIn: 'root'
 })
 export class HelperService {
+  lang:any;
+  textDirection:string=''
+  
 
-  constructor(private _HttpClient: HttpClient) { }
+  constructor(private _HttpClient: HttpClient, private _TranslateService:TranslateService) { 
+
+    this._TranslateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      event.lang==='en'?this.textDirection = 'ltr' : this.textDirection = 'rtl'
+    })
+  }
+
+  onChangelang(lang:any){
+    debugger
+    this._TranslateService.setDefaultLang(lang);
+    this._TranslateService.use(lang);
+    localStorage.setItem("lang", lang)
+    console.log(lang)
+  }
+
+
+
   getErrorMessageForPhoneNumber(form: FormGroup, controlName: string, validationError: any) {
     if (form.get(controlName)?.getError(validationError.required)) {
       return 'Phone number is requierd'

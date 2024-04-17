@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from '../../core/service/helper.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-userNavbar',
@@ -16,12 +17,18 @@ export class NavbarComponent implements OnInit {
   profileImage: any;
   notfoundImage: string = "../../../assets/images/avatar.png";
 
-  constructor(private router: Router, private helperService: HelperService, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private helperService: HelperService, private activatedRoute: ActivatedRoute,private _TranslateService:TranslateService) {
     this.userRole = localStorage.getItem('userRole'); // Initialize userRole and userName in constructor
     this.userName = localStorage.getItem('userName');
     this.roomId = localStorage.getItem('user_id');
   }
+  
 
+
+  selectLang(lang:any){
+    this.helperService.onChangelang(lang);
+    console.log(lang)
+  }
   login() {
     this.router.navigate(['/auth/login']);
   }

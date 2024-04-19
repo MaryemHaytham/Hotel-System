@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdsUserService } from '../services/ads-service/ads-user.service';
-
-
+import { ToastrService } from 'ngx-toastr';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
 import {
   MatDateRangeSelectionStrategy,
@@ -40,13 +39,13 @@ export class HomeComponent implements OnInit {
       this.capacity--;
     }
   }
-
+  fav:any;
   imagesToShow: any[] = [];
   tableData: any;
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
   lang:any = localStorage.getItem('lang');
-  constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router, private _HelperService:HelperService) { }
+  constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router, private _HelperService:HelperService,private _ToastrService: ToastrService) { }
 
   BookingForm: FormGroup = new FormGroup({
     startDate: new FormControl(null),
@@ -57,12 +56,6 @@ export class HomeComponent implements OnInit {
 
 
   }
-
-
-
-
-
-
   getAllAds(data: any) {
     this._AdsUserService.getAllAds(data).subscribe({
       next: (res) => {
@@ -87,6 +80,21 @@ export class HomeComponent implements OnInit {
         console.log(err)
 
 
+      }
+    })
+  }
+  onSaveFavRoom(id:number){
+    this._AdsUserService.saveFavRoom(id).subscribe({
+      next:(res)=>{
+        this.fav=res;
+        console.log(this.fav)
+      },
+      error:(err)=>{
+        console.log(err)
+      },
+      complete:()=>{
+        this._ToastrService.success('add favourite successfully','added room in favourites')
+       // this._router.navigateByUrl('/landing-page/favorites')
       }
     })
   }

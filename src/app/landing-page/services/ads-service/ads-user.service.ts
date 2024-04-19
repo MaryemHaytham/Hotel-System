@@ -16,4 +16,10 @@ export class AdsUserService {
   getRoomById(id:number) :Observable<any>{
     return this._HttpClient.get(`/portal/rooms/${id}`)
   }
+  saveFavRoom(id:number):Observable<any>{
+  return this._HttpClient.post(`/portal/favorite-rooms`,{fav:id})
+  }
+  getRoomFav(data:any):Observable<any>{
+  return this._HttpClient.get('/portal/favorite-rooms',data)
+  }
 }

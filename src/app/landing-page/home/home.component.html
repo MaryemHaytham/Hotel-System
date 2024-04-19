@@ -1,5 +1,5 @@
 <section>
-  <div class="container mt-5 justify-content-between  d-lg-flex mx-auto">
+  <div class="container mt-5 justify-content-between d-lg-flex mx-auto">
 
     <div class="w-100 w-lg-50">
       <h1 class="dark-blue">{{"Homa-page-title-p1"|translate}}<br>
@@ -74,8 +74,8 @@
       <div class="d-none col-lg-4 d-lg-block">
         <div *ngFor="let item of tableUserAds.slice(3, 4)" class="imag-img2 w-100">
           <img [src]="item.room.images[0]" alt="" class="w-100 imgHeight1 rounded-4">
-          <div class="imag-icon">
-            <a class=" text-decoration-none text-white" ><i class="fa-solid fa-heart"></i></a>
+          <div class="imag-icon" *ngFor="let item of fav">
+            <a class=" text-decoration-none text-white" (click)="onSaveFavRoom(item.roomId)"><i class="fa-solid fa-heart"></i></a>
             <a class=" text-decoration-none text-white" [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye "></i></a>
           </div>
           <div class="imag-captain">

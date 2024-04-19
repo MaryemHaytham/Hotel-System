@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AdsUserService } from '../services/ads-service/ads-user.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-explore',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet,MatPaginatorModule ],
+  imports: [CommonModule, RouterLink, RouterOutlet,MatPaginatorModule, SharedModule ],
   templateUrl: './explore.component.html',
   styleUrls: ['./explore.component.scss']
 })

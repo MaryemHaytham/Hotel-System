@@ -1,3 +1,8 @@
 <app-userNavbar></app-userNavbar>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div [dir]="lang=='en'?'ltr':'rtl'">
+    
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</div>
+<!--  -->
+

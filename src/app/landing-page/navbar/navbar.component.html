@@ -1,13 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-center">
   <div class="container">
 
-    <div>
-      <select  (click)="selectLang(lang.value)" #lang name="" id="">
-        <option value="en">en</option>
-        <option value="ar">ar</option>
-      </select>
-      
-    </div>
+    
     
     <div>
       <h1 routerLink="/landing-page/home" class="logo style-font  mt-2"><span class="main-text mt-5">Stay</span>cation.
@@ -23,18 +17,14 @@
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center">
 
         <li class="nav-item">
-          <a class="nav-link navbar-text" routerLink="/landing-page/home" routerLinkActive="routerActive">Home</a>
+          <a class="nav-link navbar-text" routerLink="/landing-page/home" routerLinkActive="routerActive">{{"nav-home"|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navbar-text" routerLink="/landing-page/explore" routerLinkActive="routerActive">Explore</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link navbar-text" routerLink="/landing-page/reviews" routerLinkActive="routerActive">Reviews</a>
+          <a class="nav-link navbar-text" routerLink="/landing-page/explore" routerLinkActive="routerActive">{{"nav-explore"|translate}}</a>
         </li>
         <li class="nav-item" *ngIf="userRole">
           <a class="nav-link navbar-text" routerLink="/landing-page/favorites"
-            routerLinkActive="routerActive">Favorites</a>
+            routerLinkActive="routerActive">{{"nav-favs"|translate}}</a>
         </li>
 
         <li class="col-4 ms-3">
@@ -56,14 +46,21 @@
             <mat-icon><span class="material-symbols-outlined icon">
                 lock_open
               </span></mat-icon>
-            <span class="">Change password</span>
+            <span class="">{{"change-password"|translate}}</span>
           </button>
           <button mat-menu-item (click)="login()">
             <mat-icon><span class="material-symbols-outlined icon">logout</span></mat-icon>
-            <span class="">Logout</span>
+            <span class="">{{"Logout"|translate}}</span>
           </button>
         </mat-menu>
       </div>
+      <div class="language-switcher">
+        <select class="custom-select" (change)="selectLang(lang.value)" #lang>
+          <option value="en">English</option>
+          <option value="ar">Arabic</option>
+        </select>
+      </div>
     </div>
   </div>
+  
 </nav>

@@ -60,7 +60,7 @@
 
       <div class="justify-content-center align-items-center col-9 mx-auto">
 
-        <ngx-dropzone (change)="onSelect($event)" class="col-12" [multiple]="true">
+        <ngx-dropzone (change)="onSelect($event)" class="col-12" [multiple]="true" required>
             <ngx-dropzone-label *ngIf="!imgSrc">Drag and Drop image 
               <span class=" fw-bold">Choose image </span>to upload
             </ngx-dropzone-label>

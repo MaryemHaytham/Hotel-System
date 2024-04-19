@@ -22,7 +22,7 @@ export class HelperService {
   }
 
   onChangelang(lang:any){
-    debugger
+
     this._TranslateService.setDefaultLang(lang);
     this._TranslateService.use(lang);
     localStorage.setItem("lang", lang)

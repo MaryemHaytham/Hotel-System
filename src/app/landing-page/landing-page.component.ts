@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HelperService } from '../core/service/helper.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
-
+  lang:any = localStorage.getItem('lang');
+  constructor(private helperService:HelperService, private _TranslateService:TranslateService){}
 }

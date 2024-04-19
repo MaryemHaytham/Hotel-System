@@ -16,6 +16,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { IAds } from 'src/app/core/model/ads';
 import { RoomDetailsService } from '../services/room-details service/room-details.service';
 import { Router } from '@angular/router';
+import { HelperService } from 'src/app/core/service/helper.service';
 
 
 @Component({
@@ -44,7 +45,8 @@ export class HomeComponent implements OnInit {
   tableData: any;
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
-  constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router) { }
+  lang:any = localStorage.getItem('lang');
+  constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router, private _HelperService:HelperService) { }
 
   BookingForm: FormGroup = new FormGroup({
     startDate: new FormControl(null),

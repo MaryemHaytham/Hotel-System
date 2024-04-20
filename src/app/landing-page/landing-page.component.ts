@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HelperService } from '../core/service/helper.service';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,5 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LandingPageComponent {
   lang:any = localStorage.getItem('lang');
-  constructor(private helperService:HelperService, private _TranslateService:TranslateService){}
+  constructor(private helperService:HelperService, private _TranslateService:TranslateService){
+    _TranslateService.onLangChange.subscribe((event:LangChangeEvent)=>{
+      console.log(event.lang);
+      this.lang=event.lang
+    });
+  
+  }
 }

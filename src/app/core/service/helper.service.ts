@@ -10,13 +10,16 @@ export const RegxPhoneNumber: RegExp = /^\d+$/;
   providedIn: 'root'
 })
 export class HelperService {
-  lang:any;
+  //lang:any;
   textDirection:string=''
   
-
+  lang:any = localStorage.getItem('lang');
   constructor(private _HttpClient: HttpClient, private _TranslateService:TranslateService) { 
-
-    this._TranslateService.onLangChange.subscribe((event: LangChangeEvent) => {
+    _TranslateService.onLangChange.subscribe((event:LangChangeEvent)=>{
+      console.log(event.lang);
+      this.lang=event.lang
+    });
+   this._TranslateService.onLangChange.subscribe((event: LangChangeEvent) => {
       event.lang==='en'?this.textDirection = 'ltr' : this.textDirection = 'rtl'
     })
   }

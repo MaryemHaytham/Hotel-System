@@ -13,10 +13,12 @@ export class FavoritesComponent implements OnInit {
   data:any;
   constructor(private _AdsUserService: AdsUserService){}
   ngOnInit(): void {
-    this.getAllFavRooms(this.data)
+    this.getAllFavRooms()
   }
-getAllFavRooms(data:number){
-  this._AdsUserService.getRoomFav(this.data).subscribe({
+
+  
+getAllFavRooms(){
+  this._AdsUserService.getRoomFav().subscribe({
     next:(res)=>{
       console.log(res)
     },

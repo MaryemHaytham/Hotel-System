@@ -36,7 +36,7 @@
           </div>
 
           <input type="number" class="py-2 form-control text-center border border-end-0 border-start-0"
-            placeholder="The number of persons" aria-label="Username" aria-describedby="basic-addon1"
+            [placeholder]="lang=='en'?'number of persons':'عدد الافراد'" aria-label="Username" aria-describedby="basic-addon1"
             [(ngModel)]="capacity">
 
           <div class="input-group-prepend">
@@ -53,7 +53,7 @@
     </div>
 
     <div class="position-relative d-flex justify-content-center w-100 w-lg-50">
-      <div class="mt-5 imag_home imag_home_border rounded-4 w-75 ms-auto">
+      <div class="mt-5 imag_home imag_home_border rounded-4 w-75 ms-auto" [class]="lang=='en'?'ms-auto':'me-auto'">
         <div class="imag-img_home w-100">
           <img src="../../../assets/images/home.png" alt="" class="homeImg w-100">
         </div>

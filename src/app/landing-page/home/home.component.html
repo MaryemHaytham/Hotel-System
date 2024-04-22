@@ -74,11 +74,11 @@
       <div class="d-none col-lg-4 d-lg-block">
         <div *ngFor="let item of tableUserAds.slice(3, 4)" class="imag-img2 w-100">
           <img [src]="item.room.images[0]" alt="" class="w-100 imgHeight1 rounded-4">
-          <div class="imag-icon" *ngFor="let item of fav">
-            <a class=" text-decoration-none text-white" (click)="onSaveFavRoom(item.roomId)"><i class="fa-solid fa-heart"></i></a>
+          <div class="imag-icon" *ngFor="let item of tableDataRooms">
+            <a class=" text-decoration-none text-white"><i class="fa-solid fa-heart"></i></a>
             <a class=" text-decoration-none text-white" [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye "></i></a>
           </div>
-          <div class="imag-captain">
+          <div class="imag-captain" >
             <h4 class=" text-white">{{item.room.roomNumber}}</h4>
             <h5 class=" text-white">{{item.createdBy.userName}}</h5>
           </div>
@@ -89,8 +89,8 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div *ngFor="let item of tableUserAds.slice(0,2)" class="col-6 mt-4 imag-img3 w-100">
-          <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
-          <div class="imag-icon3">
+          <img [src]="item.room.images[0]" alt="" class="w-100 imgHeight2 rounded-4 ">
+          <div class="imag-icon3" *ngFor="let item of tableDataRooms">
             <a><i class="fa-solid fa-heart"></i></a>
             <a [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye"></i></a>
           </div>
@@ -105,7 +105,7 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div *ngFor="let item of tableUserAds.slice(2,4)" class="col-6 mt-4 imag-img3 w-100">
-          <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
+          <img [src]="item.room.images[0]" alt="" class="w-100 imgHeight2 rounded-4 ">
           <div class="imag-icon3" *ngFor="let item of tableDataRooms">
             <a><i class="fa-solid fa-heart"></i></a>
             <a [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye"></i></a>
@@ -135,7 +135,7 @@
         <div class="text">
           <span>{{"choice"|translate}}</span>
         </div>
-        <img src="../../../assets/images/Rectangle 3 (1).png" class="w-100 picture">
+        <img [src]="item.images" class="w-100 picture">
         <h5>{{item.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>
@@ -150,7 +150,7 @@
         <div class="text">
           <span>{{"choice"|translate}}</span>
         </div>
-        <img src="../../../assets/images/pic (5).png" class="w-100 picture">
+        <img [src]="item.images" class="w-100 picture">
         <h5>{{item.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>
@@ -165,7 +165,7 @@
         <div class="text">
           <span>20% {{"padge-ads"|translate}}</span>
         </div>
-        <img src="../../../assets/images/pic (3).png" class="w-100 picture">
+        <img [src]="item.room.images[0]" class="w-100 picture">
         <h5>{{item.room.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>

@@ -14,23 +14,24 @@ import { HelperService } from 'src/app/core/service/helper.service';
 })
 export class AddAdsComponent implements OnInit {
 
-  adsData:any
-  roomName:any[]=[];
-  roomNameId:number=0;
-  activeId:number=0;
-  active:any[]=[]
-  adsId :number=0
+  adsData: any
+  roomName: any[] = [];
+  roomNameId: number = 0;
+  activeId: number = 0;
+  active: any[] = []
+  adsId: number = 0
+  message: any;
 
   addAdsForm = new FormGroup({
-    
+
     discount: new FormControl('',),
     room: new FormControl(null),
     isActive: new FormControl(''),
   })
 
 
-  constructor(private _ToastrService: ToastrService,private _AdsService:AdsService, private _router:Router,private _RoomsService:RoomsService,private _helperService:HelperService,private _ActivatedRoute:ActivatedRoute){
-    this.adsId= _ActivatedRoute.snapshot.params['_id']
+  constructor(private _ToastrService: ToastrService, private _AdsService: AdsService, private _router: Router, private _RoomsService: RoomsService, private _helperService: HelperService, private _ActivatedRoute: ActivatedRoute) {
+    this.adsId = _ActivatedRoute.snapshot.params['_id']
     console.log(this.adsId);
   }
 
@@ -41,21 +42,21 @@ export class AddAdsComponent implements OnInit {
       this.addAdsForm.get('room')?.disable();
     }
 
-      
+
   }
-  
+
   onSubmit(): void {
-    if (this.addAdsForm.valid) { 
+    if (this.addAdsForm.valid) {
       const formData = this.addAdsForm.value;
       if (this.adsId) {
         this._AdsService.onEditAds(this.adsId, formData).subscribe({
           next: (res) => {
             console.log(res);
-           
+
           },
           error: (err) => {
             console.error(err);
-            
+
           },
           complete: () => {
             this._router.navigate(['/admin/ads']);
@@ -64,10 +65,13 @@ export class AddAdsComponent implements OnInit {
       } else {
         this._AdsService.onAddAds(formData).subscribe({
           next: (res: any) => {
-            console.log(res);  
+            console.log(res);
+            this.message = res.message;
           },
           error: (err: any) => {
             console.error(err);
+            this.message = err.message;
+            this._ToastrService.error(`${this.message}`)
           },
           complete: () => {
             this._router.navigate(['/admin/ads']);
@@ -77,13 +81,13 @@ export class AddAdsComponent implements OnInit {
       }
     }
   }
-  
-    
 
-  getAllRooms(){
+
+
+  getAllRooms() {
     this._helperService.getAllRooms().subscribe({
       next: (res) => {
-        this.roomName= res.data.rooms;
+        this.roomName = res.data.rooms;
       }
     })
   }
@@ -98,13 +102,13 @@ export class AddAdsComponent implements OnInit {
 
         this.addAdsForm.patchValue({
           discount: this.adsData.room.discount,
-          isActive:this.adsData.isActive,
+          isActive: this.adsData.isActive,
 
-        
+
         })
       }
     })
   }
 
-  
+
 }

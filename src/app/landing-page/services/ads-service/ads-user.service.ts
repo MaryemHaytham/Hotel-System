@@ -23,8 +23,8 @@ export class AdsUserService {
     return this._HttpClient.post('/portal/favorite-rooms', { roomId });
   }
 
-  getRoomFav(): Observable<any> {
-    return this._HttpClient.get('/portal/favorite-rooms')
+  getRoomFav():Observable<any>{
+  return this._HttpClient.get('/portal/favorite-rooms')
   }
 
   removeFromFav(id: string): Observable<any> {

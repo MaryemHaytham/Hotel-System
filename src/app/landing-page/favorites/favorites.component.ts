@@ -23,6 +23,7 @@ export class FavoritesComponent implements OnInit {
   }
 
 
+
   getAllFavRooms() {
     this._AdsUserService.getRoomFav().subscribe({
       next: (res) => {
@@ -51,6 +52,7 @@ export class FavoritesComponent implements OnInit {
       }
     })
   }
+
 
 
 

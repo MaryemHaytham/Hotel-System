@@ -12,6 +12,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { SharedModule } from './shared/shared.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxStripeModule } from 'ngx-stripe';
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -29,6 +30,9 @@ export function createTranslateLoader(http: HttpClient) {
     CarouselModule,
     ToastrModule.forRoot(),
     SharedModule,
+    NgxStripeModule.forRoot(
+      'pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
+    ),
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

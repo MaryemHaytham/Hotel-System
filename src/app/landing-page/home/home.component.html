@@ -38,7 +38,7 @@
           </div>
 
           <input type="number" class="py-2 form-control text-center border border-end-0 border-start-0"
-            placeholder="The number of persons" aria-label="Username" aria-describedby="basic-addon1"
+            [placeholder]="lang=='en'?'number of persons':'عدد الافراد'" aria-label="Username" aria-describedby="basic-addon1"
             [(ngModel)]="capacity">
 
           <div class="input-group-prepend">
@@ -48,14 +48,14 @@
         </div>
 
 
-        <button class=" w-50 py-2 light-blue add-button">{{"explore-btn"|translate}}</button>
+        <button class=" w-50 py-2 light-blue add-button" routerLink="/landing-page/explore">{{"explore-btn"|translate}}</button>
 
       </form>
 
     </div>
 
     <div class="position-relative d-flex justify-content-center w-100 w-lg-50">
-      <div class="mt-5 imag_home imag_home_border rounded-4 w-75 ms-auto">
+      <div class="mt-5 imag_home imag_home_border rounded-4 w-75 ms-auto" [class]="lang=='en'?'ms-auto':'me-auto'">
         <div class="imag-img_home w-100">
           <img src="../../../assets/images/home.png" alt="" class="homeImg w-100">
         </div>
@@ -76,13 +76,15 @@
       <div class="d-none col-lg-4 d-lg-block">
         <div *ngFor="let item of tableUserAds.slice(0,1)" class="imag-img2 w-100">
           <img [src]="item.room.images[0]" alt="" class="w-100 imgHeight1 rounded-4">
+
           <div class="imag-icon">
             <a class=" text-decoration-none text-white" (click)="onSaveFavRoom(item._id)"><i
                 class="fa-solid fa-heart"></i></a>
             <a class=" text-decoration-none text-white" [routerLink]="[ '/landing-page/details',item._id ]"><i
                 class="fa-solid fa-eye "></i></a>
+
           </div>
-          <div class="imag-captain">
+          <div class="imag-captain" >
             <h4 class=" text-white">{{item.room.roomNumber}}</h4>
             <h5 class=" text-white">{{item.createdBy.userName}}</h5>
           </div>
@@ -93,10 +95,12 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4">
+
         <div *ngFor="let item of tableUserAds.slice(1,3)" class="col-6 mt-4 imag-img3 w-100">
           <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
           <div class="imag-icon3">
             <a><i class="fa-solid fa-heart" (click)="onSaveFavRoom(item._id)"></i></a>
+
             <a [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye"></i></a>
           </div>
           <div class="imag-captain2">
@@ -110,8 +114,10 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4">
+
         <div *ngFor="let item of tableUserAds.slice(3,6)" class="col-6 mt-4 imag-img3 w-100">
           <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
+
           <div class="imag-icon3" *ngFor="let item of tableDataRooms">
             <a><i class="fa-solid fa-heart" (click)="onSaveFavRoom(item._id)"></i></a>
             <a [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye"></i></a>
@@ -142,7 +148,7 @@
         <div class="text">
           <span>{{"choice"|translate}}</span>
         </div>
-        <img src="../../../assets/images/Rectangle 3 (1).png" class="w-100 picture">
+        <img [src]="item.images" class="w-100 picture imgHeight2">
         <h5>{{item.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>
@@ -157,7 +163,7 @@
         <div class="text">
           <span>{{"choice"|translate}}</span>
         </div>
-        <img src="../../../assets/images/pic (5).png" class="w-100 picture">
+        <img [src]="item.images" class="w-100 picture imgHeight2">
         <h5>{{item.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>
@@ -172,7 +178,7 @@
         <div class="text">
           <span>20% {{"padge-ads"|translate}}</span>
         </div>
-        <img src="../../../assets/images/pic (3).png" class="w-100 picture">
+        <img [src]="item.room.images[0]" class="w-100 picture imgHeight2">
         <h5>{{item.room.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>
@@ -187,7 +193,7 @@
         <img src="../../../assets/images/picture.png" class="">
       </div>
       <div class="col-md-6 mt-5 py-3 ms-5 ps-2">
-        <h3 class="ps-2">Happy Family</h3>
+        <h3 [class]="lang=='en'?'ps-2':'pe-2'">Happy Family</h3>
         <div class="pt-5 fs-3 ps-2">
           <span class="fa fa-star text-warning checked"></span>
           <span class="fa fa-star text-warning checked"></span>

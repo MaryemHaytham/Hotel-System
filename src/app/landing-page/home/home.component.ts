@@ -44,6 +44,9 @@ export class HomeComponent implements OnInit {
   tableData: any;
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
+  loginTofav: any = localStorage.getItem('userRole')
+
+
   lang: any = localStorage.getItem('lang');
   constructor(private _AdsUserService: AdsUserService, private _roomDetailsService: RoomDetailsService, private _router: Router, private _HelperService: HelperService, private _ToastrService: ToastrService) { }
 
@@ -107,6 +110,11 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  mustLogin() {
+    this._ToastrService.warning('You must login')
+  }
+
 
 
 

@@ -1,18 +1,94 @@
-<h2>Card Example</h2>
-    <!-- <div [formGroup]="checkoutForm"> -->
-      <!-- <mat-form-field class="example-full-width" appearance="fill">
-        <input matInput placeholder="name" formControlName="name" />
-      </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <input matInput placeholder="Email" type="email" formControlName="email" />
-      </mat-form-field> -->
-      <ngx-stripe-elements
-        [stripe]="stripe"
-        [elementsOptions]="elementsOptions"
-      >
-        <ngx-stripe-card [options]="cardOptions" />
-      </ngx-stripe-elements>
-    <!-- </div> -->
-    <button type="submit" (click)="createToken()">
-      CREATE TOKEN
-    </button>
+<section id="booking">
+
+
+  <!-- Angular Material -->
+  <mat-stepper headerPosition="top" #stepper>
+    <!-- step1 -->
+    <mat-step>
+      <ng-template matStepLabel>Step 1</ng-template>
+      <ng-template matStepContent>
+        <div class="container text-secondryColor">
+
+          <div class="text-center">
+            <h3>Payment</h3>
+            <p class="text-muted">Kindly follow the instructions below</p>
+          </div>
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="w-100 shadow-sm d-flex justify-content-around my-4">
+              <h5>RoomNumber: {{bookingDetails?.room?.roomNumber}}</h5>
+              <h5>Total Price: {{bookingDetails?.totalPrice}}</h5>
+              <h5>Start Date: {{bookingDetails?.startDate|date:'dd-MM-yyyy'}}</h5>
+              <h5>End Date: {{bookingDetails?.endDate|date:'dd-MM-yyyy'}}</h5>
+            </div>
+            <div class="col-10 col-md-5">
+              <div class="ms-5 border shadow rounded pt-5 px-5">
+                <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+                  <ngx-stripe-card class="text-secondryColor shadow-lg" [options]="cardOptions" />
+                </ngx-stripe-elements>
+
+                <button mat-raised-button matStepperNext class="btn primary my-5 mx-auto " type="submit" color="primary"
+                  (click)="createToken()">
+                  NEXT
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-template>
+    </mat-step>
+    <!-- step2 -->
+    <mat-step>
+      <ng-template matStepLabel>Step 2</ng-template>
+      <ng-template matStepContent>
+        <div class="container text-secondryColor">
+
+          <div class="text-center">
+            <h3>Payment</h3>
+            <p class="text-muted">Kindly follow the instructions below</p>
+          </div>
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="w-100 shadow-sm d-flex justify-content-around my-4">
+              <h5>RoomNumber: {{bookingDetails?.room?.roomNumber}}</h5>
+              <h5>Total Price: {{bookingDetails?.totalPrice}}</h5>
+              <h5>Start Date: {{bookingDetails?.startDate|date:'dd-MM-yyyy'}}</h5>
+              <h5>End Date: {{bookingDetails?.endDate|date:'dd-MM-yyyy'}}</h5>
+            </div>
+
+            <div class="col-10 col-md-5">
+              <div class="text-center ms-5 shadow rounded py-5">
+                <button (click)="paySubmit(token)" mat-raised-button color="primary" matStepperNext
+                  class="btn primary w-50 m-3">Confirm
+                  Booking</button>
+                <button mat-raised-button matStepperPrevious class="btn outline-primary w-50"
+                  color="warn">Cancel</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </ng-template>
+    </mat-step>
+    <!-- step3 -->
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepContent ngIf="">
+        <div class="text-center">
+          <h3 class="text-secondryColor mt-3">Payment process completed .</h3>
+          <img src="../../../../../../../../assets/images/payment-done.png" alt="">
+          <p class="text-muted h3 my-4">Your purchase was completed successfully.<br> You can check your email
+          </p>
+          <button mat-raised-button color="primary" class="btn primary w-25 my-4 py-2" routerLink="../../">Back to
+            Home</button>
+        </div>
+      </ng-template>
+
+    </mat-step>
+  </mat-stepper>
+
+
+
+</section>

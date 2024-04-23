@@ -17,15 +17,15 @@ export class NavbarComponent implements OnInit {
   profileImage: any;
   notfoundImage: string = "../../../assets/images/avatar.png";
 
-  constructor(private router: Router, private helperService: HelperService, private activatedRoute: ActivatedRoute,private _TranslateService:TranslateService) {
+  constructor(private router: Router, private helperService: HelperService, private activatedRoute: ActivatedRoute, private _TranslateService: TranslateService) {
     this.userRole = localStorage.getItem('userRole'); // Initialize userRole and userName in constructor
     this.userName = localStorage.getItem('userName');
     this.roomId = localStorage.getItem('user_id');
   }
-  
 
 
-  selectLang(lang:any){
+
+  selectLang(lang: any) {
     this.helperService.onChangelang(lang);
     console.log(lang)
   }
@@ -44,6 +44,8 @@ export class NavbarComponent implements OnInit {
         this.userData = res.data;
         this.profileImage = res.data.user.profileImage;
         console.log(res.data);
+        console.log(res.data.user.role);
+        localStorage.setItem('userRole', res.data.user.role);
       },
       error: (err: any) => {
         console.error('Error:', err);

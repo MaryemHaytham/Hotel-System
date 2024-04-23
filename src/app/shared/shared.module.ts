@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DeleteAdsComponent } from './delete/delete-ads.component';
 import { DeleteRoomComponent } from './delete-room/delete-room.component';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 @NgModule({
@@ -43,7 +43,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MatPaginatorModule,
     MatTableModule,
     MatSelectModule,
-    TranslateModule
+    TranslateModule,
+    MatStepperModule
   ],
   exports: [
     FormsModule,
@@ -61,7 +62,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MatPaginatorModule,
     MatTableModule,
     MatSelectModule,
-    TranslateModule
+    TranslateModule,
+    MatStepperModule
 
   ],
 

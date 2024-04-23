@@ -11,7 +11,7 @@ export class BookinService {
 
 
   gitAllBooking(data: any): Observable<any> {
-    return this._HttpClient.get('/admin/booking', {params :data})
+    return this._HttpClient.get('/admin/booking', { params: data })
   }
 
   gitBookingId(id: number): Observable<any> {
@@ -20,6 +20,15 @@ export class BookinService {
 
   deleteBooking(id: number, name: string): Observable<any> {
     return this._HttpClient.delete(`/admin/booking/${id}`, { body: { name } });
+  }
+
+
+  bookingDetails(id: string): Observable<any> {
+    return this._HttpClient.get(`portal/booking/${id}`)
+  }
+
+  payment(id: string, token: string): Observable<any> {
+    return this._HttpClient.post(`portal/booking/${id}/pay`, { token: token })
   }
 
 }

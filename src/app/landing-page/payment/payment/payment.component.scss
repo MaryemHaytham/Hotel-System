@@ -1,0 +1,44 @@
+// @import'../../../assets/styles/layout';
+@import'../../../../assets/styles/layout';
+
+
+.language-switcher {
+  display: inline-block;
+}
+
+.custom-select {
+  appearance: none;
+  background-color: $dark-blue;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0;
+  cursor: pointer;
+
+}
+
+.custom-select:focus {
+  outline: none;
+}
+
+.custom-select option {
+  display: inline-block;
+  background-color: #fff;
+  color: $dark-blue;
+}
+
+.routerActive {
+color: $text-main;
+}
+
+.navbar-text {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.logo {
+  span {
+    color: $text-main;
+  }
+}

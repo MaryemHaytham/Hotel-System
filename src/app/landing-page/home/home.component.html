@@ -46,7 +46,7 @@
         </div>
 
 
-        <button class=" w-50 py-2 light-blue add-button">{{"explore-btn"|translate}}</button>
+        <button class=" w-50 py-2 light-blue add-button" routerLink="/landing-page/explore">{{"explore-btn"|translate}}</button>
 
       </form>
 
@@ -135,7 +135,7 @@
         <div class="text">
           <span>{{"choice"|translate}}</span>
         </div>
-        <img [src]="item.images" class="w-100 picture">
+        <img [src]="item.images" class="w-100 picture imgHeight2">
         <h5>{{item.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>
@@ -150,7 +150,7 @@
         <div class="text">
           <span>{{"choice"|translate}}</span>
         </div>
-        <img [src]="item.images" class="w-100 picture">
+        <img [src]="item.images" class="w-100 picture imgHeight2">
         <h5>{{item.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>
@@ -165,7 +165,7 @@
         <div class="text">
           <span>20% {{"padge-ads"|translate}}</span>
         </div>
-        <img [src]="item.room.images[0]" class="w-100 picture">
+        <img [src]="item.room.images[0]" class="w-100 picture imgHeight2">
         <h5>{{item.room.roomNumber}}</h5>
         <p>Jakarta Indonesia</p>
       </div>

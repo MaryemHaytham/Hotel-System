@@ -14,10 +14,13 @@ getRoomById(id:number) :Observable<any>{
 onClickReview(data:any,id:number):Observable<any>{
   return this._HttpClient.post(`/portal/room-reviews/${id}`,data)
 }
-onClickComments(data:any,id:number):Observable<any>{
+onClickComments(data:any,id:any):Observable<any>{
   return this._HttpClient.post(`/portal/room-comments/${id}`,data)
 }
 onClickBooking(data:any,):Observable<any>{
-  return this._HttpClient.post(`/portal/booking`,{data})
+  return this._HttpClient.post(`/portal/booking`,data)
+}
+onClickPay(data:any,id:any):Observable<any>{
+  return this._HttpClient.post(`/portal/booking${id}/pay`,data)
 }
 }

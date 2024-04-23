@@ -22,4 +22,7 @@ export class AdsUserService {
   getRoomFav():Observable<any>{
   return this._HttpClient.get('/portal/favorite-rooms')
   }
+  getAllRoomReviews(id:any):Observable<any>{
+    return this._HttpClient.get(`/portal/room-reviews/${id}`)
+  }
 }

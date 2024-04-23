@@ -28,6 +28,7 @@ import { HelperService } from 'src/app/core/service/helper.service';
 
 
 export class HomeComponent implements OnInit {
+  
   capacity: number = 0; // Initial value
 
   incrementValue() {
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
   tableData: any;
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
+  tableOfReviews:any[]=[];
   lang:any = localStorage.getItem('lang');
   constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router, private _HelperService:HelperService,private _ToastrService: ToastrService) { }
 
@@ -98,9 +100,22 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+  getAllReviews(id:any){
+    this._AdsUserService.getAllRoomReviews(id).subscribe({
+      next:(res)=>{
+        console.log(res)
+        this.tableData=res;
+        this.tableOfReviews=res.data.roomReviews
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
   ngOnInit(): void {
     this.getAllAds(this.tableUserAds)
     this.getAllRooms(this.tableDataRooms)
+    this.getAllReviews(this.tableOfReviews)
     
   }
 }

@@ -38,8 +38,8 @@
           </div>
 
           <input type="number" class="py-2 form-control text-center border border-end-0 border-start-0"
-            [placeholder]="lang=='en'?'number of persons':'عدد الافراد'" aria-label="Username" aria-describedby="basic-addon1"
-            [(ngModel)]="capacity">
+            [placeholder]="lang=='en'?'number of persons':'عدد الافراد'" aria-label="Username"
+            aria-describedby="basic-addon1" [(ngModel)]="capacity">
 
           <div class="input-group-prepend">
             <span class="btn-plus p-3 px-4 input-group-text bg-main rounded-start-0 bg-success myPointer"
@@ -48,7 +48,8 @@
         </div>
 
 
-        <button class=" w-50 py-2 light-blue add-button" routerLink="/landing-page/explore">{{"explore-btn"|translate}}</button>
+        <button class=" w-50 py-2 light-blue add-button"
+          routerLink="/landing-page/explore">{{"explore-btn"|translate}}</button>
 
       </form>
 
@@ -78,13 +79,16 @@
           <img [src]="item.room.images[0]" alt="" class="w-100 imgHeight1 rounded-4">
 
           <div class="imag-icon">
-            <a class=" text-decoration-none text-white" (click)="onSaveFavRoom(item._id)"><i
+            <a *ngIf="!(loginToFav === 'user' )" (click)="openDialog('500ms', '500ms')"
+              class=" text-decoration-none text-white" (click)="onSaveFavRoom(item._id)"><i
                 class="fa-solid fa-heart"></i></a>
+            <a *ngIf="loginToFav === 'user' " class=" text-decoration-none text-white"
+              (click)="onSaveFavRoom(item._id)"><i class="fa-solid fa-heart"></i></a>
             <a class=" text-decoration-none text-white" [routerLink]="[ '/landing-page/details',item._id ]"><i
                 class="fa-solid fa-eye "></i></a>
 
           </div>
-          <div class="imag-captain" >
+          <div class="imag-captain">
             <h4 class=" text-white">{{item.room.roomNumber}}</h4>
             <h5 class=" text-white">{{item.createdBy.userName}}</h5>
           </div>
@@ -98,10 +102,15 @@
 
         <div *ngFor="let item of tableUserAds.slice(1,3)" class="col-6 mt-4 imag-img3 w-100">
           <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
-          <div class="imag-icon3">
-            <a><i class="fa-solid fa-heart" (click)="onSaveFavRoom(item._id)"></i></a>
+          <div class="imag-icon">
+            <a *ngIf="!(loginToFav === 'user' )" (click)="openDialog('500ms', '500ms')"
+              class=" text-decoration-none text-white" (click)="onSaveFavRoom(item._id)"><i
+                class="fa-solid fa-heart"></i></a>
+            <a *ngIf="loginToFav === 'user' " class=" text-decoration-none text-white"
+              (click)="onSaveFavRoom(item._id)"><i class="fa-solid fa-heart"></i></a>
+            <a class=" text-decoration-none text-white" [routerLink]="[ '/landing-page/details',item._id ]"><i
+                class="fa-solid fa-eye "></i></a>
 
-            <a [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye"></i></a>
           </div>
           <div class="imag-captain2">
             <h4 class=" text-white">{{item.room.roomNumber}}</h4>
@@ -115,12 +124,18 @@
       </div>
       <div class="col-12 col-md-6 col-lg-4">
 
-        <div *ngFor="let item of tableUserAds.slice(3,6)" class="col-6 mt-4 imag-img3 w-100">
+        <div *ngFor="let item of tableUserAds.slice(2,4)" class="col-6 mt-4 imag-img3 w-100">
           <img [src]="item.room.images[1]" alt="" class="w-100 imgHeight2 rounded-4 ">
 
-          <div class="imag-icon3" *ngFor="let item of tableDataRooms">
-            <a><i class="fa-solid fa-heart" (click)="onSaveFavRoom(item._id)"></i></a>
-            <a [routerLink]="[ '/landing-page/details',item._id ]"><i class="fa-solid fa-eye"></i></a>
+          <div class="imag-icon">
+            <a *ngIf="!(loginToFav === 'user' )" (click)="openDialog('500ms', '500ms')"
+              class=" text-decoration-none text-white" (click)="onSaveFavRoom(item._id)"><i
+                class="fa-solid fa-heart"></i></a>
+            <a *ngIf="loginToFav === 'user' " class=" text-decoration-none text-white"
+              (click)="onSaveFavRoom(item._id)"><i class="fa-solid fa-heart"></i></a>
+            <a class=" text-decoration-none text-white" [routerLink]="[ '/landing-page/details',item._id ]"><i
+                class="fa-solid fa-eye "></i></a>
+
           </div>
           <div class="imag-captain2">
             <h4 class=" text-white">{{item.room.roomNumber}}</h4>

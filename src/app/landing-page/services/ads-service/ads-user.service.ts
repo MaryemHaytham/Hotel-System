@@ -6,20 +6,29 @@ import { Observable } from 'rxjs';
 })
 export class AdsUserService {
 
-  constructor(private _HttpClient:HttpClient) { }
-  getAllAds(data:any):Observable<any>{
-    return this._HttpClient.get('/portal/ads',data)
+  constructor(private _HttpClient: HttpClient) { }
+  getAllAds(data: any): Observable<any> {
+    return this._HttpClient.get('/portal/ads', data)
   }
-  getAllRooms(data:any):Observable<any>{
-    return this._HttpClient.get('/portal/rooms/available',data)
+  getAllRooms(data: any): Observable<any> {
+    return this._HttpClient.get('/portal/rooms/available', data)
   }
-  getRoomById(id:number) :Observable<any>{
+  getRoomById(id: number): Observable<any> {
     return this._HttpClient.get(`/portal/rooms/${id}`)
   }
-  saveFavRoom(id:number):Observable<any>{
-  return this._HttpClient.post(`/portal/favorite-rooms`,{fav:id})
+
+
+
+  saveFavRoom(roomId: string): Observable<any> {
+    return this._HttpClient.post('/portal/favorite-rooms', { roomId });
   }
-  getRoomFav(data:any):Observable<any>{
-  return this._HttpClient.get('/portal/favorite-rooms',data)
+
+  getRoomFav(): Observable<any> {
+    return this._HttpClient.get('/portal/favorite-rooms')
   }
+
+  removeFromFav(id: string): Observable<any> {
+    return this._HttpClient.delete(`/portal/favorite-rooms/${id}`);
+  }
+
 }

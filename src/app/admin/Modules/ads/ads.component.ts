@@ -20,10 +20,10 @@ export class AdsComponent implements OnInit {
   pageEvent: PageEvent | any;
   tableData: any[] = [];
   tableResponse: any
-  totalCount:any
-  
+  totalCount: any
 
-  constructor(private _AdsService: AdsService, private dialog: MatDialog,private _ToastrService: ToastrService) { }
+
+  constructor(private _AdsService: AdsService, private dialog: MatDialog, private _ToastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getAds();
@@ -31,9 +31,9 @@ export class AdsComponent implements OnInit {
 
 
 
-  openDeleteAdsDialog(adsData:any) {
+  openDeleteAdsDialog(adsData: any) {
     const dialogRef = this.dialog.open(DeleteAdsComponent, {
-      data:adsData
+      data: adsData
 
     });
 
@@ -45,20 +45,19 @@ export class AdsComponent implements OnInit {
 
       }
 
-
     });
 
   }
-  deleteAds(adsId:any){
+  deleteAds(adsId: any) {
     this._AdsService.onDeleteAds(adsId).subscribe({
-      next:(res) => {
+      next: (res) => {
         console.log(res);
-      },error:()=>{
+      }, error: () => {
 
-      },complete:()=> {
-          this.getAds();
-          this._ToastrService.info('Deleted Successfuly')
-          
+      }, complete: () => {
+        this.getAds();
+        this._ToastrService.info('Deleted Successfuly')
+
       },
     })
   }
@@ -79,7 +78,6 @@ export class AdsComponent implements OnInit {
     })
   }
 
-  
 
 
   handlePageEvent(e: PageEvent) {

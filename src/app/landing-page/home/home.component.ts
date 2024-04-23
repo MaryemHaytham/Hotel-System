@@ -39,13 +39,20 @@ export class HomeComponent implements OnInit {
       this.capacity--;
     }
   }
-  fav:any;
+  fav: any;
   imagesToShow: any[] = [];
   tableData: any;
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
-  lang:any = localStorage.getItem('lang');
-  constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router, private _HelperService:HelperService,private _ToastrService: ToastrService) { }
+  lang: any = localStorage.getItem('lang');
+  constructor(private _AdsUserService: AdsUserService, private _roomDetailsService: RoomDetailsService, private _router: Router, private _HelperService: HelperService, private _ToastrService: ToastrService) { }
+
+
+  ngOnInit(): void {
+    this.getAllAds(this.tableUserAds)
+    this.getAllRooms(this.tableDataRooms)
+  }
+
 
   BookingForm: FormGroup = new FormGroup({
     startDate: new FormControl(null),
@@ -83,26 +90,26 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-  onSaveFavRoom(id:number){
-    this._AdsUserService.saveFavRoom(id).subscribe({
-      next:(res)=>{
-        this.fav=res;
+
+
+  onSaveFavRoom(roomId: string) {
+    this._AdsUserService.saveFavRoom(roomId).subscribe({
+      next: (res) => {
+        this.fav = res;
         console.log(this.fav)
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err)
       },
-      complete:()=>{
-        this._ToastrService.success('add favourite successfully','added room in favourites')
-       // this._router.navigateByUrl('/landing-page/favorites')
+      complete: () => {
+        this._ToastrService.success('add favourite successfully', 'added room in favourites')
+
       }
     })
   }
-  ngOnInit(): void {
-    this.getAllAds(this.tableUserAds)
-    this.getAllRooms(this.tableDataRooms)
-    
-  }
+
+
+
 }
 
 

@@ -40,7 +40,7 @@ export class PaymentComponent {
     locale: 'en',
   };
   createToken() {
-    const name = 'shimaa';
+    const name = 'aya';
     this.stripe
       .createToken(this.cardElement.element, { name })
       .subscribe((result: any) => {

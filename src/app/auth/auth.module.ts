@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { GoogleSigninButtonModule, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -26,8 +27,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-    ToastrModule
-   
+    ToastrModule,    
+    GoogleSigninButtonModule
   ]
 })
 export class AuthModule { }

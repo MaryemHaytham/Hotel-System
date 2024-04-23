@@ -32,6 +32,7 @@
 .picture{
     border-radius: 25px;
     padding: 10px 0;
+    height: 200px;
 }
 .text{
     position: absolute;
@@ -298,4 +299,9 @@ p{
     background-color: #fff;
     color: $dark-blue;
   }
+}
+
+.carousel-control-next-icon{
+  color: rgb(28, 52, 102) !important;
+  border-radius: 4px rgb(28, 52, 102) solid !important;
 }

@@ -27,6 +27,11 @@ export class AdsUserService {
   return this._HttpClient.get('/portal/favorite-rooms')
   }
 
+  getAllRoomReviews(id:any):Observable<any>{
+    return this._HttpClient.get(`/portal/room-reviews/${id}`)
+  }
+
+
   removeFromFav(id: string): Observable<any> {
     return this._HttpClient.delete(`/portal/favorite-rooms/${id}`);
   }

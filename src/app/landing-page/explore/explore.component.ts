@@ -18,13 +18,13 @@ export class ExploreComponent implements OnInit{
   tableUserAds:any[]=[];
   tableDataRooms:any[]=[];
   length = 5;
-  pageSize = 5;
+  pageSize = 10;
   pageIndex =0;
   pageNumber=1;
   startDate:any;
   endDate:any;
 
-  pageSizeOptions = [5, 10, 25];
+  pageSizeOptions = [10, 25];
   pageEvent: PageEvent | any;
   totalCount:any;
 

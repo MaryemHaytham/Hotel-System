@@ -30,6 +30,7 @@ import { MustLoginComponent } from 'src/app/shared/must-login/must-login.compone
 
 
 export class HomeComponent implements OnInit {
+  
   capacity: number = 0; // Initial value
   loginToFav: any = localStorage.getItem('userRole');
 
@@ -47,14 +48,12 @@ export class HomeComponent implements OnInit {
   tableData: any;
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
+
   lang: any = localStorage.getItem('lang');
   constructor(public dialog: MatDialog, private _AdsUserService: AdsUserService, private _roomDetailsService: RoomDetailsService, private _router: Router, private _HelperService: HelperService, private _ToastrService: ToastrService) { }
 
-
-  ngOnInit(): void {
-    this.getAllAds(this.tableUserAds)
-    this.getAllRooms(this.tableDataRooms)
-  }
+  tableOfReviews:any[]=[];
+  
 
 
   BookingForm: FormGroup = new FormGroup({
@@ -119,6 +118,26 @@ export class HomeComponent implements OnInit {
     });
   }
 
+
+
+  getAllReviews(id:any){
+    this._AdsUserService.getAllRoomReviews(id).subscribe({
+      next:(res)=>{
+        console.log(res)
+        this.tableData=res;
+        this.tableOfReviews=res.data.roomReviews
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
+  ngOnInit(): void {
+    this.getAllAds(this.tableUserAds)
+    this.getAllRooms(this.tableDataRooms)
+    this.getAllReviews(this.tableOfReviews)
+    
+  }
 
 
 }

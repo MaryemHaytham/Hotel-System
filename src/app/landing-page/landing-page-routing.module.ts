@@ -12,7 +12,7 @@ const routes: Routes = [
       { path: 'reviews', loadComponent: () => import('../landing-page/reviews/reviews.component').then(m => m.ReviewsComponent), title: 'reviews' },
       { path: 'favorites', loadComponent: () => import('../landing-page/favorites/favorites.component').then(m => m.FavoritesComponent), title: 'favorites' },
       { path: 'details/:_id', loadComponent: () => import('../landing-page/room-details/room-details.component').then(m => m.RoomDetailsComponent), title: 'details' },
-      { path: 'payment',component:PaymentComponent},
+      { path: 'payment/:_id',component:PaymentComponent},
     ]
   },
   

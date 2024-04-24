@@ -9,11 +9,13 @@
     <h5 class="fw-bold text-dark-blue">{{"rooms"|translate}}</h5>
   </div>
   <section id="living-room">
+
     <div class="container pe-5">
       <div class="row">
         <div class="col-10 col-sm-4 col-md-4 col-lg-3" *ngFor="let item of tableDataRooms">
 
           <div class="imag-img3 w-100 ">
+
             <img [src]="item.images[0]" class="w-100  imgHeight2 ">
             <div class="imag-icon3 imgHeight2">
               <a *ngIf="!(loginToFav === 'user' )" (click)="openDialog('100ms', '100ms')"

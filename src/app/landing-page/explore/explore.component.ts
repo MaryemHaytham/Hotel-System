@@ -74,7 +74,6 @@ export class ExploreComponent implements OnInit {
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(MustLoginComponent, {
-      width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
     });

@@ -54,7 +54,7 @@
 .text{
     position: absolute;
     top:10px;
-    right: 13px;
+    right: 10px;
     background-color: rgba(255, 73, 139, 1);
     padding: 10px 40px;
     border-radius: 15px;
@@ -76,6 +76,7 @@ p{
 }
 .imgHeight2 {
   height: 16rem;
+  border-radius: 15px;
 }
 
 
@@ -83,8 +84,7 @@ p{
 // img
 
 
-
-.imag-img2 {
+.imag-img3 {
   position: relative;
   top: 33px;
   left: 30px;
@@ -93,13 +93,15 @@ p{
   width: 380px;
 }
 
-.imag-icon {
+
+.imag-icon3 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 9px;
+  color: #fff;
   background-color: rgba(19, 46, 95, 0.4);
-  top: 110%;
+  top: 100%;
   bottom: 0;
   right: 0;
   left: 0;
@@ -109,9 +111,12 @@ p{
   border-radius: 15px;
   transition: all .7s;
   opacity: 0;
+  width: 100%;
+  margin-inline:auto ;
+  // height: 15.41rem;
 }
 
-.imag-icon i {
+.imag-icon3 i {
   margin-right: 20px;
   transform: scale(1.5);
   font-size: 18px;
@@ -119,12 +124,25 @@ p{
   cursor: pointer;
 }
 
-.imag-icon i:hover {
+.imag-icon3 i:hover {
   color: rgb(28, 52, 102);
 }
 
-.imag-img2:hover .imag-icon {
+.imag-img3:hover .imag-icon3 {
   opacity: 1;
-  top: 0;
+  top: 0%;
+  // bottom: .1%;
+
 }
 
+.imag-price2 {
+  background-color: rgba(255, 73, 139, 1);
+  color: #fff;
+  top: 0;
+  right: 0px;
+  padding: 10px 10px 4px 10px;
+  position: absolute;
+  border-radius: 0 16px 0 16px ;
+  transition: all .7s;
+  opacity: 1;
+}

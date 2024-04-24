@@ -16,14 +16,28 @@
 
 .btn-outline-main {
   color: #fff;
-  background-color: $text-main;
-  border-color: $text-main;
-transition: all;
-  &::hover {
-    background-color: transparent;
-    color: $dark-blue;
-    border-color: $dark-blue;
-  }
+  background-color: $text-main; /* Replace $text-main with your desired color value */
+  border-color: $text-main; /* Replace $text-main with your desired color value */
+  transition: all;
+}
+
+.btn-outline-main:hover {
+  background-color: transparent;
+  color: $dark-blue; /* Replace $dark-blue with your desired color value */
+  border-color: $dark-blue; /* Replace $dark-blue with your desired color value */
+}
+
+.btn-outline-main2 {
+  background-color: transparent;
+  color: $dark-blue; /* Replace $dark-blue with your desired color value */
+  border-color: $dark-blue; /* Replace $dark-blue with your desired color value */
+}
+
+.btn-outline-main2:hover {
+  color: #fff;
+  background-color: $text-main; /* Replace $text-main with your desired color value */
+  border-color: $text-main; /* Replace $text-main with your desired color value */
+  transition: all;
 }
 
 .myPointer {

@@ -16,6 +16,8 @@ import { IAds } from 'src/app/core/model/ads';
 import { RoomDetailsService } from '../services/room-details service/room-details.service';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/core/service/helper.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MustLoginComponent } from 'src/app/shared/must-login/must-login.component';
 
 
 @Component({
@@ -30,6 +32,7 @@ import { HelperService } from 'src/app/core/service/helper.service';
 export class HomeComponent implements OnInit {
   
   capacity: number = 0; // Initial value
+  loginToFav: any = localStorage.getItem('userRole');
 
   incrementValue() {
     this.capacity++;
@@ -46,9 +49,11 @@ export class HomeComponent implements OnInit {
   tableUserAds: IAds[] = [];
   tableDataRooms: any[] = [];
 
+  lang: any = localStorage.getItem('lang');
+  constructor(public dialog: MatDialog, private _AdsUserService: AdsUserService, private _roomDetailsService: RoomDetailsService, private _router: Router, private _HelperService: HelperService, private _ToastrService: ToastrService) { }
+
   tableOfReviews:any[]=[];
-  lang:any = localStorage.getItem('lang');
-  constructor(private _AdsUserService: AdsUserService,private _roomDetailsService: RoomDetailsService, private _router:Router, private _HelperService:HelperService,private _ToastrService: ToastrService) { }
+  
 
 
   BookingForm: FormGroup = new FormGroup({
@@ -104,6 +109,17 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(MustLoginComponent, {
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
+
+
   getAllReviews(id:any){
     this._AdsUserService.getAllRoomReviews(id).subscribe({
       next:(res)=>{
@@ -122,6 +138,7 @@ export class HomeComponent implements OnInit {
     this.getAllReviews(this.tableOfReviews)
     
   }
+
 
 }
 

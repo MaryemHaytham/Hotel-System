@@ -18,22 +18,23 @@ export class AdsUserService {
   }
 
 
-
   saveFavRoom(roomId: string): Observable<any> {
     return this._HttpClient.post('/portal/favorite-rooms', { roomId });
   }
 
-  getRoomFav():Observable<any>{
-  return this._HttpClient.get('/portal/favorite-rooms')
+  getRoomFav(): Observable<any> {
+    return this._HttpClient.get('/portal/favorite-rooms')
   }
 
-  getAllRoomReviews(id:any):Observable<any>{
+  getAllRoomReviews(id: any): Observable<any> {
     return this._HttpClient.get(`/portal/room-reviews/${id}`)
   }
 
 
-  removeFromFav(id: string): Observable<any> {
-    return this._HttpClient.delete(`/portal/favorite-rooms/${id}`);
+  removeFromFav(roomId: string): Observable<any> {
+    return this._HttpClient.delete(`/portal/favorite-rooms/${roomId}`, { body: { roomId } });
   }
+
+
 
 }

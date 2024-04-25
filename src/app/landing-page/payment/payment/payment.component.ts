@@ -9,18 +9,25 @@ import {
   StripeElementsOptions,
   StripeCardElementOptions,
 } from '@stripe/stripe-js';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RoomDetailsService } from '../../services/room-details service/room-details.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss'],
 })
 export class PaymentComponent {
+  payId:any
   stripeTest: any;
   // stripe: any;
   card: any;
   @ViewChild(StripeCardComponent) cardElement!: StripeCardComponent;
   stripe = injectStripe('pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
 );
+ 
+constructor(private _Router:Router,private _roomDetailsService: RoomDetailsService, private _ActivatedRoute: ActivatedRoute) {
+  this.payId = _ActivatedRoute.snapshot.params['_id'];
+}
   cardOptions: StripeCardElementOptions = {
     style: {
       base: {
@@ -45,7 +52,18 @@ export class PaymentComponent {
       .createToken(this.cardElement.element, { name })
       .subscribe((result: any) => {
         if (result.token) {
-          // Use the token
+          this._roomDetailsService.onClickPay( result.token.id,this.payId).subscribe({
+            next:(res)=>{
+
+            },
+            error:(err)=>{
+
+            },
+            complete:()=>{
+              this._Router.navigate(['/landing-page/home'])
+            }
+          })
+          
           console.log(result.token.id);
         } else if (result.error) {
           // Error creating the token
@@ -53,4 +71,5 @@ export class PaymentComponent {
         }
       });
   }
+
 }

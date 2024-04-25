@@ -21,6 +21,6 @@ onClickBooking(data:any,):Observable<any>{
   return this._HttpClient.post(`/portal/booking`,data)
 }
 onClickPay(data:any,id:any):Observable<any>{
-  return this._HttpClient.post(`/portal/booking${id}/pay`,data)
+  return this._HttpClient.post(`/portal/booking/${id}/pay`,{token:data})
 }
 }

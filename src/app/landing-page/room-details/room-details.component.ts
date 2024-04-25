@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoomDetailsService } from '../services/room-details service/room-details.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -17,7 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class RoomDetailsComponent implements OnInit {
 
-  constructor(private _roomDetailsService: RoomDetailsService, private _ActivatedRoute: ActivatedRoute) {
+  constructor(private _Router:Router,private _roomDetailsService: RoomDetailsService, private _ActivatedRoute: ActivatedRoute) {
     this.roomId = _ActivatedRoute.snapshot.params['_id'];
     console.log(this.roomId);
 
@@ -93,13 +93,12 @@ export class RoomDetailsComponent implements OnInit {
     console.log(data)
     this.bookingForm.value.room = this.roomId;
     this.bookingForm.value.totalPrice = this.roomData.room.price;
-    
     console.log(this.bookingForm.value);
-    
     this._roomDetailsService.onClickBooking(this.bookingForm.value).subscribe({
       next: (res) => {
-        this.roomId = res.room
+        this.bookingId = res.data.booking._id
         console.log(res)
+        this._Router.navigate(["/landing-page/payment", this.bookingId])
       },
       error: (err) => {
         console.log(err)

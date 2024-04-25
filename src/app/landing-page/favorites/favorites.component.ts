@@ -27,8 +27,10 @@ export class FavoritesComponent implements OnInit {
   getAllFavRooms() {
     this._AdsUserService.getRoomFav().subscribe({
       next: (res) => {
+        console.log(res.data)
         console.log(res.data.favoriteRooms)
-        this.tableFav = res.data.favoriteRooms
+        console.log(res.data.favoriteRooms[0].rooms)
+        this.tableFav = res.data.favoriteRooms[0].rooms
       },
       error: (err) => {
         console.log(err)
@@ -48,7 +50,7 @@ export class FavoritesComponent implements OnInit {
         this._ToastrService.error(`error in remove From Fav!`);
       }, complete: () => {
         this.getAllFavRooms();
-        this._ToastrService.success(`The Recipe was removed From Fav successfully`);
+        this._ToastrService.success(`The Room was removed From Fav successfully`);
       }
     })
   }

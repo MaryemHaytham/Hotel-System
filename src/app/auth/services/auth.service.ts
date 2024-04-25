@@ -50,4 +50,8 @@ export class AuthService {
     return this._HttpClient.post('/admin/users/change-password', data)
   }
 
+  onLogOut() {
+    localStorage.clear()
+  }
+
 }

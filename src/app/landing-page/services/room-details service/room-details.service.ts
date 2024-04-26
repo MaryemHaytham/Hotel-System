@@ -20,7 +20,8 @@ onClickComments(data:any):Observable<any>{
 onClickBooking(data:any):Observable<any>{
   return this._HttpClient.post(`/portal/booking`,data)
 }
-onClickPay(id:any):Observable<any>{
-  return this._HttpClient.post(`/portal/booking/${id}/pay`,{ id: id })
+
+onClickPay(data:any,id:any):Observable<any>{
+  return this._HttpClient.post(`/portal/booking/${id}/pay`,{token:data})
 }
 }

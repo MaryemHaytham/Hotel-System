@@ -22,7 +22,9 @@ export class LoginComponent {
   see: boolean = true;
 
 
-  constructor(private authService: SocialAuthService,private _AuthService: AuthService, private _Router: Router, private _helper: HelperService, private _ToastrService: ToastrService) { }
+  constructor(private authService: SocialAuthService, private _AuthService: AuthService, private _Router: Router, private _helper: HelperService, private _ToastrService: ToastrService) {
+    this._AuthService.myLogout();
+  }
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -30,7 +32,7 @@ export class LoginComponent {
   })
 
 
-  
+
   getAccessToken(): void {
     this.authService.getAccessToken(GoogleLoginProvider.PROVIDER_ID).then(accessToken => this.accessToken = accessToken);
   }
@@ -38,7 +40,7 @@ export class LoginComponent {
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
 
-  }
+  }
 
 
   handleForm(data: FormGroup): void {

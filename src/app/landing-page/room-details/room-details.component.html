@@ -88,7 +88,6 @@
                   <p class="gray">{{"pay"|translate}} <span class="text-dark-blue fw-bold">480 {{"Usd"|translate}}</span> {{"per"|translate}} <span class="text-dark-blue fw-bold">2 {{"person"|translate}}</span></p>
                   <div class="w-100" >
                     <button type="submit" class="btn light-blue text-white mt-3" >{{"book-btn"|translate}}</button>
-                    <!--  -->
                   </div>
                 </form>
               </div>
@@ -105,16 +104,26 @@
         <div class="col-md-6 pe-4">
           <h3 class="pt-2">{{"rate"|translate}}</h3>
           <form [formGroup]="reviewsForm" (ngSubmit)="onReviewSubmit(reviewsForm)">
-          <div class="pt-2 fs-3 pb-2" formControlName="rating">
-            <span class="fa fa-star text-warning checked"></span>
-            <span class="fa fa-star text-warning checked"></span>
+           
+         
+          <div class="" >
+            <div class="cont">
+              <div class="stars fs-3  ">
+                <ngx-star-rating class="bg-danger" formControlName="rating" [id]="'rating2'" [disabled] ="false"></ngx-star-rating>
+              </div>
+              
+            </div>
+             
+          
+         <!--  <span class="fa fa-star text-warning checked"></span>
             <span class="fa fa-star text-warning checked"></span>
             <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>-->
           </div>
-          <label class="pb-1 m-3 fs-4" >{{"message"|translate}}</label><br>
+          <label class="pb-1 m-1 fs-4" >{{"message"|translate}}</label><br>
   
           <textarea formControlName="review" class="w-100 pb-2 rounded-3 m-3" rows="5" cols="5"></textarea>
+         
           <button class="main w-25 m-3">{{"rate"|translate}}</button>
           </form>
         </div>
@@ -124,7 +133,7 @@
           <form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm)">
           <label class="pb-3 pt-5 m-3 fs-4">{{"message"|translate}}</label><br>
         
-          <textarea  formControlName="comment" class="w-100 pb-2 rounded-3 m-3" rows="5" cols="5"></textarea>
+          <textarea formControlName="comment" class="w-100 pb-2 rounded-3 m-3" rows="5" cols="5"></textarea>
           <button class="main w-25 m-3 float-end ">{{"apply-btn"|translate}}</button>
           <div class="clearfix"></div>
           </form>

@@ -1,25 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoomDetailsService } from '../services/room-details service/room-details.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
+import { ActivatedRoute,Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { Router } from '@angular/router';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-room-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, SharedModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, SharedModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,NgxStarRatingModule],
   templateUrl: './room-details.component.html',
   styleUrls: ['./room-details.component.scss']
 })
 export class RoomDetailsComponent implements OnInit {
+  rating3: number;
+  public form: FormGroup;
 
-  constructor(private _Router:Router,private _roomDetailsService: RoomDetailsService, private _ActivatedRoute: ActivatedRoute) {
+
+  constructor(private fb: FormBuilder ,private _roomDetailsService: RoomDetailsService, private _ActivatedRoute: ActivatedRoute,private _Router:Router,private _Toastr:ToastrService) {
+
     this.roomId = _ActivatedRoute.snapshot.params['_id'];
     console.log(this.roomId);
+    this.rating3 = 0;
+    this.form = this.fb.group({
+      rating1: ['', Validators.required],
+      rating2: [4]
+    })
 
   }
   roomId: number = 0;
@@ -55,12 +68,19 @@ export class RoomDetailsComponent implements OnInit {
   })
   onReviewSubmit(myData: FormGroup) {
     console.log(myData)
-    this._roomDetailsService.onClickReview(myData.value, this.roomId).subscribe({
+    this.reviewsForm.value.roomId = this.roomId;
+    this._roomDetailsService.onClickReview(myData.value).subscribe({
       next: (res) => {
+       
         console.log(res)
+   
       },
       error: (err) => {
         console.log(err)
+        this._Toastr.error('User has already added a review for this room','Error')
+      },
+      complete:()=>{
+        this._Toastr.success('Rate created successfully')
       }
     })
   }
@@ -71,13 +91,18 @@ export class RoomDetailsComponent implements OnInit {
   })
   onSubmit(data: FormGroup) {
     console.log(data.value.comment)
-    this._roomDetailsService.onClickComments(data.value, this.roomId).subscribe({
+   this.commentForm.value.roomId = this.roomId;
+    this._roomDetailsService.onClickComments(data.value).subscribe({
       next: (res) => {
         this.roomId = res.roomId
         console.log(res)
       },
       error: (err) => {
         console.log(err)
+        this._Toastr.error('User has already added a comment for this room','Error')
+      },
+      complete:()=>{
+        this._Toastr.success('Comment created successfully')
       }
     })
   }
@@ -102,9 +127,13 @@ export class RoomDetailsComponent implements OnInit {
       },
       error: (err) => {
         console.log(err)
+      },
+      complete:()=>{
+       
       }
     })
   }
+ 
   ngOnInit() {
     if (this.roomId) {
       this.RoomDetails(this.roomId);

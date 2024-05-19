@@ -1,0 +1,7 @@
+[build]
+command = "ng build"
+publish ="dist/Hotel-System"
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

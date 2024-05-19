@@ -52,14 +52,15 @@
                 <span ><i class="fas text-white"></i></span>
               </button>
             </div>
+            <div class="signIn-options d-flex justify-content-end align-content-center pt-3">
+              <asl-google-signin-button   type='standard' shape="circle" size='medium' ></asl-google-signin-button>
+              <!-- <div class="fb-login-button" (click)="signInWithFB()" data-width="250px" data-size="medium" data-button-type="login_with" data-use-continue-as="false" data-auto-logout-link="true" > -->
+              <!-- </div> -->
+            </div>
           </form>
           
         </div>
-        <div class="signIn-options d-flex justify-content-between align-content-center">
-          <asl-google-signin-button   type='standard' shape="circle" size='medium' ></asl-google-signin-button>
-          <div class="fb-login-button" (click)="signInWithFB()" data-width="250px" data-size="medium" data-button-type="login_with" data-use-continue-as="false" data-auto-logout-link="true" >
-          </div>
-        </div>
+        
       </div>
 
       <div class="col-6 clo-sm-4 image_form border rounded-5 d-none d-lg-flex justify-content-end flex-column p-5">

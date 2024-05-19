@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoomDetailsService } from '../services/room-details service/room-details.service';
-
 import { ActivatedRoute,Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Router } from '@angular/router';
-import { NgxStarRatingModule } from 'ngx-star-rating';
+
 import { ToastrService } from 'ngx-toastr';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 @Component({
   selector: 'app-room-details',
   standalone: true,

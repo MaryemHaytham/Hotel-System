@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoomDetailsService } from '../services/room-details service/room-details.service';
 
-import { ActivatedRoute,Router, RouterLink } from '@angular/router';
+import { ActivatedRoute,RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { SharedModule } from 'src/app/shared/shared.module';

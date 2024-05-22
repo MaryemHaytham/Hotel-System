@@ -60,7 +60,7 @@ constructor(private _Router:Router,private _roomDetailsService: RoomDetailsServi
 
             },
             complete:()=>{
-              this._Router.navigate(['/landing-page/home'])
+              this._Router.navigate(['/#/landing-page/payment'])
             }
           })
           

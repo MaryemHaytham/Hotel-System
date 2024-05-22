@@ -13,7 +13,7 @@ export class HelperService {
   //lang:any;
   textDirection:string=''
   
-  lang:any = localStorage.getItem('lang');
+  lang:any
   constructor(private _HttpClient: HttpClient, private _TranslateService:TranslateService) { 
     _TranslateService.onLangChange.subscribe((event:LangChangeEvent)=>{
       console.log(event.lang);

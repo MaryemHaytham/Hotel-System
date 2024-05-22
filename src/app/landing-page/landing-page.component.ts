@@ -8,7 +8,7 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
-  lang:any = localStorage.getItem('lang');
+  lang:any;
   constructor(private helperService:HelperService, private _TranslateService:TranslateService){
     _TranslateService.onLangChange.subscribe((event:LangChangeEvent)=>{
       console.log(event.lang);

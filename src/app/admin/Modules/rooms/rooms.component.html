@@ -38,11 +38,11 @@
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item [routerLink]="['edit',item._id]">
-              <mat-icon class="text-light-blue">edit_square</mat-icon>
+              <mat-icon class="text-primary">edit_square</mat-icon>
               <span>Edit</span>
             </button>
             <button mat-menu-item (click)="openDeleteRoomDialog(item)">
-              <mat-icon class="text-light-blue">delete</mat-icon>
+              <mat-icon class="text-primary">delete</mat-icon>
               <span>Delete</span>
             </button>
           </mat-menu>

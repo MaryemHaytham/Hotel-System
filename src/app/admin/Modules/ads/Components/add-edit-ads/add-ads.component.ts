@@ -60,6 +60,7 @@ export class AddAdsComponent implements OnInit {
           },
           complete: () => {
             this._router.navigate(['/admin/ads']);
+            this._ToastrService.success('updated Successfuly')
           }
         });
       } else {

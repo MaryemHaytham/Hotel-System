@@ -121,13 +121,13 @@ export class RoomDetailsComponent implements OnInit {
       next: (res) => {
         this.bookingId = res.data.booking._id
         console.log(res)
-        this._Router.navigate(["/landing-page/payment", this.bookingId])
+        
       },
       error: (err) => {
         console.log(err)
       },
       complete:()=>{
-       
+        this._Router.navigate(["/landing-page/payment", this.bookingId])
       }
     })
   }

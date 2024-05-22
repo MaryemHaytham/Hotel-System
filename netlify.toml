@@ -1,6 +1,6 @@
 [build]
 command = "ng build"
-publish ="dist/Hotel-System"
+publish ="dist/hotel-system"
 [[redirects]]
 from = "/*"
 to = "/index.html"

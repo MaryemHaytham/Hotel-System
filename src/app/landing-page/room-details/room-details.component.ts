@@ -10,12 +10,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { ToastrService } from 'ngx-toastr';
-import { NgxStarRatingModule } from 'ngx-star-rating';
+
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-room-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, SharedModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,NgxStarRatingModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, SharedModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule],
   templateUrl: './room-details.component.html',
   styleUrls: ['./room-details.component.scss']
 })
